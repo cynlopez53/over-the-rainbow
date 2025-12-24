@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Healing Agent – Over the Rainbow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Over the Rainbow</h1>
+    <p class="tagline">Healing Agent Access</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tribute-wall.html">Tribute Wall</a>
+      <a href="shop.html">Virtual Shop</a>
+      <a href="donate.html">Donations</a>
+      <a href="dedication.html">My Dogs</a>
+      <a href="support.html">Support</a>
+      <a href="signup.html">Healing Agent</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <h2>Sign Up for the Modular Healing Agent</h2>
+      <p>
+        Sign up to receive access to your modular healing agent experience for pet loss,
+        including gentle exercises, reflections, and supportive prompts.
+      </p>
+
+      <form id="signup-form">
+        <div>
+          <label for="signupName">Name</label>
+          <input type="text" id="signupName" required>
+        </div>
+        <div>
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" required>
+        </div>
+        <div>
+          <label for="signupNotes">Anything you would like to share (optional)</label>
+          <textarea id="signupNotes"></textarea>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" id="signupConsent" required>
+            I consent to my information being stored for the purpose of receiving the healing agent experience.
+          </label>
+        </div>
+        <input type="submit" value="Sign Up">
+        <p class="notice">
+          Demo only: This form stores signups locally in your browser. Connect it to your existing
+          modular healing agent backend when ready.
+        </p>
+      </form>
+
+      <p id="signup-message" class="notice"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("signup-form");
+      const msg = document.getElementById("signup-message");
+
+      if (!form) return;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const consent = document.getElementById("signupConsent").checked;
+        if (!consent) return;
+
+        const name = document.getElementById("signupName").value.trim();
+        const email = document.getElementById("signupEmail").value.trim();
+
+        const existing = JSON.parse(localStorage.getItem("otr_signups") || "[]");
+        existing.push({ name, email, createdAt: new Date().toISOString() });
+        localStorage.setItem("otr_signups", JSON.stringify(existing));
+
+        form.reset();
+        msg.textContent = "Thank you. You are signed up to receive the healing agent experience.";
+      });
+    });
+  </script>
+</body>
+</html>

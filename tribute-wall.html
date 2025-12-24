@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tribute Wall – Over the Rainbow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Over the Rainbow</h1>
+    <p class="tagline">Tribute Wall</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tribute-wall.html">Tribute Wall</a>
+      <a href="shop.html">Virtual Shop</a>
+      <a href="donate.html">Donations</a>
+      <a href="dedication.html">My Dogs</a>
+      <a href="support.html">Support</a>
+      <a href="signup.html">Healing Agent</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <h2>Add a Tribute</h2>
+      <p>
+        Share a gentle remembrance for your pet. Tributes are stored in your browser only
+        in this demo version. For a live site, connect to a database or backend later.
+      </p>
+
+      <form id="tribute-form">
+        <div>
+          <label for="petName">Pet name</label>
+          <input type="text" id="petName" required>
+        </div>
+        <div>
+          <label for="petType">Type of pet</label>
+          <input type="text" id="petType" placeholder="Dog, cat, rabbit, etc.">
+        </div>
+        <div>
+          <label for="ownerName">Your name (optional)</label>
+          <input type="text" id="ownerName">
+        </div>
+        <div>
+          <label for="tributeDate">Date</label>
+          <input type="text" id="tributeDate" placeholder="e.g., December 2025">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <input type="submit" value="Add Tribute">
+        <p class="notice">
+          Note: Please avoid sharing sensitive personal information. Content may be moderated
+          before being displayed if you use a live backend.
+        </p>
+      </form>
+    </section>
+
+    <section class="page-section">
+      <h2>Tribute Wall</h2>
+      <div id="tribute-list" class="tribute-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/tribute.js"></script>
+</body>
+</html>
+assets/js/tribute.js
+js
+const STORAGE_KEY = "over_the_rainbow_tributes";
+
+function loadTributes() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveTributes(tributes) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tributes));
+}
+
+function renderTributes() {
+  const container = document.getElementById("tribute-list");
+  if (!container) return;
+
+  const tributes = loadTributes();
+  container.innerHTML = "";
+
+  if (!tributes.length) {
+    container.innerHTML = "<p>No tributes yet. Be the first to share a memory.</p>";
+    return;
+  }
+
+  tributes.forEach((t) => {
+    const card = document.createElement("article");
+    card.className = "tribute-card";
+    card.innerHTML = `
+      <h3>${t.petName || "Beloved Companion"}</h3>
+      <p class="tribute-meta">
+        ${t.petType ? t.petType + " · " : ""}${
+      t.ownerName ? "From " + t.ownerName + " · " : ""
+    }${t.tributeDate || ""}
+      </p>
+      <p>${t.message}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("tribute-form");
+  renderTributes();
+
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const tribute = {
+      petName: document.getElementById("petName").value.trim(),
+      petType: document.getElementById("petType").value.trim(),
+      ownerName: document.getElementById("ownerName").value.trim(),
+      tributeDate: document.getElementById("tributeDate").value.trim(),
+      message: document.getElementById("message").value.trim(),
+      createdAt: new Date().toISOString()
+    };
+
+    if (!tribute.petName || !tribute.message) return;
+
+    const tributes = loadTributes();
+    tributes.unshift(tribute);
+    saveTributes(tributes);
+    form.reset();
+    renderTributes();
+  });
+});
