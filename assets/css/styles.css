@@ -1,3 +1,6 @@
+/* ------------------------------
+   GLOBAL RESET & BASE STYLES
+--------------------------------*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,30 +9,42 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(to bottom, #f8fbff, #f3eefc);
+  background: linear-gradient(to bottom, #fafaff, #f3eefc);
   color: #2d2750;
   line-height: 1.6;
+  animation: fadeIn 0.8s ease-out;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ------------------------------
+   HEADER & NAVIGATION
+--------------------------------*/
 header {
-  background: #5b4ea3;
+  background: linear-gradient(90deg, #6a5acd, #8a79e8, #b39df5);
   color: #fff;
-  padding: 1.5rem 1rem;
+  padding: 1.8rem 1rem;
   text-align: center;
+  border-bottom: 4px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 20px rgba(80, 60, 140, 0.25);
 }
 
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.25rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
 }
 
 .tagline {
-  font-size: 0.95rem;
-  opacity: 0.9;
+  font-size: 1rem;
+  opacity: 0.95;
 }
 
 nav {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -37,109 +52,121 @@ nav {
 }
 
 nav a {
-  color: #fdfbff;
+  color: #ffffff;
   text-decoration: none;
-  padding: 0.4rem 0.75rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  font-size: 0.88rem;
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: 0.9rem;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 nav a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
 }
 
+/* ------------------------------
+   MAIN LAYOUT
+--------------------------------*/
 main {
   max-width: 960px;
-  margin: 1.5rem auto 3rem;
+  margin: 2rem auto 3rem;
   padding: 0 1rem;
 }
 
+/* ------------------------------
+   HERO SECTION
+--------------------------------*/
 .hero {
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(67, 55, 134, 0.12);
+  background: rgba(255,255,255,0.9);
+  border-radius: 1.2rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  margin-bottom: 1.75rem;
+  box-shadow: 0 12px 35px rgba(67, 55, 134, 0.15);
+  margin-bottom: 2rem;
+  animation: softPop 0.6s ease-out;
+}
+
+@keyframes softPop {
+  from { transform: scale(0.97); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .hero h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  margin-bottom: 0.75rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .button {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.6rem 1.4rem;
+  margin-top: 0.8rem;
+  padding: 0.7rem 1.6rem;
   border-radius: 999px;
-  background: #f3a6c9;
+  background: linear-gradient(90deg, #f3a6c9, #f7c3dd);
   color: #4b2a3b;
   text-decoration: none;
   font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .button:hover {
-  background: #f08ab8;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #f08ab8, #f5b0d2);
 }
 
-.info-grid {
+/* ------------------------------
+   GRID SECTIONS
+--------------------------------*/
+.info-grid,
+.tribute-list,
+.shop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
 }
 
-.info-grid article {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 0.9rem;
-  padding: 1rem;
-  box-shadow: 0 4px 16px rgba(67, 55, 134, 0.08);
-}
-
-.info-grid h3 {
-  margin-bottom: 0.4rem;
-  font-size: 1.1rem;
-}
-
-.disclaimer {
-  background: #fff3e0;
-  border-radius: 0.9rem;
-  padding: 1rem;
-  border: 1px solid #f8d2a0;
-}
-
-.disclaimer h3 {
-  margin-bottom: 0.4rem;
-}
-
-/* Shared sections */
-.page-section {
-  background: rgba(255, 255, 255, 0.92);
+.info-grid article,
+.tribute-card,
+.shop-item {
+  background: rgba(255,255,255,0.95);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1.1rem;
+  box-shadow: 0 6px 20px rgba(67, 55, 134, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.info-grid article:hover,
+.tribute-card:hover,
+.shop-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(67, 55, 134, 0.18);
+}
+
+/* ------------------------------
+   PAGE SECTIONS
+--------------------------------*/
+.page-section {
+  background: rgba(255,255,255,0.92);
+  border-radius: 1.2rem;
+  padding: 1.8rem;
   box-shadow: 0 8px 24px rgba(67, 55, 134, 0.1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .page-section h2 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
 }
 
+/* ------------------------------
+   FORMS
+--------------------------------*/
 form {
   display: grid;
-  gap: 0.85rem;
-  margin-top: 0.75rem;
-}
-
-label {
-  font-weight: 600;
-  font-size: 0.92rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 input[type="text"],
@@ -148,94 +175,66 @@ input[type="number"],
 textarea,
 select {
   width: 100%;
-  padding: 0.5rem 0.6rem;
-  border-radius: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.6rem;
   border: 1px solid #c0badc;
   font: inherit;
+  background: #ffffff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #8a79e8;
+  box-shadow: 0 0 0 3px rgba(138,121,232,0.25);
+  outline: none;
 }
 
 textarea {
-  min-height: 90px;
+  min-height: 100px;
 }
 
 button,
 input[type="submit"] {
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 999px;
   border: none;
-  background: #5b4ea3;
+  background: linear-gradient(90deg, #6a5acd, #8a79e8);
   color: #fff;
   cursor: pointer;
   font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 button:hover,
 input[type="submit"]:hover {
-  background: #4a418b;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #5b4ea3, #7a6ad8);
 }
 
-.notice {
-  font-size: 0.85rem;
-  color: #6d5d3c;
-  margin-top: 0.4rem;
-}
-
-.tribute-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.tribute-card {
-  background: #ffffff;
-  border-radius: 0.9rem;
-  border: 1px solid #e1ddff;
-  padding: 0.75rem;
-}
-
-.tribute-card h3 {
-  margin-bottom: 0.25rem;
-}
-
-.tribute-meta {
-  font-size: 0.8rem;
-  color: #6f6a9b;
-}
-
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.shop-item {
-  background: #ffffff;
-  border-radius: 0.9rem;
-  padding: 0.9rem;
-  border: 1px solid #e1ddff;
-}
-
-.shop-item h3 {
-  margin-bottom: 0.35rem;
-}
-
+/* ------------------------------
+   SHOP
+--------------------------------*/
 .price {
   font-weight: 700;
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
+  color: #4b2a3b;
 }
 
 .cart-summary {
-  margin-top: 1rem;
-  padding-top: 0.75rem;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
   border-top: 1px dashed #c0badc;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
+/* ------------------------------
+   FOOTER
+--------------------------------*/
 footer {
   text-align: center;
-  padding: 1rem 0.5rem 2rem;
-  font-size: 0.85rem;
+  padding: 2rem 0.5rem;
+  font-size: 0.9rem;
   color: #5a547f;
+  opacity: 0.9;
 }
