@@ -1,3 +1,4 @@
+console.log("SHOP.JS IS RUNNING");
 const items = [
   {
     id: "stone-basic",
