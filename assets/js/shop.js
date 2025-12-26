@@ -1,4 +1,5 @@
 console.log("SHOP.JS IS RUNNING");
+console.log("renderShop is running");
 const items = [
   {
     id: "stone-basic",
