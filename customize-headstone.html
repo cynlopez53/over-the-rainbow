@@ -2,31 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Customize Headstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize Headstone – Over the Rainbow</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
 
-<h2>Customize Your Headstone</h2>
+<body class="customize-page">
 
-<form id="headstone-form">
-  <label>Pet's Name</label>
-  <input type="text" id="pet-name" required>
 
-  <label>Birth Year</label>
-  <input type="text" id="birth-year">
+  <header>
+    <h1>Over the Rainbow</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tribute-wall.html">Tribute Wall</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+  
+    <main>
+      <h2>Customize Your Headstone</h2>
+      <div class="customize-wrapper">
+       <form id="headstone-form">
 
-  <label>Passing Year</label>
-  <input type="text" id="passing-year">
+      <label for="pet-name">Pet's Name</label>
+      <input type="text" id="pet-name" required>
 
-  <label>Short Message</label>
-  <input type="text" id="message">
+      <label for="birth-year">Birth Year</label>
+      <input type="text" id="birth-year">
 
-  <button type="submit">Save Headstone</button>
-</form>
+      <label for="passing-year">Passing Year</label>
+      <input type="text" id="passing-year">
 
-<p id="save-status"></p>
+      <label for="message">Short Message</label>
+      <input type="text" id="message">
 
-<script src="assets/js/customize-headstone.js"></script>
+      <button type="submit">Save Headstone</button>
+    </form>
+
+    <p id="save-status"></p>
+  </div>
+</main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/customize-headstone.js"></script>
 </body>
 </html>

@@ -2,58 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Virtual Shop – Over the Rainbow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Items Shop – Over the Rainbow</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
+
   <header>
     <h1>Over the Rainbow</h1>
-    <p class="tagline">Virtual Memorial Items</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="tribute-wall.html">Tribute Wall</a>
-      <a href="shop.html">Virtual Shop</a>
-      <a href="donate.html">Donations</a>
-      <a href="dedication.html">My Dogs</a>
-      <a href="support.html">Support</a>
-      <a href="signup.html">Healing Agent</a>
+      <a href="shop.html" class="active">Shop</a>
     </nav>
   </header>
 
   <main>
-    <section class="page-section">
-      <h2>Virtual Items Shop</h2>
-      <p>
-        Customize digital headstones, candles, and keepsakes to honor your pet. All offerings
-        here are virtual-only digital items.
-      </p>
-      <p class="notice">
-        All sales for virtual items are final and non-refundable. No physical products are shipped.
-      </p>
+    <h2>Virtual Items Shop</h2>
 
-      <div id="shop-grid" class="shop-grid"></div>
+    <!-- Cart Display -->
+    <div id="cart">
+      <p><strong>Cart Total:</strong> <span id="cart-total">$0.00</span></p>
+      <button id="checkout-btn">Checkout</button>
+      <p id="checkout-message"></p>
+    </div>
 
-      <div class="cart-summary">
-        <p><strong>Cart total:</strong> <span id="cart-total">$0.00</span></p>
-        <p class="notice">
-          Demo checkout only. To accept real payments, connect this page to a compliant
-          payment provider (e.g., Stripe or PayPal) in a secure backend.
-        </p>
-        <button id="checkout-btn">Complete Purchase</button>
-        <p id="checkout-message" class="notice"></p>
-      </div>
-    </section>
+    <!-- Shop Grid (JS will fill this) -->
+    <div id="shop-grid" class="shop-grid"></div>
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Over the Rainbow.</p>
   </footer>
 
+  <!-- Scripts MUST be at the bottom -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/shop.js"></script>
-  <article class="shop-item">
-   </article>
-
+  
 </body>
 </html>

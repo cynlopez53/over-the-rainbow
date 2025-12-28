@@ -50,8 +50,7 @@
         </div>
         <input type="submit" value="Sign Up">
         <p class="notice">
-          Demo only: This form stores signups locally in your browser. Connect it to your existing
-          modular healing agent backend when ready.
+          Demo only: This form stores signups locally in your browser. Connect it to your backend when ready.
         </p>
       </form>
 
@@ -69,12 +68,10 @@
       const form = document.getElementById("signup-form");
       const msg = document.getElementById("signup-message");
 
-      if (!form) return;
-
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const consent = document.getElementById("signupConsent").checked;
-        if (!consent) return;
+
+        if (!document.getElementById("signupConsent").checked) return;
 
         const name = document.getElementById("signupName").value.trim();
         const email = document.getElementById("signupEmail").value.trim();
