@@ -2,52 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customize Headstone – Over the Rainbow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body class="customize-page">
 
-
   <header>
     <h1>Over the Rainbow</h1>
+    <p class="tagline">Create a Loving Tribute</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="tribute-wall.html">Tribute Wall</a>
-      <a href="shop.html">Shop</a>
+      <a href="shop.html">Virtual Shop</a>
+      <a href="donate.html">Donations</a>
+      <a href="dedication.html">My Dogs</a>
+      <a href="support.html">Support</a>
+      <a href="signup.html">Healing Agent</a>
     </nav>
   </header>
-  
-    <main>
-      <h2>Customize Your Headstone</h2>
-      <div class="customize-wrapper">
-       <form id="headstone-form">
 
-      <label for="pet-name">Pet's Name</label>
-      <input type="text" id="pet-name" required>
+  <main>
+    <h2>Customize Your Headstone</h2>
 
-      <label for="birth-year">Birth Year</label>
-      <input type="text" id="birth-year">
+    <!-- STYLE SELECTOR -->
+    <div class="style-selector">
+      <h3>Select a Headstone Style</h3>
 
-      <label for="passing-year">Passing Year</label>
-      <input type="text" id="passing-year">
+      <div class="style-options">
+        <label>
+          <input type="radio" name="style" value="stone-basic" checked>
+          <img src="assets/images/stone-basic.jpg" alt="Basic Stone">
+        </label>
 
-      <label for="message">Short Message</label>
-      <input type="text" id="message">
+        <label>
+          <input type="radio" name="style" value="garden-plot">
+          <img src="assets/images/garden-plot.jpg" alt="Garden Plot">
+        </label>
 
-      <button type="submit">Save Headstone</button>
-    </form>
+        <label>
+          <input type="radio" name="style" value="candle-golden">
+          <img src="assets/images/candle-golden.jpg" alt="Golden Candle">
+        </label>
 
-    <p id="save-status"></p>
-  </div>
-</main>
+        <label>
+          <input type="radio" name="style" value="frame-starry">
+          <img src="assets/images/frame-starry.jpg" alt="Starry Frame">
+        </label>
+      </div>
+    </div>
+
+    <!-- FORM WRAPPER -->
+    <div class="customize-wrapper">
+      <form id="headstone-form">
+
+        <label for="pet-name">Pet's Name</label>
+        <input type="text" id="pet-name" placeholder="Enter your pet’s name" required>
+
+        <label for="birth-year">Birth Year</label>
+        <input type="text" id="birth-year" placeholder="e.g., 2012">
+
+        <label for="passing-year">Passing Year</label>
+        <input type="text" id="passing-year" placeholder="e.g., 2024">
+
+        <label for="message">Short Message</label>
+        <input type="text" id="message" placeholder="Forever loved, always remembered">
+
+        <button type="submit">Save Headstone</button>
+      </form>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Over the Rainbow.</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
   <script src="assets/js/customize-headstone.js"></script>
+  <script src="assets/js/main.js"></script>
+
 </body>
 </html>
