@@ -54,7 +54,14 @@ function renderShop() {
       <h3>${item.name}</h3>
       <p>${item.description}</p>
       <p class="price">$${item.price.toFixed(2)}</p>
+
       <button data-id="${item.id}">Add to cart</button>
+
+      ${item.id === "stone-basic" ? `
+        <button onclick="window.location.href='customize-headstone.html'" class="customize-btn">
+          Customize Headstone
+        </button>
+      ` : ""}
     `;
 
     grid.appendChild(card);
@@ -71,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("shop-grid");
   if (grid) {
     grid.addEventListener("click", (e) => {
-      if (e.target.tagName.toLowerCase() === "button") {
+      if (e.target.tagName.toLowerCase() === "button" && e.target.dataset.id) {
         const itemId = e.target.getAttribute("data-id");
         const item = items.find((i) => i.id === itemId);
 
