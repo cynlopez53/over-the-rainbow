@@ -92,6 +92,10 @@ function processPayment(method, item, price) {
     alert("To pay via Venmo, search for @lopezcyndi1971 and send $" + price + " with note: '" + item + " memorial token'");
   }
   
+  // Save the purchase to localStorage so tribute-wall can process it
+  localStorage.setItem('purchasedItem', item);
+  localStorage.setItem('purchaseCompleted', 'true');
+  
   // After payment, redirect to tribute wall
   setTimeout(() => {
     window.location.href = "tribute-wall.html";

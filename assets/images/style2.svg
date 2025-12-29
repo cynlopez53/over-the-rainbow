@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <rect width="160" height="160" fill="#e0e7ff"/>
+  <defs>
+    <linearGradient id="polishedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3f4f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  <!-- Headstone arched top -->
+  <path d="M 40 80 L 40 120 L 120 120 L 120 80 Q 120 40, 80 40 Q 40 40, 40 80 Z" fill="url(#polishedGrad)" stroke="#4b5563" stroke-width="2"/>
+  <!-- Shine effect -->
+  <ellipse cx="65" cy="60" rx="15" ry="20" fill="url(#shine)"/>
+  <!-- Text on stone -->
+  <text x="80" y="95" font-family="Georgia" font-size="10" font-weight="bold" text-anchor="middle" fill="#374151">Beloved Pet</text>
+  <text x="80" y="110" font-family="Georgia" font-size="9" text-anchor="middle" fill="#6b7280">Forever Loved</text>
+</svg>

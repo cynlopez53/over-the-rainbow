@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <rect width="160" height="160" fill="#fef3c7"/>
+  <!-- Candle body -->
+  <rect x="60" y="50" width="40" height="70" fill="#f97316" rx="4"/>
+  <!-- Candle wick -->
+  <line x1="80" y1="50" x2="80" y2="35" stroke="#333" stroke-width="1.5"/>
+  <!-- Flame outer -->
+  <ellipse cx="80" cy="30" rx="5" ry="8" fill="#fbbf24" opacity="0.8"/>
+  <!-- Flame inner -->
+  <ellipse cx="80" cy="32" rx="3" ry="5" fill="#fcd34d"/>
+  <!-- Shine on candle -->
+  <ellipse cx="68" cy="65" rx="4" ry="15" fill="white" opacity="0.3"/>
+  <!-- Text -->
+  <text x="80" y="140" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#b45309">Candle</text>
+</svg>

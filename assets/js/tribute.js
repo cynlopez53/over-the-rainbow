@@ -7,12 +7,20 @@ let tributes = JSON.parse(localStorage.getItem("tributes")) || [];
 
 // Load selected shop item (if any)
 const selectedItem = localStorage.getItem("selectedShopItem");
+const purchasedItem = localStorage.getItem("purchasedItem");
+const purchaseCompleted = localStorage.getItem("purchaseCompleted");
 
 // Render tributes on page load
 renderTributes();
 
-// If user came from the shop, ask where to place the item
-if (selectedItem) {
+// If user came from the shop with a purchased item, ask where to place it
+if (purchaseCompleted && purchasedItem) {
+  setTimeout(() => {
+    showPlacementPopup(purchasedItem);
+    localStorage.removeItem("purchasedItem");
+    localStorage.removeItem("purchaseCompleted");
+  }, 500);
+} else if (selectedItem) {
   showPlacementPopup(selectedItem);
   localStorage.removeItem("selectedShopItem");
 }
@@ -34,7 +42,7 @@ function renderTributes() {
       <p>${t.message}</p>
 
       <div class="tribute-items">
-        ${t.items.map(i => `<img src="assets/images/${i}.png" class="tribute-token">`).join("")}
+        ${t.items.map(i => `<img src="assets/images/${i}.svg" class="tribute-token" alt="${i}">`).join("")}
       </div>
     `;
 
@@ -65,4 +73,35 @@ function showPlacementPopup(item) {
 
   // Re-render
   renderTributes();
+}
+
+// ===============================
+// FORM SUBMISSION — ADD NEW TRIBUTE
+// ===============================
+const form = document.getElementById("tribute-form");
+if (form) {
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const newTribute = {
+      petName: document.getElementById("petName").value,
+      petType: document.getElementById("petType").value,
+      ownerName: document.getElementById("ownerName").value,
+      date: document.getElementById("tributeDate").value,
+      message: document.getElementById("message").value,
+      items: [] // Initialize empty items array
+    };
+
+    tributes.push(newTribute);
+    localStorage.setItem("tributes", JSON.stringify(tributes));
+
+    // Clear form
+    form.reset();
+
+    // Re-render
+    renderTributes();
+
+    // Scroll to the newly added tribute
+    window.scrollTo(0, document.body.scrollHeight);
+  });
 }
