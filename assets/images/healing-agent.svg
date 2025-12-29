@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" fill="#f3e8ff"/>
+  
+  <!-- Brain/mind icon -->
+  <circle cx="80" cy="55" r="22" fill="url(#agentGrad)" stroke="#6b4fcf" stroke-width="2"/>
+  
+  <!-- Neural connections -->
+  <circle cx="60" cy="45" r="4" fill="#a78bfa"/>
+  <circle cx="100" cy="45" r="4" fill="#a78bfa"/>
+  <circle cx="55" cy="70" r="4" fill="#a78bfa"/>
+  <circle cx="105" cy="70" r="4" fill="#a78bfa"/>
+  
+  <!-- Connection lines -->
+  <line x1="64" y1="50" x2="76" y2="60" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="96" y1="50" x2="84" y2="60" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="60" y1="75" x2="70" y2="65" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="100" y1="75" x2="90" y2="65" stroke="#c4b5fd" stroke-width="1.5"/>
+  
+  <!-- Heart below (compassion) -->
+  <path d="M 80 95 C 80 95, 65 85, 65 75 C 65 68, 70 63, 75 63 C 77 63, 80 65, 80 65 C 80 65, 83 63, 85 63 C 90 63, 95 68, 95 75 C 95 85, 80 95, 80 95 Z" 
+        fill="#ec4899" stroke="#be185d" stroke-width="1.5"/>
+  
+  <!-- Chat bubbles -->
+  <rect x="50" y="110" width="35" height="20" rx="4" fill="#ddd6fe" stroke="#a78bfa" stroke-width="1"/>
+  <polygon points="70,130 72,125 68,125" fill="#ddd6fe"/>
+  
+  <rect x="95" y="115" width="35" height="18" rx="3" fill="#c4b5fd" stroke="#a78bfa" stroke-width="1"/>
+  <polygon points="105,133 107,128 103,128" fill="#c4b5fd"/>
+  
+  <!-- Text -->
+  <text x="80" y="155" font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle" fill="#7c3aed">Healing Agent</text>
+</svg>
