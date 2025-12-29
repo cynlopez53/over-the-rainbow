@@ -486,3 +486,70 @@ footer {
   font-size: 14px;
 }
 
+/* ============================
+   PAYMENT OPTIONS
+   ============================ */
+
+.payment-options {
+  margin-top: 30px;
+  padding: 25px;
+  background: #faf8ff;
+  border-radius: 12px;
+  border: 2px solid #e7ddff;
+}
+
+.payment-options h3 {
+  color: #6b4fcf;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.payment-btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paypal-btn {
+  background: #003087;
+  color: white;
+}
+
+.paypal-btn:hover {
+  background: #001f5c;
+}
+
+.stripe-btn {
+  background: #635bff;
+  color: white;
+}
+
+.stripe-btn:hover {
+  background: #5145e8;
+}
+
+.venmo-btn {
+  background: #3d95ce;
+  color: white;
+}
+
+.venmo-btn:hover {
+  background: #2a7cb4;
+}
+
+.bank-btn {
+  background: #27ae60;
+  color: white;
+}
+
+.bank-btn:hover {
+  background: #1e8449;
+}
+
