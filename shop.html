@@ -3,77 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <title>Virtual Shop – Over the Rainbow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body class="shop-page">
+<body>
 
-  <header>
-    <h1>Virtual Shop</h1>
-    <p class="tagline">Choose a gentle token to honor your pet</p>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tribute.html">Tribute Wall</a></li>
+      <li><a href="customize-headstone.html">Customize</a></li>
+      <li><a href="shop.html" class="active">Virtual Shop</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="donate.html">Donations</a></li>
+      <li><a href="mydogs.html">My Dogs</a></li>
+      <li><a href="healing-agent.html">Healing Agent</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tribute-wall.html">Tribute Wall</a>
-      <a href="customize-headstone.html">Customize</a>
-      <a href="shop.html">Virtual Shop</a>
-      <a href="support.html">Support</a>
-      <a href="donate.html">Donations</a>
-      <a href="dedication.html">My Dogs</a>
-      <a href="signup.html">Healing Agent</a>
-    </nav>
-  </header>
+  <!-- PAGE CONTAINER (centers everything) -->
+  <div class="page-container">
 
-  <main>
-    <section class="page-section">
-      <h2>Choose a Memorial Token</h2>
-      <p class="section-intro">
-        These virtual items are symbolic offerings you can place on your pet’s tribute.
-      </p>
+    <h1 class="page-title">Choose a Memorial Token</h1>
+    <p class="page-subtitle">
+      These virtual items are symbolic offerings you can place on your pet's tribute.
+    </p>
 
-      <div class="shop-grid">
+    <!-- SHOP GRID -->
+    <div class="shop-grid">
 
-        <!-- Item 1 -->
-        <div class="shop-item">
-          <img src="assets/images/flower.jpg" alt="Flower">
-          <h3>Lavender Flower</h3>
-          <p class="price">$2</p>
-          <button class="btn shop-btn">Add to Tribute</button>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="shop-item">
-          <img src="assets/images/candle.jpg" alt="Candle">
-          <h3>Soft Candle</h3>
-          <p class="price">$3</p>
-          <button class="btn shop-btn">Add to Tribute</button>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="shop-item">
-          <img src="assets/images/heart.jpg" alt="Heart Token">
-          <h3>Heart Token</h3>
-          <p class="price">$1</p>
-          <button class="btn shop-btn">Add to Tribute</button>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="shop-item">
-          <img src="assets/images/wings.jpg" alt="Angel Wings">
-          <h3>Angel Wings</h3>
-          <p class="price">$4</p>
-          <button class="btn shop-btn">Add to Tribute</button>
-        </div>
-
+      <!-- Item 1 -->
+      <div class="shop-item">
+        <img src="assets/images/lavender.jpg" alt="Lavender Flower">
+        <h3>Lavender Flower</h3>
+        <p class="price">$2</p>
+        <button class="btn shop-btn" data-item="lavender">Add to Tribute</button>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
-  </footer>
+      <!-- Item 2 -->
+      <div class="shop-item">
+        <img src="assets/images/candle.jpg" alt="Soft Candle">
+        <h3>Soft Candle</h3>
+        <p class="price">$3</p>
+        <button class="btn shop-btn" data-item="candle">Add to Tribute</button>
+      </div>
 
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+      <!-- Item 3 -->
+      <div class="shop-item">
+        <img src="assets/images/heart.jpg" alt="Heart Token">
+        <h3>Heart Token</h3>
+        <p class="price">$1</p>
+        <button class="btn shop-btn" data-item="heart">Add to Tribute</button>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="shop-item">
+        <img src="assets/images/wings.jpg" alt="Angel Wings">
+        <h3>Angel Wings</h3>
+        <p class="price">$4</p>
+        <button class="btn shop-btn" data-item="wings">Add to Tribute</button>
+      </div>
+
+    </div> <!-- END shop-grid -->
