@@ -6,7 +6,9 @@ const itemPrices = {
   "lavender": 2,
   "candle": 3,
   "heart": 1,
-  "wings": 4
+  "wings": 4,
+  "headstone-style2": 10,
+  "headstone-style3": 15
 };
 
 document.querySelectorAll(".shop-btn").forEach(btn => {
@@ -95,3 +97,32 @@ function processPayment(method, item, price) {
     window.location.href = "tribute-wall.html";
   }, 2000);
 }
+
+// If shop page is opened with a prefill parameter, open payment modal for that item
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const prefill = params.get('prefill');
+    if (prefill) {
+      const price = itemPrices[prefill];
+      if (price !== undefined) {
+        // store selection in localStorage so we can finish checkout flow
+        localStorage.setItem('selectedShopItem', prefill);
+        localStorage.setItem('shopItemPrice', price);
+        showPaymentModal(prefill, price);
+      }
+    }
+
+    // If user clicked 'Buy Headstone' from shop after checkout, and we have desired headstone details stored,
+    // complete the headstone creation and add to tribute (simulate by redirecting to tribute-wall).
+    // This is intentionally lightweight; integrate server-side logic for production.
+    const desired = localStorage.getItem('desiredHeadstoneItem');
+    if (desired && params.get('prefill') && params.get('prefill').startsWith('headstone')) {
+      // After purchase flow completes, preserve desired details in localStorage so tribute-wall can pick them up
+      // (tribute-wall.js should read these and create the memorial token)
+      // Keep the data; shop checkout will redirect to tribute-wall after payment by default.
+    }
+  } catch (e) {
+    console.warn('Shop prefill handling failed', e);
+  }
+});
