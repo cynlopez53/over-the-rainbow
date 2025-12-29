@@ -2,43 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Items Shop – Over the Rainbow</title>
+  <title>Virtual Shop – Over the Rainbow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="shop-page">
 
   <header>
-    <h1>Over the Rainbow</h1>
+    <h1>Virtual Shop</h1>
+    <p class="tagline">Choose a gentle token to honor your pet</p>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="tribute-wall.html">Tribute Wall</a>
-      <a href="shop.html" class="active">Shop</a>
+      <a href="customize-headstone.html">Customize</a>
+      <a href="shop.html">Virtual Shop</a>
+      <a href="support.html">Support</a>
+      <a href="donate.html">Donations</a>
+      <a href="dedication.html">My Dogs</a>
+      <a href="signup.html">Healing Agent</a>
     </nav>
   </header>
 
   <main>
-    <h2>Virtual Items Shop</h2>
+    <section class="page-section">
+      <h2>Choose a Memorial Token</h2>
+      <p class="section-intro">
+        These virtual items are symbolic offerings you can place on your pet’s tribute.
+      </p>
 
-    <!-- Cart Display -->
-    <div id="cart">
-      <p><strong>Cart Total:</strong> <span id="cart-total">$0.00</span></p>
-      <button id="checkout-btn">Checkout</button>
-      <p id="checkout-message"></p>
-    </div>
+      <div class="shop-grid">
 
-    <!-- Shop Grid (JS will fill this) -->
-    <div id="shop-grid" class="shop-grid"></div>
+        <!-- Item 1 -->
+        <div class="shop-item">
+          <img src="assets/images/flower.jpg" alt="Flower">
+          <h3>Lavender Flower</h3>
+          <p class="price">$2</p>
+          <button class="btn shop-btn">Add to Tribute</button>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="shop-item">
+          <img src="assets/images/candle.jpg" alt="Candle">
+          <h3>Soft Candle</h3>
+          <p class="price">$3</p>
+          <button class="btn shop-btn">Add to Tribute</button>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="shop-item">
+          <img src="assets/images/heart.jpg" alt="Heart Token">
+          <h3>Heart Token</h3>
+          <p class="price">$1</p>
+          <button class="btn shop-btn">Add to Tribute</button>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="shop-item">
+          <img src="assets/images/wings.jpg" alt="Angel Wings">
+          <h3>Angel Wings</h3>
+          <p class="price">$4</p>
+          <button class="btn shop-btn">Add to Tribute</button>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Over the Rainbow.</p>
   </footer>
 
-  <!-- Scripts MUST be at the bottom -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/shop.js"></script>
-  
 </body>
 </html>

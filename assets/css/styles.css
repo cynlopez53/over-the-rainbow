@@ -355,3 +355,61 @@ footer {
   font-family: "Arial Black", sans-serif;
   font-size: 22px;
 }
+/* ============================
+   SHOP PAGE — LAVENDER THEME
+   ============================ */
+
+.shop-page header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.shop-page h1 {
+  font-size: 42px;
+  color: #6b4fcf;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.shop-item {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 3px solid #e7ddff;
+  transition: transform 0.2s ease;
+}
+
+.shop-item:hover {
+  transform: translateY(-4px);
+}
+
+.shop-item img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.shop-item h3 {
+  color: #6b4fcf;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 18px;
+  color: #4a3a7a;
+  margin-bottom: 12px;
+}
+
+.shop-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
