@@ -308,3 +308,50 @@ footer {
   border-color: #8a6fd6;
   box-shadow: 0 0 8px rgba(138, 111, 214, 0.4);
 }
+/* ============================
+   HEADSTONE PREVIEW STYLING
+   ============================ */
+
+.headstone-preview {
+  text-align: center;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #dcd2ff;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.headstone-preview img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.headstone-preview h2 {
+  font-size: 28px;
+  color: #6b4fcf;
+  margin-bottom: 8px;
+  font-family: "Georgia", serif;
+}
+
+.headstone-preview p {
+  font-size: 18px;
+  color: #4a3a7a;
+  margin: 4px 0;
+}
+
+/* Optional: Script font looks nicer when larger */
+.headstone-preview .script {
+  font-family: "Brush Script MT", cursive;
+  font-size: 26px;
+}
+
+/* Optional: Bold font styling */
+.headstone-preview .bold {
+  font-family: "Arial Black", sans-serif;
+  font-size: 22px;
+}
