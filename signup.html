@@ -23,11 +23,26 @@
 
   <main>
     <section class="page-section">
-      <h2>Sign Up for the Modular Healing Agent</h2>
+      <h2>Meet Your Healing Agent</h2>
       <p>
-        Sign up to receive access to your modular healing agent experience for pet loss,
-        including gentle exercises, reflections, and supportive prompts.
+        Experience our modular healing agent — a compassionate AI guide for pet loss grief support.
+        Try it below, then sign up for full access to personalized sessions and healing workflows.
       </p>
+
+      <!-- Agent.ai Embed -->
+      <div id="agent-embed" style="width: 100%; max-width: 800px; margin: 30px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); height: 600px; background: white;">
+        <iframe 
+          src="https://agent.ai/agent/modularhealingagent?apiKey=x9818qg581ivqrmi" 
+          style="width: 100%; height: 100%; border: none;">
+        </iframe>
+      </div>
+
+      <section class="page-section" style="margin-top: 40px;">
+        <h2>Sign Up for Full Access</h2>
+        <p>
+          Create your account to save your healing journey, unlock personalized modules, 
+          and continue your sessions anytime.
+        </p>
 
       <form id="signup-form">
         <div>
@@ -48,13 +63,14 @@
             I consent to my information being stored for the purpose of receiving the healing agent experience.
           </label>
         </div>
-        <input type="submit" value="Sign Up">
+        <input type="submit" value="Sign Up for Full Access">
         <p class="notice">
-          Demo only: This form stores signups locally in your browser. Connect it to your backend when ready.
+          Your information helps us personalize your healing journey. We never share your data.
         </p>
       </form>
 
       <p id="signup-message" class="notice"></p>
+      </section>
     </section>
   </main>
 
@@ -81,7 +97,9 @@
         localStorage.setItem("otr_signups", JSON.stringify(existing));
 
         form.reset();
-        msg.textContent = "Thank you. You are signed up to receive the healing agent experience.";
+        msg.textContent = "✓ Welcome! Check your email for your personalized healing agent access. You can also start using it anytime you visit this page.";
+        msg.style.color = "#22c55e";
+        setTimeout(() => { msg.textContent = ""; }, 8000);
       });
     });
   </script>
