@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Healing Conversations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; }
+    h1 { color: #6b4fcf; }
+    .login-form { background: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+    .login-form input { padding: 8px; margin-right: 10px; }
+    .login-form button { padding: 8px 16px; background: #6b4fcf; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .error { color: #d32f2f; }
+    .success { color: #388e3c; }
+    .conversation { background: #f9f9f9; padding: 15px; margin: 10px 0; border-left: 4px solid #6b4fcf; border-radius: 4px; }
+    .message { margin: 8px 0; padding: 8px; }
+    .msg-user { background: #eef2ff; padding: 8px; border-radius: 4px; }
+    .msg-agent { background: #f3f3f3; padding: 8px; border-radius: 4px; }
+    .timestamp { font-size: 12px; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin – Healing Conversations</h1>
+    
+    <div class="login-form">
+      <label>Admin Password:</label><br><br>
+      <input id="password" type="password" placeholder="Enter admin password" />
+      <button onclick="login()">Load Conversations</button>
+      <div id="status"></div>
+    </div>
+
+    <div id="conversations-container" style="display: none;">
+      <h2>All Sessions (<span id="total">0</span>)</h2>
+      <div id="conversations"></div>
+    </div>
+  </div>
+
+  <script>
+    const statusDiv = document.getElementById('status');
+    const conversationsDiv = document.getElementById('conversations');
+    const container = document.getElementById('conversations-container');
+    const totalSpan = document.getElementById('total');
+
+    async function login() {
+      const password = document.getElementById('password').value;
+      if (!password) { statusDiv.textContent = '❌ Enter a password'; statusDiv.className = 'error'; return; }
+
+      try {
+        const resp = await fetch(`/api/admin/conversations?password=${encodeURIComponent(password)}`);
+        if (!resp.ok) {
+          statusDiv.textContent = '❌ Unauthorized (wrong password)';
+          statusDiv.className = 'error';
+          return;
+        }
+        const data = await resp.json();
+        statusDiv.textContent = '✓ Loaded';
+        statusDiv.className = 'success';
+        totalSpan.textContent = data.total;
+        container.style.display = 'block';
+        
+        conversationsDiv.innerHTML = '';
+        if (data.conversations.length === 0) {
+          conversationsDiv.innerHTML = '<p>No conversations yet.</p>';
+          return;
+        }
+
+        data.conversations.forEach(session => {
+          const div = document.createElement('div');
+          div.className = 'conversation';
+          let html = `<strong>Session:</strong> ${session.sessionId}<br>`;
+          if (session.messages && session.messages.length > 0) {
+            html += `<strong>${session.messages.length} messages</strong><br>`;
+            html += session.messages.map(msg => {
+              const cls = msg.role === 'user' ? 'msg-user' : 'msg-agent';
+              const ts = msg.timestamp ? ` <span class="timestamp">${new Date(msg.timestamp).toLocaleString()}</span>` : '';
+              return `<div class="message ${cls}"><strong>${msg.role}:</strong> ${msg.text}${ts}</div>`;
+            }).join('');
+          }
+          div.innerHTML = html;
+          conversationsDiv.appendChild(div);
+        });
+      } catch (err) {
+        statusDiv.textContent = '❌ Network error: ' + (err?.message || err);
+        statusDiv.className = 'error';
+      }
+    }
+  </script>
+</body>
+</html>
