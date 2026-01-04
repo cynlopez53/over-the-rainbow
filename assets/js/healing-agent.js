@@ -49,6 +49,26 @@
     const delBtn = document.getElementById('ha-delete');
 
     let sessionId = localStorage.getItem('ha_session') || null;
+    let eventSource = null;
+    let esOpen = false;
+
+    function connectSSE(sid) {
+      if (!sid) return;
+      try {
+        if (eventSource) eventSource.close();
+        eventSource = new EventSource(`/api/agent/stream?sessionId=${encodeURIComponent(sid)}`);
+        eventSource.onopen = () => { esOpen = true; };
+        eventSource.onmessage = (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            if (data && data.type === 'agent_reply') {
+              append('agent', data.reply || '');
+            }
+          } catch (err) { console.warn('SSE parse error', err); }
+        };
+        eventSource.onerror = () => { esOpen = false; };
+      } catch (err) { console.warn('Could not open SSE', err); }
+    }
 
     function setModal(open){
       modal.style.display = open ? 'block' : 'none';
@@ -73,6 +93,8 @@
         if (!resp.ok) return;
         const data = await resp.json();
         (data.messages || []).forEach(m => append(m.role, m.text));
+        // open SSE after loading history
+        connectSSE(sessionId);
       } catch (err) { console.warn('Could not load history', err); }
     }
 
@@ -94,9 +116,14 @@
           body: JSON.stringify({ user_input: text, sessionId })
         });
         const data = await resp.json();
-        if (data.sessionId) { sessionId = data.sessionId; localStorage.setItem('ha_session', sessionId); }
+        if (data.sessionId) {
+          sessionId = data.sessionId; localStorage.setItem('ha_session', sessionId);
+          // ensure SSE is connected for real-time replies
+          connectSSE(sessionId);
+        }
         typingEl.remove();
-        append('agent', data.comfort || data.reply || 'Sorry, no response.');
+        // If SSE is active, the agent reply will arrive via SSE; otherwise fall back to response
+        if (!esOpen) append('agent', data.comfort || data.reply || 'Sorry, no response.');
       } catch (err){
         typingEl.remove();
         append('agent', 'Network error; please try again later.');

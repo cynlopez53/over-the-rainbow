@@ -1,52 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Over the Rainbow – Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="UTF-8">
+<title>Over the Rainbow – Healing Agent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f7f4fa;
+    color: #333;
+  }
+
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 16px 60px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #4a3f55;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #6d6275;
+    margin-bottom: 30px;
+  }
+
+  /* Healing Agent Window */
+  .agent-window {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    margin-bottom: 40px;
+    min-height: 350px;
+  }
+
+  /* Signup Section */
+  .signup-box {
+    background: #ffffff;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  }
+
+  .signup-box h2 {
+    margin-top: 0;
+    color: #4a3f55;
+    text-align: center;
+  }
+
+  .signup-box label {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .signup-box input,
+  .signup-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .signup-box textarea {
+    height: 80px;
+    resize: none;
+  }
+
+  .signup-box button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #d67fa8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+
+  .signup-box button:hover {
+    background: #c46f9a;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #8a7f90;
+    font-size: 0.9rem;
+  }
+</style>
 </head>
 
-<body class="home-page">
+<body>
 
-  <div class="background-overlay"></div>
+<div class="page-wrap">
 
-  <header>
-    <h1>Over the Rainbow</h1>
-    <p class="tagline">A gentle space for remembrance and healing</p>
+  <!-- HEALING AGENT SECTION -->
+  <h1>Meet Your Healing Agent</h1>
+  <p class="subtitle">
+    A compassionate guide to support you through pet loss and grief.  
+    Begin your journey below.
+  </p>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tribute-wall.html">Tribute Wall</a>
-      <a href="customize-headstone.html">Customize</a>
-      <a href="shop.html">Virtual Shop</a>
-      <a href="support.html">Support</a>
-      <a href="donate.html">Donations</a>
-      <a href="dedication.html">My Dogs</a>
-      <a href="signup.html">Healing Agent</a>
-    </nav>
-  </header>
+  <div class="agent-window">
+    <!-- INSERT YOUR HEALING AGENT EMBED CODE HERE -->
+    <p style="text-align:center; color:#777;">Healing Agent loads here...</p>
+  </div>
 
-  <main class="home-content">
-    <section class="welcome-box">
-      <h2>Welcome to Over the Rainbow</h2>
-      <p>
-        This is a peaceful place to honor the pets who touched our lives.
-        Create a tribute, design a memorial, or simply spend a moment remembering.
-      </p>
+  <!-- SIGNUP SECTION -->
+  <div class="signup-box">
+    <h2>Sign Up for Full Access</h2>
 
-      <div class="home-buttons">
-        <a class="btn" href="tribute-wall.html">Visit the Tribute Wall</a>
-        <a class="btn" href="customize-headstone.html">Create a Headstone</a>
-      </div>
-    </section>
-  </main>
+    <label>Name</label>
+    <input type="text" placeholder="Your name">
 
-  <footer>
-    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
-  </footer>
+    <label>Email</label>
+    <input type="email" placeholder="Your email">
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/healing-agent.js"></script>
+    <label>Anything you'd like to share (optional)</label>
+    <textarea placeholder="Write a message..."></textarea>
+
+    <label style="margin-top: 16px;">
+      <input type="checkbox"> I consent to my information being stored for the purpose of receiving the healing agent experience.
+    </label>
+
+    <button>Create Account</button>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Over the Rainbow.
+</footer>
+
 </body>
 </html>
+

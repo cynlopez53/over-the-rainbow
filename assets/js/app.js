@@ -28,6 +28,17 @@ function initConversationsLog() {
   }
 }
 
+// SSE clients: map sessionId -> array of response objects
+const sseClients = new Map();
+
+function sendSSE(sessionId, eventData) {
+  const clients = sseClients.get(sessionId) || [];
+  const payload = `data: ${JSON.stringify(eventData)}\n\n`;
+  clients.forEach((res) => {
+    try { res.write(payload); } catch (e) { /* ignore */ }
+  });
+}
+
 // Read conversations
 function readConversations() {
   try {
@@ -215,6 +226,9 @@ app.post('/api/agent/agentai', express.json(), async (req, res) => {
     const comfort = data.comfort_message || data.reply || data.output || '';
     if (comfort) writeConversation(sessionId, 'agent', comfort);
 
+    // push real-time event to any EventSource listeners
+    if (comfort) sendSSE(sessionId, { type: 'agent_reply', reply: comfort });
+
     res.json({ sessionId, comfort, raw: data });
   } catch (err) {
     console.error('agent.ai proxy error:', err?.message || err);
@@ -259,8 +273,38 @@ app.post('/api/agent/webhook', express.json(), (req, res) => {
   if (user_input) writeConversation(sessionId, 'user', user_input);
   if (comfort) writeConversation(sessionId, 'agent', comfort);
 
+  // push to SSE clients if present
+  if (comfort) sendSSE(sessionId, { type: 'agent_reply', reply: comfort });
+
   // Respond quickly
   res.json({ received: true });
+});
+
+// SSE endpoint for real-time updates
+app.get('/api/agent/stream', (req, res) => {
+  const sessionId = req.query.sessionId;
+  if (!sessionId) return res.status(400).send('missing sessionId');
+
+  // set SSE headers
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    Connection: 'keep-alive',
+  });
+
+  // send a comment to keep connection alive
+  res.write(': connected\n\n');
+
+  const clients = sseClients.get(sessionId) || [];
+  clients.push(res);
+  sseClients.set(sessionId, clients);
+
+  req.on('close', () => {
+    const list = sseClients.get(sessionId) || [];
+    const filtered = list.filter((r) => r !== res);
+    if (filtered.length) sseClients.set(sessionId, filtered);
+    else sseClients.delete(sessionId);
+  });
 });
 
 // PAYPAL IPN WEBHOOK - Verify and handle payment completion
