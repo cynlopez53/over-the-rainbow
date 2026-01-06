@@ -128,11 +128,13 @@
 </div>
 
 <script>
-  const bubble = document.getElementById("healing-agent-bubble");
-  const modal = document.getElementById("healing-agent-modal");
+  window.addEventListener("DOMContentLoaded", () => {
+    const bubble = document.getElementById("healing-agent-bubble");
+    const modal = document.getElementById("healing-agent-modal");
 
-  bubble.addEventListener("click", () => {
-    modal.style.display = modal.style.display === "none" ? "block" : "none";
+    bubble.addEventListener("click", () => {
+      modal.style.display = modal.style.display === "none" ? "block" : "none";
+    });
   });
 </script>
 

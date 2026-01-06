@@ -1,91 +1,57 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Virtual Shop – Over the Rainbow</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="UTF-8">
+<title>Virtual Shop – Over the Rainbow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="tribute.html">Tribute Wall</a></li>
-      <li><a href="customize-headstone.html">Customize</a></li>
-      <li><a href="shop.html" class="active">Virtual Shop</a></li>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="donate.html">Donations</a></li>
-      <li><a href="mydogs.html">My Dogs</a></li>
-      <li><a href="healing-agent.html">Healing Agent</a></li>
-    </ul>
-  </nav>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tribute.html">Tribute Wall</a></li>
+    <li><a href="customize-headstone.html">Customize</a></li>
+    <li><a href="shop.html" class="active">Virtual Shop</a></li>
+    <li><a href="healing-agent.html">Healing Agent</a></li>
+  </ul>
+</nav>
 
-  <!-- PAGE CONTAINER -->
-  <div class="page-container">
+<div class="page-container">
 
-    <h1 class="page-title">Choose a Memorial Token</h1>
-    <p class="page-subtitle">
-      These virtual items are symbolic offerings you can place on your pet's tribute.
-    </p>
+  <h1 class="page-title">Choose a Memorial Token</h1>
+  <p class="page-subtitle">
+    These virtual items are symbolic offerings you can place on your pet's tribute.
+  </p>
 
-    <div class="notice" style="text-align: center; margin-bottom: 30px;">
-      <strong>⚠️ Important:</strong> All sales are virtual and final. No refunds or changes after purchase.
-    </div>
+  <div id="token-shop" class="shop-grid"></div>
 
-    <!-- DYNAMIC TOKEN SHOP GRID -->
-    <div id="token-shop" class="shop-grid"></div>
+</div>
 
-    <!-- HEALING AGENT SECTION -->
-    <section style="margin-top: 50px; padding-top: 40px; border-top: 2px solid #e7ddff;">
-      <h2 style="text-align: center; color: #6b4fcf; margin-bottom: 20px;">Find Comfort & Healing</h2>
-      <div style="max-width: 500px; margin: 0 auto; background: linear-gradient(135deg, #f3e8ff, #faf8ff); padding: 30px; border-radius: 16px; border: 2px solid #d8cffb; text-align: center;">
-        <img src="assets/images/healing-agent.svg" alt="Healing Agent" style="max-width: 140px; margin-bottom: 20px;">
-        <h3 style="color: #7c3aed; margin-bottom: 10px;">Modular Healing Agent</h3>
-        <p style="color: #5a4a8a; margin-bottom: 15px; font-size: 15px;">
-          Experience compassionate AI-guided support through your grief journey. Personalized exercises, reflections, and healing workflows designed for pet loss.
-        </p>
-        <p style="color: #6b4fcf; font-size: 18px; font-weight: bold; margin-bottom: 20px;">FREE Access</p>
-        <button class="btn" onclick="window.location.href='signup.html'" style="width: 100%; background: #7c3aed;">
-          Try the Healing Agent
-        </button>
-      </div>
-    </section>
+<script type="module">
+  import tributeTokens from "./assets/js/tribute_tokens.js";
 
-  </div>
+  const container = document.getElementById("token-shop");
 
-  <footer>
-    <p>&copy; <span id="year"></span> Over the Rainbow.</p>
-  </footer>
+  tributeTokens.forEach(token => {
+    const item = document.createElement("div");
+    item.classList.add("shop-item");
 
-  <!-- SCRIPTS -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/shop.js"></script>
-  <script src="assets/js/healing-agent.js"></script>
+    item.innerHTML = `
+      <img src="${token.img}" alt="${token.name}">
+      <h3>${token.name}</h3>
+      <p class="price">$${token.price}</p>
+      <button class="btn shop-btn" data-item="${token.id}">
+        Add to Tribute
+      </button>
+    `;
 
-  <!-- DYNAMIC TOKEN LOADER -->
-  <script type="module">
-    import tributeTokens from "./assets/js/tribute_tokens.js";
-
-    const container = document.getElementById("token-shop");
-
-    tributeTokens.forEach(token => {
-      const item = document.createElement("div");
-      item.classList.add("shop-item");
-
-      item.innerHTML = `
-        <img src="${token.img}" alt="${token.name}">
-        <h3>${token.name}</h3>
-        <p class="price">$${token.price}</p>
-        <button class="btn shop-btn" data-item="${token.id}">
-          Add to Tribute
-        </button>
-      `;
-
-      container.appendChild(item);
-    });
-  </script>
+    container.appendChild(item);
+  });
+</script>
 
 </body>
 </html>
+
