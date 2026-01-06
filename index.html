@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Over the Rainbow – Healing Agent</title>
+<title>Over the Rainbow – Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -13,91 +13,47 @@
     color: #333;
   }
 
-  .page-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 16px 60px;
+  nav {
+    background: #ffffff;
+    padding: 14px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 
-  h1 {
-    text-align: center;
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #6b4fcf;
     font-weight: 600;
-    margin-bottom: 10px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
     color: #4a3f55;
   }
 
-  .subtitle {
-    text-align: center;
-    font-size: 1rem;
+  .hero p {
+    font-size: 1.2rem;
     color: #6d6275;
-    margin-bottom: 30px;
-  }
-
-  /* Healing Agent Window */
-  .agent-window {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    margin-bottom: 40px;
-    min-height: 350px;
-  }
-
-  /* Signup Section */
-  .signup-box {
-    background: #ffffff;
-    padding: 26px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  }
-
-  .signup-box h2 {
-    margin-top: 0;
-    color: #4a3f55;
-    text-align: center;
-  }
-
-  .signup-box label {
-    display: block;
-    margin-top: 14px;
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .signup-box input,
-  .signup-box textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-
-  .signup-box textarea {
-    height: 80px;
-    resize: none;
-  }
-
-  .signup-box button {
-    margin-top: 20px;
-    width: 100%;
-    padding: 12px;
-    background: #d67fa8;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.05rem;
-    cursor: pointer;
-  }
-
-  .signup-box button:hover {
-    background: #c46f9a;
+    max-width: 600px;
+    margin: 10px auto 0;
   }
 
   footer {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
+    padding: 20px;
     color: #8a7f90;
     font-size: 0.9rem;
   }
@@ -106,46 +62,28 @@
 
 <body>
 
-<div class="page-wrap">
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tribute.html">Tribute Wall</a></li>
+    <li><a href="customize-headstone.html">Customize</a></li>
+    <li><a href="shop.html">Virtual Shop</a></li>
+    <li><a href="healing-agent.html">Healing Agent</a></li>
+  </ul>
+</nav>
 
-  <!-- HEALING AGENT SECTION -->
-  <h1>Meet Your Healing Agent</h1>
-  <p class="subtitle">
-    A compassionate guide to support you through pet loss and grief.  
-    Begin your journey below.
-  </p>
-
-  <div class="agent-window">
-    <p style="text-align:center; color:#777;">Healing Agent loads here...</p>
-  </div>
-
-  <!-- SIGNUP SECTION -->
-  <div class="signup-box">
-    <h2>Sign Up for Full Access</h2>
-
-    <label>Name</label>
-    <input type="text" placeholder="Your name">
-
-    <label>Email</label>
-    <input type="email" placeholder="Your email">
-
-    <label>Anything you'd like to share (optional)</label>
-    <textarea placeholder="Write a message..."></textarea>
-
-    <label style="margin-top: 16px;">
-      <input type="checkbox"> I consent to my information being stored for the purpose of receiving the healing agent experience.
-    </label>
-
-    <button>Create Account</button>
-  </div>
-
+<!-- HERO SECTION -->
+<div class="hero">
+  <h1>Welcome to Over the Rainbow</h1>
+  <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
 </div>
 
 <footer>
   © 2026 Over the Rainbow.
 </footer>
 
-<!-- Healing Agent Bubble -->
+<!-- FLOATING HEALING AGENT BUBBLE -->
 <div id="healing-agent-bubble" style="
   position: fixed;
   bottom: 20px;
@@ -164,7 +102,7 @@
   <span style="color: white; font-size: 28px;">💬</span>
 </div>
 
-<!-- Healing Agent Modal -->
+<!-- FLOATING MODAL -->
 <div id="healing-agent-modal" style="
   position: fixed;
   bottom: 100px;
@@ -178,21 +116,17 @@
   z-index: 1001;
   display: none;
 ">
-  <h3 style="color: #7c3aed; margin-bottom: 10px;">Meet Your Healing Agent</h3>
+  <h3 style="color: #7c3aed; margin-bottom: 10px;">Healing Agent</h3>
   <p style="color: #5a4a8a; font-size: 14px; margin-bottom: 15px;">
     A compassionate guide to support you through pet loss and grief.
   </p>
-  <form>
-    <input type="text" placeholder="Your name" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-    <input type="email" placeholder="Your email" style="width: 100%; margin-bottom: 10px; padding: 8px;">
-    <textarea placeholder="Anything you'd like to share (optional)" style="width: 100%; height: 60px; padding: 8px;"></textarea>
-    <button type="submit" class="btn" style="width: 100%; margin-top: 10px; background: #7c3aed; color: white;">
-      Sign Up for Support
-    </button>
-  </form>
+
+  <button onclick="window.location.href='healing-agent.html'"
+    style="width: 100%; padding: 10px; background: #7c3aed; color: white; border: none; border-radius: 8px;">
+    Open Full Healing Agent
+  </button>
 </div>
 
-<!-- Healing Agent Script -->
 <script>
   const bubble = document.getElementById("healing-agent-bubble");
   const modal = document.getElementById("healing-agent-modal");
@@ -204,4 +138,3 @@
 
 </body>
 </html>
-
