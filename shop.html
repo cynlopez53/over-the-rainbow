@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,7 @@
     </ul>
   </nav>
 
-  <!-- PAGE CONTAINER (centers everything) -->
+  <!-- PAGE CONTAINER -->
   <div class="page-container">
 
     <h1 class="page-title">Choose a Memorial Token</h1>
@@ -34,58 +34,8 @@
       <strong>⚠️ Important:</strong> All sales are virtual and final. No refunds or changes after purchase.
     </div>
 
-    <!-- SHOP GRID -->
-    <div class="shop-grid">
-
-      <!-- Item 1 -->
-      <div class="shop-item">
-        <img src="assets/images/lavender.jpg" alt="Lavender Flower">
-        <h3>Lavender Flower</h3>
-        <p class="price">$2</p>
-        <button class="btn shop-btn" data-item="lavender">Add to Tribute</button>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="shop-item">
-        <img src="assets/images/candle.jpg" alt="Soft Candle">
-        <h3>Soft Candle</h3>
-        <p class="price">$3</p>
-        <button class="btn shop-btn" data-item="candle">Add to Tribute</button>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="shop-item">
-        <img src="assets/images/heart.jpg" alt="Heart Token">
-        <h3>Heart Token</h3>
-        <p class="price">$1</p>
-        <button class="btn shop-btn" data-item="heart">Add to Tribute</button>
-      </div>
-
-      <!-- Item 4 -->
-      <div class="shop-item">
-        <img src="assets/images/wings.jpg" alt="Angel Wings">
-        <h3>Angel Wings</h3>
-        <p class="price">$4</p>
-        <button class="btn shop-btn" data-item="wings">Add to Tribute</button>
-      </div>
-
-      <!-- Headstone: Polished (paid) -->
-      <div class="shop-item">
-        <img src="assets/images/style2.jpg" alt="Polished Headstone">
-        <h3>Polished Headstone</h3>
-        <p class="price">$10</p>
-        <button class="btn shop-btn" data-item="headstone-style2">Buy Headstone</button>
-      </div>
-
-      <!-- Headstone: Marble (paid) -->
-      <div class="shop-item">
-        <img src="assets/images/style3.jpg" alt="Marble Headstone">
-        <h3>Marble Headstone</h3>
-        <p class="price">$15</p>
-        <button class="btn shop-btn" data-item="headstone-style3">Buy Headstone</button>
-      </div>
-
-    </div> <!-- END shop-grid -->
+    <!-- DYNAMIC TOKEN SHOP GRID -->
+    <div id="token-shop" class="shop-grid"></div>
 
     <!-- HEALING AGENT SECTION -->
     <section style="margin-top: 50px; padding-top: 40px; border-top: 2px solid #e7ddff;">
@@ -109,8 +59,33 @@
     <p>&copy; <span id="year"></span> Over the Rainbow.</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/shop.js"></script>
   <script src="assets/js/healing-agent.js"></script>
+
+  <!-- DYNAMIC TOKEN LOADER -->
+  <script type="module">
+    import tributeTokens from "./assets/js/tribute_tokens.js";
+
+    const container = document.getElementById("token-shop");
+
+    tributeTokens.forEach(token => {
+      const item = document.createElement("div");
+      item.classList.add("shop-item");
+
+      item.innerHTML = `
+        <img src="${token.img}" alt="${token.name}">
+        <h3>${token.name}</h3>
+        <p class="price">$${token.price}</p>
+        <button class="btn shop-btn" data-item="${token.id}">
+          Add to Tribute
+        </button>
+      `;
+
+      container.appendChild(item);
+    });
+  </script>
+
 </body>
 </html>
