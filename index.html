@@ -1,165 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Over the Rainbow – Home</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-  /* FULL-PAGE BACKGROUND IMAGE + LAVENDER OVERLAY */
-  body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-
-    /* Your wallpaper */
-    background: url('assets/images/rainbow-bridge.jpg') no-repeat center center fixed;
-    background-size: cover;
-
-    /* Lavender theme preserved */
-    background-color: #f7f4fa;
-    background-blend-mode: overlay;
-
-    color: #333;
-  }
-
-  /* Soft white overlay for readability */
-  .content-wrapper {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 40px;
-    min-height: 100vh;
-  }
-
-  nav {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 14px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: #6b4fcf;
-    font-weight: 600;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 80px 20px;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-    color: #4a3f55;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    color: #6d6275;
-    max-width: 600px;
-    margin: 10px auto 0;
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 60px;
-    padding: 20px;
-    color: #8a7f90;
-    font-size: 0.9rem;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Over the Rainbow</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-
-<div class="content-wrapper">
-
-  <!-- NAVIGATION -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="tribute.html">Tribute Wall</a></li>
-      <li><a href="customize-headstone.html">Customize</a></li>
-      <li><a href="shop.html">Virtual Shop</a></li>
-      <li><a href="healing-agent.html">Healing Agent</a></li>
-      <li><a href="dedication.html">My Dogs</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <div class="hero">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Tribute Wall</a></li>
+        <li><a href="#">Customize</a></li>
+        <li><a href="#">Virtual Shop</a></li>
+        <li><a href="#">Healing Agent</a></li>
+        <li><a href="#">My Dogs</a></li>
+      </ul>
+    </nav>
     <h1>Welcome to Over the Rainbow</h1>
-    <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
-  </div>
+    <p class="tagline">A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Explore tributes, create memorials, and find comfort in shared stories.</p>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Over the Rainbow.
+    <p>© 2026 Over the Rainbow.</p>
   </footer>
-
-</div>
-
-<!-- FLOATING HEALING AGENT BUBBLE -->
-<div id="healing-agent-bubble" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #7c3aed;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-">
-  <span style="color: white; font-size: 28px;">💬</span>
-</div>
-
-<!-- FLOATING MODAL -->
-<div id="healing-agent-modal" style="
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 320px;
-  background: #faf8ff;
-  border: 2px solid #d8cffb;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  z-index: 1001;
-  display: none;
-">
-  <h3 style="color: #7c3aed; margin-bottom: 10px;">Healing Agent</h3>
-  <p style="color: #5a4a8a; font-size: 14px; margin-bottom: 15px;">
-    A compassionate guide to support you through pet loss and grief.
-  </p>
-
-  <button onclick="window.location.href='healing-agent.html'"
-    style="width: 100%; padding: 10px; background: #7c3aed; color: white; border: none; border-radius: 8px;">
-    Open Full Healing Agent
-  </button>
-</div>
-
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const bubble = document.getElementById("healing-agent-bubble");
-    const modal = document.getElementById("healing-agent-modal");
-
-    bubble.addEventListener("click", () => {
-      modal.style.display = modal.style.display === "none" ? "block" : "none";
-    });
-  });
-</script>
-
 </body>
 </html>

@@ -1,20 +1,27 @@
-/* GLOBAL PAGE BACKGROUND */
-body {
+/* RESET */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL BACKGROUND */
+body {
   font-family: system-ui, sans-serif;
 
   /* Rainbow Bridge wallpaper */
-  background: url('../images/rainbow-bridge.jpg') no-repeat center center fixed;
+  background: url('assets/rainbow-bridge.jpg') no-repeat center center fixed;
   background-size: cover;
 
-  /* Lavender theme overlay */
+  /* Lavender overlay */
   background-color: #f7f4fa;
   background-blend-mode: overlay;
 
   color: #333;
+  line-height: 1.6;
 }
 
-/* CONTENT WRAPPER (white overlay for readability) */
+/* CONTENT WRAPPER */
 .content-wrapper {
   background: rgba(255, 255, 255, 0.85);
   padding: 40px;
@@ -32,10 +39,10 @@ nav {
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -137,4 +144,3 @@ footer {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
