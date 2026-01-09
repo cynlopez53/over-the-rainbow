@@ -7,10 +7,10 @@
 
 /* GLOBAL BACKGROUND */
 body {
-  font-family: system-ui, sans-serif;
+   font-family: system-ui, sans-serif;
 
   /* Rainbow Bridge wallpaper */
-  background: url('assets/rainbow-bridge.jpg') no-repeat center center fixed;
+  background: url('assets/images/rainbow-bridge.jpg') no-repeat center center fixed;
   background-size: cover;
 
   /* Lavender overlay */
@@ -19,6 +19,8 @@ body {
 
   color: #333;
   line-height: 1.6;
+}
+
 }
 
 /* CONTENT WRAPPER */
