@@ -1,106 +1,90 @@
-/* RESET */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* BODY BACKGROUND */
+/* Body */
 body {
-  font-family: system-ui, sans-serif;
-  min-height: 100vh;
-
-  /* Rainbow Bridge background with soft overlay */
-  background:
-    linear-gradient(
-      rgba(247, 244, 250, 0.85),
-      rgba(247, 244, 250, 0.85)
-    ),
-    url("assets/images/rainbow-bridge.jpg") center / cover no-repeat fixed;
-
-  color: #333;
-  line-height: 1.6;
+  background-color: #000;
+  color: #fff;
 }
 
-/* CONTENT WRAPPER */
-.content-wrapper {
-  background: rgba(255, 255, 255, 0.85);
+/* Hero section with background image */
+.hero {
+  background-image: url("assets/images/rainbow-bridge.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   min-height: 100vh;
-  padding: 40px;
+  position: relative;
 }
 
-/* NAVIGATION */
+/* Dark overlay so text is readable */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Nav */
 nav {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 14px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
 }
 
-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-nav a {
+.nav-links a {
+  color: #fff;
   text-decoration: none;
-  color: #6b4fcf;
-  font-weight: 600;
+  font-weight: bold;
 }
 
-nav a:hover {
+.nav-links a:hover {
   text-decoration: underline;
 }
 
-/* HERO SECTION */
-.hero {
+/* Hero text */
+.hero-text {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 40px 20px 80px;
+  top: 35%;
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
-  color: #4a3f55;
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
 .tagline {
   font-size: 1.2rem;
-  color: #6d6275;
-  max-width: 620px;
-  margin: 14px auto 0;
-}
-
-/* INTRO SECTION */
-.intro {
-  text-align: center;
   max-width: 700px;
   margin: 0 auto;
 }
 
-.intro p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* FOOTER */
-footer {
-  margin-top: 80px;
+/* Main content */
+.intro {
+  padding: 60px 20px;
   text-align: center;
-  color: #8a7f90;
-  font-size: 0.9rem;
+  background-color: #111;
 }
 
-/* MOBILE ADJUSTMENTS */
-@media (max-width: 600px) {
-  .content-wrapper {
-    padding: 20px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #000;
+  font-size: 0.9rem;
 }
