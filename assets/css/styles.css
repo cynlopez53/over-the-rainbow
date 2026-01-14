@@ -6,6 +6,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ===== FORCE LINK COLORS (fix blue/purple links) ===== */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+a:active {
+  color: #ffffff;
+}
 
 html {
   scroll-behavior: smooth;
