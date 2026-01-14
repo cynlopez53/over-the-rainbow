@@ -12,15 +12,21 @@ body {
   color: #fff;
 }
 
-/* Hero section with background image */
+/* Hero section */
 .hero {
-  background-image: url("assets/images/rainbow-bridge.jpg");
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+
+  background-image: url("../images/rainbow-bridge.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   min-height: 100vh;
-  position: relative;
 }
 
 /* Dark overlay so text is readable */
@@ -29,7 +35,15 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
+
+/* Ensure content appears above overlay */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 /* Nav */
 nav {
