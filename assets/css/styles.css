@@ -1,224 +1,115 @@
-/* =========================
-   RESET & BASE
-========================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* ===== FORCE LINK COLORS (fix blue/purple links) ===== */
-a {
-  color: #ffffff;
-  text-decoration: none;
-}
 
-a:visited {
-  color: #ffffff;
-}
-
-a:hover {
-  color: #ffffff;
-}
-
-a:active {
-  color: #ffffff;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* GLOBAL BACKGROUND */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #111;
-  color: #fff;
+  font-family: system-ui, sans-serif;
+
+  /* Rainbow Bridge wallpaper */
+  background: url('../images/rainbow-bridge.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  /* Optional: brighten the image */
+  background-color: #f7f4fa;
+  background-blend-mode: lighten;
+
+  color: #333;
   line-height: 1.6;
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+/* HERO SECTION */
 .hero {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("../images/rainbow-bridge.jpg");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* LIGHT overlay (not dark) */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.55)
-  );
-  z-index: 1;
-}
-
-/* Ensure content stays above overlay */
-.hero * {
-  position: relative;
-  z-index: 2;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-.main-nav {
-  position: absolute;
-  top: 20px;
-  width: 100%;
   text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: #4a3f55;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  color: #6d6275;
+  max-width: 600px;
+  margin: 10px auto 0;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 10px;
+}
+
+.primary {
+  background-color: #d67fa8;
+  color: white;
+}
+
+.secondary {
+  background-color: #f7f4fa;
+  color: #6b4fcf;
+  border: 2px solid #6b4fcf;
+}
+
+/* NAVIGATION */
+.main-nav {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 14px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .main-nav ul {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  padding: 10px 20px;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.main-nav a:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* =========================
-   HERO CONTENT
-========================= */
-.hero-content {
-  max-width: 900px;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-}
-
-.tagline {
-  font-size: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto 35px;
-  color: #f2f2f2;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-.hero-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 600;
+.main-nav a {
   text-decoration: none;
-  transition: all 0.3s ease;
+  color: #6b4fcf;
+  font-weight: 600;
 }
 
-/* Primary button */
-.btn.primary {
-  background: linear-gradient(135deg, #ff7eb3, #8fd3f4);
-  color: #000;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-}
-
-/* Secondary button */
-.btn.secondary {
-  border: 2px solid #fff;
-  color: #fff;
-  background: transparent;
-}
-
-.btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* =========================
-   MAIN CONTENT SECTIONS
-========================= */
-main {
-  background-color: #111;
-}
-
+/* SECTIONS */
 section {
-  padding: 70px 20px;
+  padding: 60px 20px;
   text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #4a3f55;
+  margin-bottom: 10px;
 }
 
 section p {
-  font-size: 1.05rem;
-  color: #ddd;
-  max-width: 700px;
+  font-size: 1rem;
+  color: #6d6275;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer {
-  padding: 25px;
   text-align: center;
-  background-color: #000;
+  margin-top: 60px;
+  padding: 20px;
+  color: #8a7f90;
   font-size: 0.9rem;
-  color: #aaa;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-
-  .tagline {
-    font-size: 1.1rem;
-  }
-
-  .main-nav ul {
-    flex-wrap: wrap;
-    gap: 14px;
-  }
 }
