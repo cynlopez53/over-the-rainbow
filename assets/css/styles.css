@@ -1,115 +1,224 @@
-/* RESET */
+/* =========================
+   RESET & BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* GLOBAL BACKGROUND */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: system-ui, sans-serif;
-
-  /* Rainbow Bridge wallpaper */
-  background: url('../images/rainbow-bridge.jpg') no-repeat center center fixed;
-  background-size: cover;
-
-  /* Optional: brighten the image */
-  background-color: #f7f4fa;
-  background-blend-mode: lighten;
-
-  color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #fff;
   line-height: 1.6;
 }
 
-/* HERO SECTION */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 2.4rem;
-  color: #4a3f55;
-}
-
-.hero .tagline {
-  font-size: 1.2rem;
-  color: #6d6275;
-  max-width: 600px;
-  margin: 10px auto 0;
-}
-
-.hero-buttons {
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 6px;
+/* =========================
+   GLOBAL LINK FIX (NO BLUE / PURPLE)
+========================= */
+a {
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 600;
-  margin: 0 10px;
 }
 
-.primary {
-  background-color: #d67fa8;
-  color: white;
+a:visited {
+  color: #ffffff;
 }
 
-.secondary {
-  background-color: #f7f4fa;
-  color: #6b4fcf;
-  border: 2px solid #6b4fcf;
+a:hover {
+  color: #ffffff;
 }
 
-/* NAVIGATION */
+a:active {
+  color: #ffffff;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  background-image: url("../images/rainbow-bridge.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Light overlay so image stays visible */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.45)
+  );
+  z-index: 1;
+}
+
+/* Ensure all hero content is above overlay */
+.hero * {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 .main-nav {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 14px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border-radius: 10px;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .main-nav ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 10px 20px;
+}
+
+.main-nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.hero-content {
+  max-width: 900px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.tagline {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  color: #f2f2f2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.hero-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.main-nav a {
-  text-decoration: none;
-  color: #6b4fcf;
-  font-weight: 600;
-}
-
-/* SECTIONS */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-section h2 {
-  font-size: 1.8rem;
-  color: #4a3f55;
-  margin-bottom: 10px;
-}
-
-section p {
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
   font-size: 1rem;
-  color: #6d6275;
-  max-width: 600px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Primary button */
+.btn.primary {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Secondary button */
+.btn.secondary {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   PAGE SECTIONS
+========================= */
+main {
+  background-color: #111;
+}
+
+section {
+  padding: 70px 20px;
+  text-align: center;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-/* FOOTER */
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+section p {
+  font-size: 1.05rem;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
+  padding: 25px;
   text-align: center;
-  margin-top: 60px;
-  padding: 20px;
-  color: #8a7f90;
+  background-color: #000;
   font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
 }
