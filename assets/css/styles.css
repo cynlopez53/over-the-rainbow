@@ -5,114 +5,135 @@
   box-sizing: border-box;
 }
 
-/* GLOBAL BACKGROUND */
-body {
-  font-family: system-ui, sans-serif;
-
-  /* Rainbow Bridge wallpaper */
-  background-image: url('../images/rainbow-bridge.jpg');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed;
-  background-size: cover;
-
-  /* Optional fallback color */
-  background-color: #f7f4fa;
-
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
+html {
+  scroll-behavior: smooth;
 }
 
-/* HERO SECTION */
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* LINKS */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  padding: 16px;
+}
+
+nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* HERO (HOME ONLY) */
 .hero {
+  min-height: 100vh;
+  background: url("../images/rainbow-bridge.jpg") center 20% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 80px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.65)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  padding: 100px 20px 0;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
-  color: #4a3f55;
+  font-size: 3rem;
+  margin-bottom: 14px;
 }
 
-.hero .tagline {
+.hero p {
   font-size: 1.2rem;
-  color: #6d6275;
-  max-width: 600px;
-  margin: 10px auto 0;
+  color: #e6e6e6;
+  margin-bottom: 30px;
 }
 
-.hero-buttons {
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  margin: 0 10px;
-}
-
-.primary {
-  background-color: #d67fa8;
-  color: white;
-}
-
-.secondary {
-  background-color: #f7f4fa;
-  color: #6b4fcf;
-  border: 2px solid #6b4fcf;
-}
-
-/* NAVIGATION */
-.main-nav {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 14px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.main-nav ul {
-  list-style: none;
+/* BUTTONS */
+.buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.main-nav a {
-  text-decoration: none;
-  color: #6b4fcf;
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
   font-weight: 600;
 }
 
-/* SECTIONS */
-section {
-  padding: 60px 20px;
+.btn.primary {
+  background: linear-gradient(135deg, #ff9dbb, #9ad7ff);
+  color: #000;
+}
+
+.btn.secondary {
+  border: 2px solid #fff;
+}
+
+/* PAGE CONTENT (NON-HOME PAGES) */
+.page {
+  min-height: 100vh;
+  padding: 140px 20px 60px;
+  max-width: 900px;
+  margin: auto;
   text-align: center;
 }
 
-section h2 {
-  font-size: 1.8rem;
-  color: #4a3f55;
-  margin-bottom: 10px;
+.page h1 {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
 }
 
-section p {
-  font-size: 1rem;
-  color: #6d6275;
-  max-width: 600px;
-  margin: 0 auto;
+.page p {
+  color: #ddd;
+  font-size: 1.1rem;
 }
 
 /* FOOTER */
 footer {
+  background: #000;
+  padding: 24px;
   text-align: center;
-  margin-top: 60px;
-  padding: 20px;
-  color: #8a7f90;
   font-size: 0.9rem;
+  color: #aaa;
 }
