@@ -1,5 +1,5 @@
 /* =========================
-   RESET / BASE
+   GLOBAL RESET
 ========================= */
 * {
   margin: 0;
@@ -7,72 +7,40 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #000;
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #000;
   color: #fff;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 1rem 2rem;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  opacity: 0.9;
-}
-
-nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
 }
 
 /* =========================
    HERO SECTION
 ========================= */
 .hero {
+  position: relative;
   min-height: 100vh;
   background-image: url("../images/rainbow-bridge.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
 
   display: flex;
+  align-items: flex-start; /* PUSH TEXT UP */
   justify-content: center;
-  align-items: flex-start;
-
-  position: relative;
-  padding-top: 6rem;
+  text-align: center;
+  padding-top: 120px;
+  overflow: hidden;
 }
 
-/* LIGHT overlay — NOT dark */
+/* LIGHTENED OVERLAY (KEY FIX) */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.05)
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35)
   );
   z-index: 1;
 }
@@ -83,28 +51,31 @@ nav a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
   max-width: 900px;
-  padding: 0 1.5rem;
-  margin-top: 6rem;
+  padding: 0 20px;
+  animation: fadeUp 1.2s ease-out forwards;
 }
 
-/* Title */
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+/* MAIN TITLE */
+.hero h1 {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+
+  /* REMOVE GHOSTING */
+  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+
+  margin-bottom: 20px;
 }
 
-/* Subtitle */
-.hero-content .tagline {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #f2f2f2;
-  margin-bottom: 2.5rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+/* SUBTITLE */
+.hero p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 35px;
+
+  /* CLEAN SHADOW – NO DOUBLE TEXT */
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* =========================
@@ -112,59 +83,66 @@ nav a:hover {
 ========================= */
 .hero-buttons {
   display: flex;
+  gap: 18px;
   justify-content: center;
-  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.btn {
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  font-size: 1rem;
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 12px 30px rgba(255, 120, 160, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Primary */
-.btn.primary {
-  background: #f38db9;
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(243, 141, 185, 0.35);
-}
-
-.btn.primary:hover {
+.btn-primary:hover {
   transform: translateY(-3px);
-  background: #f07fae;
-  box-shadow: 0 10px 30px rgba(243, 141, 185, 0.45);
+  box-shadow: 0 18px 40px rgba(255, 120, 160, 0.65);
 }
 
-/* Secondary */
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.95);
+/* SECONDARY BUTTON */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.92);
   color: #333;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.btn.secondary:hover {
+.btn-secondary:hover {
   transform: translateY(-3px);
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.35);
+  background: #fff;
 }
 
 /* =========================
-   RESPONSIVE
+   ANIMATION
 ========================= */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .hero-content .tagline {
-    font-size: 1.1rem;
-  }
-
-  nav ul {
-    gap: 1.25rem;
-  }
+/* =========================
+   NAV BAR (OPTIONAL FIX)
+========================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
 }
