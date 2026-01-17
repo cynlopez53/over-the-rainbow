@@ -61,7 +61,7 @@ nav a:hover {
   /* push content down from navbar but keep it high enough
      so it stays in the sky, not over the dogs */
   padding-top: 140px;
-  padding-bottom: 300px; /* extra space so animals at bottom stay clear */
+  padding-bottom: 400px; /* extra space so animals at bottom stay clear */
 
   display: flex;
   align-items: flex-start; /* keep content toward top */
@@ -191,7 +191,7 @@ footer {
 @media (max-width: 768px) {
   .hero {
     padding-top: 120px;
-    padding-bottom: 350px; /* more bottom space on tall phones */
+    padding-bottom: 500px; /* more bottom space on tall phones */
     background-position: center;
   }
 
