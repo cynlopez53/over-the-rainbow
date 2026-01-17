@@ -5,135 +5,158 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-body {
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: #0b0b0b;
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* LINKS */
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.85;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(8px);
-  z-index: 100;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  list-style: none;
-  padding: 16px;
-}
-
-nav a {
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-/* HERO (HOME ONLY) */
+/* HERO SECTION */
 .hero {
-  min-height: 100vh;
-  background: url("../images/rainbow-bridge.jpg") center 20% / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: relative;
+  min-height: 100vh;
+  background-image: url("../images/rainbow-bridge.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero::after {
+/* VERY LIGHT OVERLAY (keeps colors vibrant) */
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.65)
+    to bottom,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.05)
   );
+  z-index: 0;
 }
 
+/* NAV BAR */
+nav {
+  width: 100%;
+  padding: 1.2rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.75;
+}
+
+/* HERO CONTENT */
 .hero-content {
   position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 8vh; /* keeps text HIGH */
   max-width: 800px;
-  padding: 100px 20px 0;
+  padding: 0 1rem;
+
+  opacity: 0;
+  animation: fadeUp 1.4s ease-out forwards;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 14px;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  color: #ffffff;
+  margin-bottom: 1rem;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #e6e6e6;
-  margin-bottom: 30px;
+.tagline {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
 }
 
 /* BUTTONS */
-.buttons {
+.hero-buttons {
+  margin-top: 2.5rem;
   display: flex;
-  gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 1.2rem;
+
+  opacity: 0;
+  animation: fadeUp 1.4s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
 .btn {
-  padding: 14px 28px;
-  border-radius: 30px;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #ff9dbb, #9ad7ff);
-  color: #000;
+  background: #f28db2;
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background: #e479a1;
 }
 
 .btn.secondary {
-  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
 }
 
-/* PAGE CONTENT (NON-HOME PAGES) */
-.page {
-  min-height: 100vh;
-  padding: 140px 20px 60px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.page h1 {
-  font-size: 2.4rem;
-  margin-bottom: 16px;
-}
-
-.page p {
-  color: #ddd;
-  font-size: 1.1rem;
+.btn.secondary:hover {
+  background: #ffffff;
 }
 
 /* FOOTER */
 footer {
-  background: #000;
-  padding: 24px;
+  margin-top: auto;
+  width: 100%;
   text-align: center;
+  padding: 1rem 0;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
-  color: #aaa;
+  position: relative;
+  z-index: 2;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
 }
