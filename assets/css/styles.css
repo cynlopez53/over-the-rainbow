@@ -57,15 +57,20 @@ nav a:hover {
 .hero {
   position: relative;
   min-height: 100vh;
+
+  /* push content down from navbar but keep it high enough
+     so it stays in the sky, not over the dogs */
   padding-top: 140px;
+  padding-bottom: 220px; /* extra space so animals at bottom stay clear */
+
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* keep content toward top */
   justify-content: center;
   text-align: center;
 
   background-image: url("../images/rainbow-bridge.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -91,6 +96,9 @@ nav a:hover {
   max-width: 900px;
   padding: 0 24px;
 
+  /* keep content vertically high so it never drops onto dogs */
+  margin-top: 0;
+  transform: translateY(-40px); /* lift text slightly into sky */
   animation: fadeUp 1.2s ease-out forwards;
 }
 
@@ -111,7 +119,7 @@ nav a:hover {
 }
 
 /* =========================
-   BUTTONS (NO RAW LINKS)
+   BUTTONS
 ========================= */
 .hero-buttons {
   display: flex;
@@ -175,4 +183,27 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.85rem;
+}
+
+/* =========================
+   RESPONSIVE TWEAKS
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 260px; /* more bottom space on tall phones */
+    background-position: center bottom;
+  }
+
+  .hero-content {
+    transform: translateY(-20px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }
