@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memorial Builder – Over the Rainbow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tribute-wall.html">Tribute Wall</a></li>
+    <li><a href="assets/customize.html">Customize</a></li>
+    <li><a href="shop.html">Virtual Shop</a></li>
+    <li><a href="healing-agent.html">Healing Agent</a></li>
+    <li><a href="memorial-builder.html" class="active">Memorial Builder</a></li>
+  </ul>
+</nav>
+
+<div class="page-container">
+  <h1 class="page-title">Memorial Builder</h1>
+  <p class="page-subtitle">
+    Create a personalized memorial for your pet.
+  </p>
+
+  <form id="memorial-form" class="soft-form">
+    <div class="form-row">
+      <label for="petName">Pet Name</label>
+      <input type="text" id="petName" required>
+    </div>
+    <div class="form-row">
+      <label for="petType">Pet Type</label>
+      <input type="text" id="petType" placeholder="e.g., Dog, Cat">
+    </div>
+    <div class="form-row">
+      <label for="birthDate">Birth Date</label>
+      <input type="date" id="birthDate">
+    </div>
+    <div class="form-row">
+      <label for="passingDate">Passing Date</label>
+      <input type="date" id="passingDate">
+    </div>
+    <div class="form-row">
+      <label for="message">Memorial Message</label>
+      <textarea id="message" placeholder="Share memories..."></textarea>
+    </div>
+    <button type="submit" class="btn">Build Memorial</button>
+  </form>
+
+  <div id="memorial-preview" style="display: none;">
+    <h2>Your Memorial</h2>
+    <div id="memorial-content"></div>
+  </div>
+</div>
+
+<script src="assets/js/memorial-builder.js"></script>
+</body>
+</html>
