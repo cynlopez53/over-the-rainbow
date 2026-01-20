@@ -15,12 +15,8 @@ html, body {
 body {
   color: #ffffff;
 
-  /* FULL PAGE BACKGROUND */
-  background-image: url("../images/rainbow-bridge.jpg");
-  background-size: contain; /* Changed from cover to prevent cutoff */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  /* FULL PAGE BACKGROUND - positioned to show sky/bridge area */
+  background: url("../images/rainbow-bridge.jpg") top center/cover no-repeat fixed;
 }
 
 /* =========================
@@ -64,14 +60,15 @@ nav a:hover {
   position: relative;
   min-height: 100vh;
 
-  /* FIXED: give space under navbar */
-  padding-top: 220px;
-  padding-bottom: 500px;
+  /* Position text to avoid covering animals - moved further right */
+  padding-top: 80px;
+  padding-bottom: 200px;
+  padding-left: 200px;
 
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 /* LIGHT glow overlay */
@@ -93,10 +90,10 @@ nav a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 600px;
   padding: 0 24px;
 
-  transform: translateY(-40px);
+  /* Removed transform to keep text in better position */
   animation: fadeUp 1.2s ease-out forwards;
 }
 
@@ -188,6 +185,7 @@ footer {
 ========================= */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 260px;
+    padding-top: 140px;
+    padding-left: 20px;
   }
 }

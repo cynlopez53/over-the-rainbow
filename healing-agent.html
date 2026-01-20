@@ -9,7 +9,11 @@
   body {
     margin: 0;
     font-family: system-ui, sans-serif;
-    background: #f7f4fa;
+
+    /* FULL PAGE BACKGROUND — FIXED PATH */
+    background: #f7f4fa url("assets/images/rainbow-bridge.jpeg")
+                center/cover no-repeat fixed;
+
     color: #333;
   }
 
@@ -17,6 +21,9 @@
     background: #ffffff;
     padding: 14px 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   nav ul {
