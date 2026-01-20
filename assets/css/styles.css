@@ -15,9 +15,9 @@ html, body {
 body {
   color: #ffffff;
 
-  /* FULL PAGE BACKGROUND - show entire image without cutoff */
-  background: #f7f4fa url("assets/images/rainbow-bridge.jpeg") center/cover no-repeat fixed;
-
+  /* FULL PAGE BACKGROUND */
+  background: url("assets/images/rainbow-bridge.jpeg") center/cover no-repeat fixed;
+}
 
 /* =========================
    NAVBAR
@@ -60,15 +60,16 @@ nav a:hover {
   position: relative;
   min-height: 150vh;
 
-  /* Position text away from animals - right side */
-  padding-top: 100px;
-  padding-bottom: 800px;
+  /* CENTER the text instead of pushing right */
+  padding-top: 160px;
+  padding-bottom: 300px;
 
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
-  text-align: right;
-  padding-right: 80px;
+  justify-content: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* LIGHT glow overlay */
@@ -90,9 +91,8 @@ nav a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 500px;
+  max-width: 700px;
   padding: 0 24px;
-
   animation: fadeUp 1.2s ease-out forwards;
 }
 
@@ -105,7 +105,8 @@ nav a:hover {
 
 .hero p {
   font-size: 1.15rem;
-  max-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
   line-height: 1.6;
   color: rgba(255,255,255,0.92);
   text-shadow: 0 3px 10px rgba(0,0,0,0.25);
@@ -119,6 +120,7 @@ nav a:hover {
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .hero-buttons a {
@@ -146,8 +148,6 @@ nav a:hover {
 .btn-secondary {
   background: rgba(255,255,255,0.95);
   color: #333;
-.page-wrap {
-  background: transparent;
 }
 
 .btn-secondary:hover {
@@ -184,7 +184,6 @@ footer {
 ========================= */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 140px;
-    padding-left: 20px;
+    padding-top: 200px;
   }
 }
