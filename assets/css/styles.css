@@ -146,6 +146,8 @@ nav a:hover {
 .btn-secondary {
   background: rgba(255,255,255,0.95);
   color: #333;
+.page-wrap {
+  background: transparent;
 }
 
 .btn-secondary:hover {
