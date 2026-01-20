@@ -16,8 +16,8 @@ body {
   color: #ffffff;
 
   /* FULL PAGE BACKGROUND - show entire image without cutoff */
-  background: url("../images/rainbow-bridge.jpg") center/contain no-repeat fixed;
-}
+  background: #f7f4fa url("assets/images/rainbow-bridge.jpeg") center/cover no-repeat fixed;
+
 
 /* =========================
    NAVBAR
