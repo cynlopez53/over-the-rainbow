@@ -58,18 +58,17 @@ nav a:hover {
 ========================= */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 150vh;
 
-  /* Position text to avoid covering animals - more bottom padding */
+  /* Position text away from animals - right side */
   padding-top: 100px;
-  padding-bottom: 400px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-bottom: 800px;
 
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  justify-content: flex-end;
+  text-align: right;
+  padding-right: 80px;
 }
 
 /* LIGHT glow overlay */
@@ -91,10 +90,9 @@ nav a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
+  max-width: 500px;
   padding: 0 24px;
 
-  /* Removed transform to keep text in better position */
   animation: fadeUp 1.2s ease-out forwards;
 }
 
@@ -107,8 +105,7 @@ nav a:hover {
 
 .hero p {
   font-size: 1.15rem;
-  max-width: 640px;
-  margin: 0 auto 36px auto;
+  max-width: 500px;
   line-height: 1.6;
   color: rgba(255,255,255,0.92);
   text-shadow: 0 3px 10px rgba(0,0,0,0.25);
