@@ -63,7 +63,7 @@ form.addEventListener("submit", function (e) {
 
   preview.innerHTML = `
     <div class="headstone-preview">
-      <img src="assets/images/${selectedStyle}.jpg" 
+      <img src="assets/images/${selectedStyle === 'style1' ? 'black.jpg' : 'rose.jpg'}" 
            alt="Selected Headstone Style">
 
       ${photoHtml}

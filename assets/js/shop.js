@@ -7,8 +7,7 @@ const itemPrices = {
   "candle": 3,
   "heart": 1,
   "wings": 4,
-  "headstone-style2": 10,
-  "headstone-style3": 15
+  "headstone-style2": 10
 };
 
 document.querySelectorAll(".shop-btn").forEach(btn => {
