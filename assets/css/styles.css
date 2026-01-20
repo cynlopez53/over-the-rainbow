@@ -64,8 +64,8 @@ nav a:hover {
   position: relative;
   min-height: 100vh;
 
-  /* keep content high in the sky */
-  padding-top: 200px;
+  /* FIXED: give space under navbar */
+  padding-top: 220px;
   padding-bottom: 500px;
 
   display: flex;
@@ -186,4 +186,8 @@ footer {
 /* =========================
    RESPONSIVE TWEAKS
 ========================= */
-/* Add any mobile adjustments here */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 260px;
+  }
+}
