@@ -15,8 +15,8 @@ html, body {
 body {
   color: #ffffff;
 
-  /* FULL PAGE BACKGROUND - positioned to show sky/bridge area */
-  background: url("../images/rainbow-bridge.jpg") top center/cover no-repeat fixed;
+  /* FULL PAGE BACKGROUND - show entire image without cutoff */
+  background: url("../images/rainbow-bridge.jpg") center/contain no-repeat fixed;
 }
 
 /* =========================
@@ -60,10 +60,11 @@ nav a:hover {
   position: relative;
   min-height: 100vh;
 
-  /* Position text to avoid covering animals - moved further right */
-  padding-top: 80px;
-  padding-bottom: 200px;
-  padding-left: 200px;
+  /* Position text to avoid covering animals - more bottom padding */
+  padding-top: 100px;
+  padding-bottom: 400px;
+  padding-left: 60px;
+  padding-right: 60px;
 
   display: flex;
   align-items: flex-start;
