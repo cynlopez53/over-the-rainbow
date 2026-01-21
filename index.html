@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Over the Rainbow</title>
     <style>
-        /* 1. Page Background */
+        /* 1. Page-wide settings for the wallpaper */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            /* Update this path if your image folder name is different */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-image: url('assets/images/rainbow-bridge.jpg') !important;
             background-size: cover;
             background-position: center;
@@ -21,62 +20,71 @@
             flex-direction: column;
         }
 
-        /* 2. Navigation Styling */
+        /* 2. REMOVING THE WHITE BOX: This makes the center area totally clear */
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 40px;
+            text-align: center;
+            /* These lines delete the white frosted box from your screen */
+            background: transparent !important; 
+            backdrop-filter: none !important;    
+            box-shadow: none !important;        
+            border: none !important;
+        }
+
+        /* 3. DARK LAVENDER TEXT: Making it bold and readable */
+        h1, p, nav ul li a, footer {
+            color: #5D3FD3 !important; /* This is a rich Dark Lavender / Iris color */
+            /* This shadow makes the lavender text readable against the bright sky */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9); 
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        /* 4. Navigation & Footer: Keeping them clean and matching */
         nav ul {
             list-style-type: none;
-            padding: 20px;
             margin: 0;
-            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            background: transparent !important;
             display: flex;
             justify-content: center;
         }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+        nav ul li { margin: 0 15px; }
 
         nav ul li a {
             text-decoration: none;
-            color: #4a4e69;
             font-weight: bold;
         }
 
-        /* 3. Main Content (See-through for the Bridge Image) */
-        main {
-            flex: 1;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 40px;
+        footer {
             text-align: center;
-            /* 0.6 makes the box semi-transparent so the bridge shows through */
-            background: rgba(255, 255, 255, 0.6); 
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            background: transparent !important;
         }
 
-        h1 {
-            color: #2d3436;
-            font-size: 2.5em;
-        }
-
-        /* 4. Action Buttons */
+        /* 5. Buttons: Optional styling to match the lavender theme */
         .buttons a {
             display: inline-block;
             padding: 12px 25px;
             margin: 10px;
-            background-color: #a2d2ff;
+            background-color: #5D3FD3; /* Matches text */
+            color: white !important;
             text-decoration: none;
-            color: #2d3436;
             border-radius: 30px;
             font-weight: bold;
-        }
-
-        /* 5. Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
+            text-shadow: none; /* No shadow on the solid buttons */
         }
     </style>
 </head>
