@@ -1,38 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Welcome to Over the Rainbow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Over the Rainbow</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Corrected wallpaper implementation */
+            background-image: url('rainbow-bridge.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Menu */
+        nav ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a4e69;
+            font-weight: bold;
+        }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            text-align: center;
+            /* Semi-transparent background for readability */
+            background: rgba(255, 255, 255, 0.75); 
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2d3436;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Action Buttons */
+        .buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            background-color: #a2d2ff;
+            text-decoration: none;
+            color: #2d3436;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .buttons a:hover {
+            background-color: #bde0fe;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="tribute-wall.html">Tribute Wall</a></li>
-      <li><a href="assets/customize.html">Customize</a></li>
-      <li><a href="shop.html">Virtual Shop</a></li>
-      <li><a href="healing-agent.html">Healing Agent</a></li>
-      <li><a href="memorial-builder.html">Memorial Builder</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="assets/customize.html">Customize</a></li>
+            <li><a href="virtual-shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Over the Rainbow</h1>
-      <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
-      <div class="hero-buttons">
-        <a href="tribute-wall.html" class="btn-primary">Create a Tribute</a>
-        <a href="healing-agent.html" class="btn-secondary">Find Comfort</a>
-      </div>
-    </div>
-  </section>
+    <main>
+        <h1>Welcome to Over the Rainbow</h1>
+        <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
+        
+        <div class="buttons">
+            <a href="tribute-wall.html">Create a Tribute</a>
+            <a href="healing-agent.html">Find Comfort</a>
+        </div>
+    </main>
 
-  <footer>
-    © 2026 Over the Rainbow.
-  </footer>
+    <footer>
+        &copy; 2026 Over the Rainbow.
+    </footer>
 
 </body>
 </html>
