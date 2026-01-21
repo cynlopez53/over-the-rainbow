@@ -1,8 +1,9 @@
-/* 1. Page Background & Layout */
+/* 1. This keeps your wallpaper and clears the layout */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Ensure the path to your image folder is correct */
     background-image: url('assets/images/rainbow-bridge.jpg') !important;
     background-size: cover;
     background-position: center;
@@ -13,36 +14,49 @@ body {
     flex-direction: column;
 }
 
-/* 2. Remove the White Box */
+/* 2. REMOVE THE WHITE BOX: We set everything to transparent */
 main {
     flex: 1;
-    max-width: 800px;
-    margin: 100px auto; /* Adjusted margin to center text better */
+    max-width: 900px;
+    margin: 80px auto;
     padding: 40px;
     text-align: center;
-    /* Background set to transparent removes the white box */
+    /* This section removes the white frosted look you see on the screen */
     background: transparent !important; 
-    box-shadow: none !important; /* Removes the shadow around the old box */
+    backdrop-filter: none !important;    
+    box-shadow: none !important;        
+    border: none !important;
 }
 
-/* 3. Dark Lavender Text */
+/* 3. DARK LAVENDER TEXT: Making it pop against the bridge */
 h1, p {
-    color: #7367f0 !important; /* A rich dark lavender hex code */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Helps text pop against the bridge */
+    color: #5D3FD3 !important; /* A beautiful dark Iris/Lavender color */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Adds a soft white glow so you can read it */
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: bold;
+    font-size: 3.5em;
+    margin-bottom: 10px;
 }
 
-/* 4. Navigation & Footer (Optional adjustment for style) */
+p {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+/* 4. Navigation and Footer: Making them blend in */
 nav ul, footer {
-    background: rgba(255, 255, 255, 0.3) !important; /* Makes these bars very subtle */
+    background: transparent !important;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #7367f0;
+    color: #5D3FD3;
     font-weight: bold;
+}
+
+footer {
+    color: #5D3FD3;
+    padding: 20px;
+    text-align: center;
 }
