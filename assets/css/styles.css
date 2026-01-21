@@ -1,24 +1,25 @@
-/* General Page Styling */
+/* 1. Global Styles and Wallpaper */
 body {
-    font-family: 'Arial', sans-serif;
-   body {
     margin: 0;
     padding: 0;
-    /* Updated path to point to the assets/images folder */
-    background-image: url('assets/images/rainbow-bridge.jpg') !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* This points to your image folder */
+    background-image: url('assets/images/rainbow-bridge.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Navigation Menu */
+/* 2. Navigation Menu */
 nav ul {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    margin: 0;
     list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     display: flex;
     justify-content: center;
 }
@@ -29,50 +30,57 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: #4a4e69;
     font-weight: bold;
 }
 
-/* Main Content Area */
+/* 3. Main Content Container */
 main {
+    flex: 1;
     max-width: 800px;
     margin: 50px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.7); /* Makes text readable over the image */
-    border-radius: 15px;
+    padding: 40px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    /* Transparent background so the bridge image shows through */
+    background-color: rgba(255, 255, 255, 0.6); 
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #4a4e69;
+    color: #2d3436;
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-/* Buttons */
+p {
+    font-size: 1.1em;
+    color: #636e72;
+    margin-bottom: 30px;
+}
+
+/* 4. Action Buttons */
 .buttons a {
     display: inline-block;
-    background-color: #98c1d9;
-    color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     margin: 10px;
+    background-color: #a2d2ff;
     text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.3s;
+    color: #2d3436;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .buttons a:hover {
-    background-color: #3d5a80;
+    background-color: #bde0fe;
 }
 
-/* Footer */
+/* 5. Footer */
 footer {
     text-align: center;
     padding: 20px;
-    font-size: 0.9em;
-    color: #666;
     background-color: rgba(255, 255, 255, 0.8);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
- 
-  }
+    font-size: 0.9em;
+    color: #636e72;
+}

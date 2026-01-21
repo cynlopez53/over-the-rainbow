@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Over the Rainbow</title>
     <style>
-        /* General Page Styling */
+        /* 1. Page Background */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            /* Corrected wallpaper implementation */
-            background-image: url('rainbow-bridge.jpg');
+            /* Update this path if your image folder name is different */
+            background-image: url('assets/images/rainbow-bridge.jpg') !important;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -22,7 +21,7 @@
             flex-direction: column;
         }
 
-        /* Navigation Menu */
+        /* 2. Navigation Styling */
         nav ul {
             list-style-type: none;
             padding: 20px;
@@ -42,15 +41,15 @@
             font-weight: bold;
         }
 
-        /* Main Content Container */
+        /* 3. Main Content (See-through for the Bridge Image) */
         main {
             flex: 1;
             max-width: 800px;
             margin: 50px auto;
             padding: 40px;
             text-align: center;
-            /* Semi-transparent background for readability */
-            background: rgba(255, 255, 255, 0.75); 
+            /* 0.6 makes the box semi-transparent so the bridge shows through */
+            background: rgba(255, 255, 255, 0.6); 
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
@@ -60,12 +59,7 @@
             font-size: 2.5em;
         }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        /* Action Buttons */
+        /* 4. Action Buttons */
         .buttons a {
             display: inline-block;
             padding: 12px 25px;
@@ -75,15 +69,9 @@
             color: #2d3436;
             border-radius: 30px;
             font-weight: bold;
-            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .buttons a:hover {
-            background-color: #bde0fe;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
+        /* 5. Footer */
         footer {
             text-align: center;
             padding: 20px;
