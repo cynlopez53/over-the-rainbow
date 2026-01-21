@@ -1,15 +1,51 @@
 /* 1. Global Page Setup */
+/* 1. Page Background & Layout */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    /* The '!important' forces the browser to use this image path */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url('assets/images/rainbow-bridge.jpg') !important;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Remove the White Box */
+main {
+    flex: 1;
+    max-width: 800px;
+    margin: 100px auto; /* Adjusted margin to center text better */
+    padding: 40px;
+    text-align: center;
+    /* Background set to transparent removes the white box */
+    background: transparent !important; 
+    box-shadow: none !important; /* Removes the shadow around the old box */
+}
+
+/* 3. Dark Lavender Text */
+h1, p {
+    color: #7367f0 !important; /* A rich dark lavender hex code */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Helps text pop against the bridge */
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* 4. Navigation & Footer (Optional adjustment for style) */
+nav ul, footer {
+    background: rgba(255, 255, 255, 0.3) !important; /* Makes these bars very subtle */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #7367f0;
+    font-weight: bold;
 }
 
 /* 2. THE FIX: Making the white box see-through */
