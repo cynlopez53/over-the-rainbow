@@ -1,60 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Memorial Builder – Over the Rainbow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorial Builder - Over the Rainbow</title>
+    <style>
+        /* 1. Page Background & Layout */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Points to the image folder */
+            background-image: url('assets/images/rainbow-bridge.jpg') !important;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 2. Navigation Styling */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2); 
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li { margin: 0 15px; }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5D3FD3 !important; /* Dark Lavender */
+            font-weight: bold;
+        }
+
+        /* 3. Main Content (Centered & Transparent) */
+        main {
+            flex: 1;
+            max-width: 600px;
+            margin: 40px auto; 
+            padding: 30px;
+            text-align: center;
+            background: transparent !important;
+        }
+
+        h1, p, label {
+            color: #5D3FD3 !important; /* Dark Lavender */
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        /* 4. Form Styling for the screen */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .form-group {
+            width: 100%;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #5D3FD3;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            background-color: #5D3FD3;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tribute-wall.html">Tribute Wall</a></li>
-    <li><a href="assets/customize.html">Customize</a></li>
-    <li><a href="shop.html">Virtual Shop</a></li>
-    <li><a href="healing-agent.html">Healing Agent</a></li>
-    <li><a href="memorial-builder.html" class="active">Memorial Builder</a></li>
-  </ul>
-</nav>
+    <nav>
+        <ul>
+            <li>[Home](index.html)</li>
+            <li>[Tribute Wall](tribute-wall.html)</li>
+            <li>[Customize](assets/customize.html)</li>
+            <li>[Virtual Shop](virtual-shop.html)</li>
+            <li>[Healing Agent](healing-agent.html)</li>
+            <li>[Memorial Builder](memorial-builder.html)</li>
+        </ul>
+    </nav>
 
-<div class="page-container">
-  <h1 class="page-title">Memorial Builder</h1>
-  <p class="page-subtitle">
-    Create a personalized memorial for your pet.
-  </p>
+    <main>
+        <h1>Memorial Builder</h1>
+        <p>Create a personalized memorial for your pet.</p>
 
-  <form id="memorial-form" class="soft-form">
-    <div class="form-row">
-      <label for="petName">Pet Name</label>
-      <input type="text" id="petName" required>
-    </div>
-    <div class="form-row">
-      <label for="petType">Pet Type</label>
-      <input type="text" id="petType" placeholder="e.g., Dog, Cat">
-    </div>
-    <div class="form-row">
-      <label for="birthDate">Birth Date</label>
-      <input type="date" id="birthDate">
-    </div>
-    <div class="form-row">
-      <label for="passingDate">Passing Date</label>
-      <input type="date" id="passingDate">
-    </div>
-    <div class="form-row">
-      <label for="message">Memorial Message</label>
-      <textarea id="message" placeholder="Share memories..."></textarea>
-    </div>
-    <button type="submit" class="btn">Build Memorial</button>
-  </form>
+        <form>
+            <div class="form-group">
+                <label for="petName">Pet Name</label>
+                <input type="text" id="petName" placeholder="Enter your pet's name">
+            </div>
 
-  <div id="memorial-preview" style="display: none;">
-    <h2>Your Memorial</h2>
-    <div id="memorial-content"></div>
-  </div>
-</div>
+            <div class="form-group">
+                <label for="petType">Pet Type</label>
+                <input type="text" id="petType" placeholder="e.g., Dog, Cat, Bird">
+            </div>
 
-<script src="assets/js/memorial-builder.js"></script>
+            <div class="form-group">
+                <label for="birthDate">Birth Date</label>
+                <input type="date" id="birthDate">
+            </div>
+
+            <div class="form-group">
+                <label for="passingDate">Passing Date</label>
+                <input type="date" id="passingDate">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Memorial Message</label>
+                <textarea id="message" rows="4" placeholder="Share a special memory..."></textarea>
+            </div>
+
+            <button type="button">Build Memorial</button>
+        </form>
+    </main>
+
 </body>
 </html>

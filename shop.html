@@ -1,58 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Virtual Shop – Over the Rainbow</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Wall - Over the Rainbow</title>
+    <style>
+        /* 1. Global Setup with Wallpaper */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('assets/images/rainbow-bridge.jpg') !important;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        /* 2. Navigation Styling */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2); 
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li { margin: 0 15px; }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5D3FD3 !important;
+            font-weight: bold;
+        }
+
+        /* 3. Main Content (Centered & Transparent) */
+        main {
+            max-width: 800px;
+            margin: 40px auto; 
+            padding: 30px;
+            text-align: center;
+            background: transparent !important;
+        }
+
+        h1, p {
+            color: #5D3FD3 !important;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        /* 4. Tribute Card Styling */
+        .tribute-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tribute-card {
+            background: rgba(255, 255, 255, 0.5); /* Very see-through */
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #5D3FD3;
+            text-align: left;
+            color: #5D3FD3;
+        }
+    </style>
 </head>
-
 <body>
-
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tribute-wall.html">Tribute Wall</a></li>
-    <li><a href="assets/customize.html">Customize</a></li>
-    <li><a href="shop.html" class="active">Virtual Shop</a></li>
-    <li><a href="healing-agent.html">Healing Agent</a></li>
-    <li><a href="memorial-builder.html">Memorial Builder</a></li>
-  </ul>
-</nav>
-
-<div class="page-container">
-
-  <h1 class="page-title">Choose a Memorial Token</h1>
-  <p class="page-subtitle">
-    These virtual items are symbolic offerings you can place on your pet's tribute.
-  </p>
-
-  <div id="token-shop" class="shop-grid"></div>
-
-</div>
-
-<script type="module">
-  import tributeTokens from "./assets/js/tribute_tokens.js";
-
-  const container = document.getElementById("token-shop");
-
-  tributeTokens.forEach(token => {
-    const item = document.createElement("div");
-    item.classList.add("shop-item");
-
-    item.innerHTML = `
-      <img src="${token.img}" alt="${token.name}">
-      <h3>${token.name}</h3>
-      <p class="price">$${token.price}</p>
-      <button class="btn shop-btn" data-item="${token.id}">
-        Add to Tribute
-      </button>
-    `;
-
-    container.appendChild(item);
-  });
-</script>
-
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="assets/customize.html">Customize</a></li>
+            <li><a href="virtual-shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Tribute Wall</h1>
+        <p>A place for love, memories, and shared stories.</p>
+        <div class="tribute-container">
+            <div class="tribute-card">
+                <strong>Max (2010-2024)</strong>
+                <p>"The best companion anyone could ask for. We miss your wagging tail every day."</p>
+            </div>
+            <div class="tribute-card">
+                <strong>Bella</strong>
+                <p>"You brought so much sunshine into our lives. Rest easy, sweet girl."</p>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
-
