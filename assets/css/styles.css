@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-image: url('assets/images/rainbow-bridge.jpg');
+  background-image: url('../images/rainbow-bridge.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
