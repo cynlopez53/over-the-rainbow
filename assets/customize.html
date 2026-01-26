@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customize – Over the Rainbow</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Tribute</title>
+
+    <!-- Correct CSS path for a file inside /assets/ -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
+
 <body>
 
-<nav>
-  <ul>
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="../tribute-wall.html">Tribute Wall</a></li>
-    <li><a href="customize.html" class="active">Customize</a></li>
-    <li><a href="../shop.html">Virtual Shop</a></li>
-    <li><a href="../healing-agent.html">Healing Agent</a></li>
-    <li><a href="../memorial-builder.html">Memorial Builder</a></li>
-  </ul>
-</nav>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="../shop.html">Virtual Shop</a></li>
+            <li><a href="../healing-agent.html">Healing Agent</a></li>
+            <li><a href="../memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
 
-<main class="page">
-  <h1>Customize Your Memorial</h1>
-  <p>Create a memorial space as unique as the bond you shared.</p>
+    <main>
+        <h1>Customize Your Tribute</h1>
+        <p>Create a personalized headstone or memorial design for your beloved pet.</p>
 
-  <form id="customize-form" class="soft-form">
-    <div class="form-row">
-      <label for="backgroundColor">Background Color</label>
-      <input type="color" id="backgroundColor" value="#f0f0f0">
-    </div>
-    <div class="form-row">
-      <label for="textColor">Text Color</label>
-      <input type="color" id="textColor" value="#333">
-    </div>
-    <div class="form-row">
-      <label for="font">Font</label>
-      <select id="font">
-        <option value="Arial">Arial</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Times New Roman">Times New Roman</option>
-      </select>
-    </div>
-    <button type="button" id="apply-customization" class="btn">Apply Changes</button>
-  </form>
+        <form id="customizeForm">
+            <label for="petName">Pet's Name</label>
+            <input type="text" id="petName" placeholder="Enter your pet's name">
 
-  <div id="preview" style="border: 1px solid #ccc; padding: 20px; margin-top: 20px;">
-    <h2>Preview</h2>
-    <p>This is how your memorial will look.</p>
-  </div>
-</main>
+            <label for="dates">Dates (optional)</label>
+            <input type="text" id="dates" placeholder="e.g., 2012 – 2024">
 
-<footer>© 2026 Over the Rainbow</footer>
+            <label for="message">Short Message</label>
+            <textarea id="message" rows="4" placeholder="Write a short loving message"></textarea>
 
-<script>
-document.getElementById('apply-customization').addEventListener('click', function() {
-  const bgColor = document.getElementById('backgroundColor').value;
-  const textColor = document.getElementById('textColor').value;
-  const font = document.getElementById('font').value;
-  
-  const preview = document.getElementById('preview');
-  preview.style.backgroundColor = bgColor;
-  preview.style.color = textColor;
-  preview.style.fontFamily = font;
-});
-</script>
+            <label for="symbol">Choose a Symbol</label>
+            <select id="symbol">
+                <option value="🌈">Rainbow</option>
+                <option value="⭐">Star</option>
+                <option value="🐾">Paw Prints</option>
+                <option value="🕊️">Dove</option>
+                <option value="🌙">Moon</option>
+            </select>
+
+            <button type="button" onclick="generatePreview()">Generate Preview</button>
+        </form>
+
+        <div id="previewOutput"></div>
+    </main>
+
+    <footer>
+        &copy; 2026 Over the Rainbow.
+    </footer>
+
+    <script>
+        function generatePreview() {
+            const name = document.getElementById("petName").value.trim();
+            const dates = document.getElementById("dates").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const symbol = document.getElementById("symbol").value;
+
+            if (!name) {
+                alert("Please enter your pet's name.");
+                return;
+            }
+
+            const output = `
+                <div style="padding: 20px; background: rgba(255,255,255,0.1); border-radius: 12px; margin-top: 30px;">
+                    <h2>${symbol} ${name} ${symbol}</h2>
+                    ${dates ? `<p><strong>${dates}</strong></p>` : ""}
+                    <p>${message}</p>
+                </div>
+            `;
+
+            document.getElementById("previewOutput").innerHTML = output;
+        }
+    </script>
 
 </body>
 </html>
