@@ -1,144 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorial Builder - Over the Rainbow</title>
-    <style>
-        /* 1. Page Background & Layout */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Points to the image folder */
-            background-image: url('assets/images/rainbow-bridge.jpg') !important;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+<nav>
+  <a href="index.html">Home</a>
+  <a href="tribute-wall.html">Tribute Wall</a>
+  <a href="customize.html">Customize</a>
+  <a href="virtual-shop.html">Virtual Shop</a>
+  <a href="healing-agent.html">Healing Agent</a>
+  <a href="memorial-builder.html">Memorial Builder</a>
+</nav>
 
-        /* 2. Navigation Styling */
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.2); 
-            display: flex;
-            justify-content: center;
-        }
+<h1>Memorial Builder</h1>
+<p style="text-align:center;">Create a personalized memorial for your pet.</p>
 
-        nav ul li { margin: 0 15px; }
+<form id="memorialForm">
+  <label>Pet Name</label>
+  <input id="petName" type="text" required>
 
-        nav ul li a {
-            text-decoration: none;
-            color: #5D3FD3 !important; /* Dark Lavender */
-            font-weight: bold;
-        }
+  <label>Pet Type</label>
+  <input id="petType" type="text" required>
 
-        /* 3. Main Content (Centered & Transparent) */
-        main {
-            flex: 1;
-            max-width: 600px;
-            margin: 40px auto; 
-            padding: 30px;
-            text-align: center;
-            background: transparent !important;
-        }
+  <label>Birth Date</label>
+  <input id="birthDate" type="date" required>
 
-        h1, p, label {
-            color: #5D3FD3 !important; /* Dark Lavender */
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
-        }
+  <label>Passing Date</label>
+  <input id="passingDate" type="date" required>
 
-        /* 4. Form Styling for the screen */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
+  <label>Memorial Message</label>
+  <textarea id="memorialMessage" rows="4" required></textarea>
 
-        .form-group {
-            width: 100%;
-            text-align: left;
-        }
+  <button type="submit">Build Memorial</button>
+</form>
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+<div id="memorialOutput"></div>
 
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #5D3FD3;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.8);
-        }
+<footer>© 2026 Over the Rainbow</footer>
 
-        button {
-            background-color: #5D3FD3;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
+<script>
+document.getElementById("memorialForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    <nav>
-        <ul>
-            <li>[Home](index.html)</li>
-            <li>[Tribute Wall](tribute-wall.html)</li>
-            <li>[Customize](assets/customize.html)</li>
-            <li>[Virtual Shop](virtual-shop.html)</li>
-            <li>[Healing Agent](healing-agent.html)</li>
-            <li>[Memorial Builder](memorial-builder.html)</li>
-        </ul>
-    </nav>
+  const name = document.getElementById("petName").value;
+  const type = document.getElementById("petType").value;
+  const birth = document.getElementById("birthDate").value;
+  const passing = document.getElementById("passingDate").value;
+  const message = document.getElementById("memorialMessage").value;
 
-    <main>
-        <h1>Memorial Builder</h1>
-        <p>Create a personalized memorial for your pet.</p>
+  const tribute = `
+    <h2>🌈 Memorial for ${name}</h2>
+    <p><strong>Type:</strong> ${type}</p>
+    <p><strong>Born:</strong> ${birth}</p>
+    <p><strong>Passed:</strong> ${passing}</p>
+    <p><em>${message}</em></p>
+  `;
 
-        <form>
-            <div class="form-group">
-                <label for="petName">Pet Name</label>
-                <input type="text" id="petName" placeholder="Enter your pet's name">
-            </div>
-
-            <div class="form-group">
-                <label for="petType">Pet Type</label>
-                <input type="text" id="petType" placeholder="e.g., Dog, Cat, Bird">
-            </div>
-
-            <div class="form-group">
-                <label for="birthDate">Birth Date</label>
-                <input type="date" id="birthDate">
-            </div>
-
-            <div class="form-group">
-                <label for="passingDate">Passing Date</label>
-                <input type="date" id="passingDate">
-            </div>
-
-            <div class="form-group">
-                <label for="message">Memorial Message</label>
-                <textarea id="message" rows="4" placeholder="Share a special memory..."></textarea>
-            </div>
-
-            <button type="button">Build Memorial</button>
-        </form>
-    </main>
-
-</body>
-</html>
+  document.getElementById("memorialOutput").innerHTML = tribute;
+});
+</script>

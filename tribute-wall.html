@@ -59,7 +59,7 @@
         }
 
         .tribute-card {
-            background: rgba(255, 255, 255, 0.5); /* Very see-through */
+            background: rgba(255, 255, 255, 0.5);
             padding: 20px;
             border-radius: 15px;
             border-left: 5px solid #5D3FD3;
@@ -68,6 +68,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <ul>
@@ -79,19 +80,35 @@
             <li><a href="memorial-builder.html">Memorial Builder</a></li>
         </ul>
     </nav>
+
     <main>
         <h1>Tribute Wall</h1>
         <p>A place for love, memories, and shared stories.</p>
-        <div class="tribute-container">
-            <div class="tribute-card">
-                <strong>Max (2010-2024)</strong>
-                <p>"The best companion anyone could ask for. We miss your wagging tail every day."</p>
-            </div>
-            <div class="tribute-card">
-                <strong>Bella</strong>
-                <p>"You brought so much sunshine into our lives. Rest easy, sweet girl."</p>
-            </div>
-        </div>
+
+        <!-- This is where tributes will appear -->
+        <div id="tributeWall" class="tribute-container"></div>
     </main>
+
+    <script>
+    function loadTributes() {
+        const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
+        const wall = document.getElementById("tributeWall");
+
+        wall.innerHTML = ""; // Clear placeholder examples
+
+        tributes.forEach(t => {
+            const entry = document.createElement("div");
+            entry.className = "tribute-card";
+            entry.innerHTML = `
+                <strong>${t.name} (${t.birth} – ${t.passing})</strong>
+                <p><strong>Type:</strong> ${t.type}</p>
+                <p>${t.message}</p>
+            `;
+            wall.appendChild(entry);
+        });
+    }
+
+    loadTributes();
+    </script>
 </body>
 </html>
