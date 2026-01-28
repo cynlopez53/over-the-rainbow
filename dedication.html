@@ -15,7 +15,7 @@
       <a href="tribute-wall.html">Tribute Wall</a>
       <a href="shop.html">Virtual Shop</a>
       <a href="donate.html">Donations</a>
-      <a href="dedication.html">My Dogs</a>
+      <a href="dedication.html" aria-current="page">My Dogs</a>
       <a href="support.html">Support</a>
       <a href="signup.html">Healing Agent</a>
     </nav>
@@ -87,6 +87,9 @@
     <p>&copy; <span id="year"></span> Over the Rainbow.</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -24,12 +24,12 @@
   <div class="container">
     <h1>Admin – Healing Conversations</h1>
     
-    <div class="login-form">
-      <label>Admin Password:</label><br><br>
+    <form class="login-form" onsubmit="login(event)">
+      <label for="password">Admin Password:</label><br><br>
       <input id="password" type="password" placeholder="Enter admin password" />
-      <button onclick="login()">Load Conversations</button>
-      <div id="status"></div>
-    </div>
+      <button type="submit">Load Conversations</button>
+      <div id="status" aria-live="polite"></div>
+    </form>
 
     <div id="conversations-container" style="display: none;">
       <h2>All Sessions (<span id="total">0</span>)</h2>
@@ -43,7 +43,8 @@
     const container = document.getElementById('conversations-container');
     const totalSpan = document.getElementById('total');
 
-    async function login() {
+    async function login(event) {
+      if (event) event.preventDefault();
       const password = document.getElementById('password').value;
       if (!password) { statusDiv.textContent = '❌ Enter a password'; statusDiv.className = 'error'; return; }
 
