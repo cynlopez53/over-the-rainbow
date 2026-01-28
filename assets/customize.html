@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customize – Over the Rainbow</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
 
@@ -16,8 +16,6 @@
     <li><a href="../shop.html">Virtual Shop</a></li>
     <li><a href="../healing-agent.html">Healing Agent</a></li>
     <li><a href="../memorial-builder.html">Memorial Builder</a></li>
-    <li><a href="dedication.html">Dedication</a></li>
-    <li><a href="donate.html">Donate</a></li>
   </ul>
 </nav>
 
@@ -28,15 +26,15 @@
   <form id="customize-form" class="soft-form">
     <div class="form-row">
       <label for="backgroundColor">Background Color</label>
-      <input type="color" id="backgroundColor" name="backgroundColor" value="#f0f0f0">
+      <input type="color" id="backgroundColor" value="#f0f0f0">
     </div>
     <div class="form-row">
       <label for="textColor">Text Color</label>
-      <input type="color" id="textColor" name="textColor" value="#333333">
+      <input type="color" id="textColor" value="#333">
     </div>
     <div class="form-row">
       <label for="font">Font</label>
-      <select id="font" name="font">
+      <select id="font">
         <option value="Arial">Arial</option>
         <option value="Georgia">Georgia</option>
         <option value="Times New Roman">Times New Roman</option>
@@ -51,7 +49,9 @@
   </div>
 </main>
 
-<footer>© 2026 Over the Rainbow</footer>
+<footer>
+  &copy; 2026 Over the Rainbow.
+</footer>
 
 <script>
 document.getElementById('apply-customization').addEventListener('click', function() {
