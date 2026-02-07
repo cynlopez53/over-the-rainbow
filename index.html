@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Over the Rainbow</title>
+
+    <!-- Your external stylesheet MUST be here -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
     <style>
-        /* 1. Page-wide settings for the wallpaper */
         body {
             margin: 0;
             padding: 0;
@@ -20,30 +23,26 @@
             flex-direction: column;
         }
 
-        /* 2. REMOVING THE WHITE BOX: This makes the center area totally clear */
         main {
             flex: 1;
             max-width: 900px;
             margin: 200px auto;
             padding: 40px;
             text-align: center;
-            /* These lines delete the white frosted box from your screen */
-            background: transparent !important; 
-            backdrop-filter: none !important;    
-            box-shadow: none !important;        
+            background: transparent !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
             border: none !important;
         }
 
-        /* 3. DARK LAVENDER TEXT: Making it bold and readable */
         h1, p, nav ul li a, footer {
-            color: #5D3FD3 !important; /* This is a rich Dark Lavender / Iris color */
-            /* This shadow makes the lavender text readable against the bright sky */
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9); 
+            color: #5D3FD3 !important;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
         }
 
         h1 {
             font-size: 2.5em;
-            margin-bottom: 20;
+            margin-bottom: 20px;
         }
 
         p {
@@ -51,7 +50,6 @@
             font-weight: 600;
         }
 
-        /* 4. Navigation & Footer: Keeping them clean and matching */
         nav ul {
             list-style-type: none;
             margin: 0;
@@ -74,48 +72,16 @@
             background: transparent !important;
         }
 
-        /* 5. Buttons: Optional styling to match the lavender theme */
         .buttons a {
             display: inline-block;
             padding: 12px 25px;
             margin: 10px;
-            background-color: #5D3FD3; /* Matches text */
+            background-color: #5D3FD3;
             color: white !important;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
-            text-shadow: none; /* No shadow on the solid buttons */
+            text-shadow: none;
         }
-        <link rel="stylesheet" href="assets/css/styles.css">
-
     </style>
 </head>
-<body>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="assets/customize.html">Customize</a></li>
-            <li><a href="shop.html">Virtual Shop</a></li>
-            <li><a href="healing-agent.html">Healing Agent</a></li>
-            <li><a href="memorial-builder.html">Memorial Builder</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <h1>Welcome to Over the Rainbow</h1>
-        <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
-        
-        <div class="buttons">
-            <a href="tribute-wall.html">Create a Tribute</a>
-            <a href="healing-agent.html">Find Comfort</a>
-        </div>
-    </main>
-
-    <footer>
-        &copy; 2026 Over the Rainbow.
-    </footer>
-
-</body>
-</html>
