@@ -34,30 +34,10 @@
         </div>
     </main>
 
-    <footer>
-        &copy; 2026 Over the Rainbow. A place of love and remembrance.
-    </footer>
-
-    <script>
-        // Simple script to ensure footer stays at bottom
-        function adjustLayout() {
-            const body = document.body;
-            const html = document.documentElement;
-            const height = Math.max(body.scrollHeight, body.offsetHeight, 
-                                   html.clientHeight, html.scrollHeight, html.offsetHeight);
-            
-            if (height < window.innerHeight) {
-                document.body.style.minHeight = '100vh';
-            }
-        }
-        
-        window.addEventListener('load', adjustLayout);
-        window.addEventListener('resize', adjustLayout);
-    </script>
+    <!-- ✔️ Only ONE footer, placed correctly -->
     <footer class="site-footer">
-    © 2026 Over the Rainbow. A place of love and remembrance.
-</footer>
+        © 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
 
 </body>
 </html>
-
