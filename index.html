@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     
     <style>
-        /* Emergency fallback styles */
+        /* Emergency styles to fix positioning */
         body {
             margin: 0;
             padding: 0;
@@ -24,12 +24,25 @@
             background-repeat: no-repeat;
             min-height: 100vh;
             color: #ffffff;
+            display: flex;
+            flex-direction: column;
         }
         
+        /* Push footer to bottom */
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
         nav {
             background: rgba(0, 0, 0, 0.7);
             padding: 15px;
             text-align: center;
+            width: 100%;
         }
         
         nav ul {
@@ -52,25 +65,29 @@
         
         nav ul li a:hover {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
         }
         
+        /* Main content - positioned higher to avoid faces */
         main {
             max-width: 900px;
-            margin: 150px auto;
-            padding: 40px;
+            margin: 80px auto 40px; /* Reduced top margin to move content up */
+            padding: 30px;
             text-align: center;
+            flex: 1;
         }
         
         h1 {
             font-size: 3em;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+            margin-bottom: 15px;
         }
         
         p {
             font-size: 1.4em;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             margin-bottom: 30px;
+            line-height: 1.5;
         }
         
         .buttons a {
@@ -83,24 +100,29 @@
             border-radius: 30px;
             font-weight: bold;
             transition: all 0.3s ease;
+            font-size: 1.1em;
         }
         
         .buttons a:hover {
             background-color: #7a5bff;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
+        /* Footer - fixed at bottom */
         footer {
             text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             color: #ddd;
+            width: 100%;
+            margin-top: auto; /* Push to bottom */
         }
         
         /* Mobile responsive */
         @media (max-width: 768px) {
             main {
-                margin: 100px auto;
+                margin: 60px auto 20px;
                 padding: 20px;
             }
             
@@ -108,8 +130,35 @@
                 font-size: 2.2em;
             }
             
+            p {
+                font-size: 1.2em;
+            }
+            
             nav ul {
                 flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            main {
+                margin: 40px auto 15px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            p {
+                font-size: 1.1em;
+            }
+            
+            .buttons a {
+                display: block;
+                margin: 8px auto;
+                max-width: 250px;
             }
         }
     </style>
@@ -142,16 +191,21 @@
     </footer>
 
     <script>
-        // Force refresh to clear cache
-        console.log('Page loaded successfully');
-        
-        // Check if CSS is loading
-        const link = document.querySelector('link[href="assets/css/styles.css"]');
-        if (link) {
-            console.log('CSS link found:', link.href);
-        } else {
-            console.log('CSS link NOT found - using inline styles');
+        // Simple script to ensure footer stays at bottom
+        function adjustLayout() {
+            const body = document.body;
+            const html = document.documentElement;
+            const height = Math.max(body.scrollHeight, body.offsetHeight, 
+                                   html.clientHeight, html.scrollHeight, html.offsetHeight);
+            
+            if (height < window.innerHeight) {
+                document.body.style.minHeight = '100vh';
+            }
         }
+        
+        window.addEventListener('load', adjustLayout);
+        window.addEventListener('resize', adjustLayout);
     </script>
 </body>
 </html>
+
