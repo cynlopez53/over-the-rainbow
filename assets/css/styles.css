@@ -184,23 +184,13 @@ p {
 }
 
 /* Footer */
-footer {
+.site-footer {
     text-align: center;
-    padding: 30px 20px;
-    color: #ddd;
-    text-shadow: 1px 1px 3px black;
-    background: rgba(0, 0, 0, 0.5);
-    margin-top: 50px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  color: #ddd;
-  text-shadow: 1px 1px 3px black;
-  background: rgba(0, 0, 0, 0.5);
-  margin-top: 50px;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.9;
 }
 
 /* LOADING STATES */
