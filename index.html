@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Over the Rainbow</title>
 
-    <!-- This line must be here, NOT inside <style> -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
+        /* Remove all the !important tags and conflicting styles */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('assets/images/rainbow-bridge.jpg') !important;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -26,92 +24,102 @@
         main {
             flex: 1;
             max-width: 900px;
-            margin: 200px auto;
+            margin: 150px auto;
             padding: 40px;
             text-align: center;
-            background: transparent !important;
-            backdrop-filter: none !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        h1, p, nav ul li a, footer {
-            color: #5D3FD3 !important;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: clamp(2.5em, 5vw, 3.5em);
             margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         p {
-            font-size: 1.5em;
-            font-weight: 600;
+            font-size: clamp(1.2em, 2.5vw, 1.6em);
+            font-weight: 500;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
         }
 
         nav ul {
             list-style-type: none;
             margin: 0;
-            padding: 20px;
-            background: transparent !important;
+            padding: 15px;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        nav ul li { margin: 0 15px; }
+        nav ul li { 
+            margin: 0; 
+        }
 
         nav ul li a {
             text-decoration: none;
             font-weight: bold;
+            color: #f5f5f5 !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd6e0 !important;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background: transparent !important;
+            color: #ddd !important;
         }
 
         .buttons a {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 15px 30px;
             margin: 10px;
             background-color: #5D3FD3;
             color: white !important;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
             text-shadow: none;
+        }
+
+        .buttons a:hover {
+            background-color: #7a5bff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            main {
+                margin: 120px auto 80px;
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .buttons a {
+                display: block;
+                margin: 15px auto;
+                max-width: 250px;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="assets/customize.html">Customize</a></li>
-            <li><a href="shop.html">Virtual Shop</a></li>
-            <li><a href="healing-agent.html">Healing Agent</a></li>
-            <li><a href="memorial-builder.html">Memorial Builder</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <h1>Welcome to Over the Rainbow</h1>
-        <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
-
-        <div class="buttons">
-            <a href="tribute-wall.html">Create a Tribute</a>
-            <a href="healing-agent.html">Find Comfort</a>
-        </div>
-    </main>
-
-    <footer>
-        &copy; 2026 Over the Rainbow.
-    </footer>
-
-</body>
-</html>
+            <
