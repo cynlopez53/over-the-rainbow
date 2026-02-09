@@ -4,34 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Over the Rainbow</title>
-
-    <!-- Google Fonts -->
+    
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- External CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-
-    <!-- Minimal inline styles only for this page -->
+    
     <style>
-        /* Only fix the main content positioning */
-        main {
-            margin: 150px auto !important;
-            backdrop-filter: none !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
+        /* Emergency fallback styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background-image: url('assets/images/rainbow-bridge.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: #ffffff;
         }
         
-        /* Make sure text is visible against background */
-        h1, p {
-            color: #ffffff !important;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important;
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            text-align: center;
         }
         
-        /* Navigation visibility */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
         nav ul li a {
-            color: #ffffff !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 150px auto;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.4em;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+        }
+        
+        .buttons a {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #5D3FD3;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .buttons a:hover {
+            background-color: #7a5bff;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #ddd;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            main {
+                margin: 100px auto;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -61,5 +140,18 @@
     <footer>
         &copy; 2026 Over the Rainbow. A place of love and remembrance.
     </footer>
+
+    <script>
+        // Force refresh to clear cache
+        console.log('Page loaded successfully');
+        
+        // Check if CSS is loading
+        const link = document.querySelector('link[href="assets/css/styles.css"]');
+        if (link) {
+            console.log('CSS link found:', link.href);
+        } else {
+            console.log('CSS link NOT found - using inline styles');
+        }
+    </script>
 </body>
 </html>
