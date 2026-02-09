@@ -1,56 +1,76 @@
-<nav>
-  <a href="index.html">Home</a>
-  <a href="tribute-wall.html">Tribute Wall</a>
-  <a href="customize.html">Customize</a>
-  <a href="shop.html">Virtual Shop</a>
-  <a href="healing-agent.html">Healing Agent</a>
-  <a href="memorial-builder.html">Memorial Builder</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorial Builder - Over the Rainbow</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
 
-<h1>Memorial Builder</h1>
-<p style="text-align:center;">Create a personalized memorial for your pet.</p>
+    <main>
+        <h1>Create a Memorial</h1>
+        <p>Build a beautiful tribute for your beloved pet</p>
+        
+        <form id="memorialForm">
+            <div class="form-group">
+                <label for="petName">Pet's Name:</label>
+                <input type="text" id="petName" name="petName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="petType">Type of Pet:</label>
+                <select id="petType" name="petType" required>
+                    <option value="">Select...</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="Hamster">Hamster</option>
+                    <option value="Fish">Fish</option>
+                    <option value="Horse">Horse</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthDate">Birth Date (optional):</label>
+                <input type="date" id="birthDate" name="birthDate">
+            </div>
+            
+            <div class="form-group">
+                <label for="passingDate">Passing Date (optional):</label>
+                <input type="date" id="passingDate" name="passingDate">
+            </div>
+            
+            <div class="form-group">
+                <label for="memorialMessage">Special Message:</label>
+                <textarea id="memorialMessage" name="memorialMessage" rows="4" 
+                          placeholder="Share a special memory or message about your beloved pet..." 
+                          required></textarea>
+            </div>
+            
+            <button type="submit">Create Memorial</button>
+        </form>
+        
+        <div id="memorialOutput"></div>
+    </main>
 
-<form id="memorialForm">
-  <label>Pet Name</label>
-  <input id="petName" type="text" required>
+    <footer>
+        &copy; 2026 Over the Rainbow
+    </footer>
 
-  <label>Pet Type</label>
-  <input id="petType" type="text" required>
-
-  <label>Birth Date</label>
-  <input id="birthDate" type="date" required>
-
-  <label>Passing Date</label>
-  <input id="passingDate" type="date" required>
-
-  <label>Memorial Message</label>
-  <textarea id="memorialMessage" rows="4" required></textarea>
-
-  <button type="submit">Build Memorial</button>
-</form>
-
-<div id="memorialOutput"></div>
-
-<footer>© 2026 Over the Rainbow</footer>
-
-<script>
-document.getElementById("memorialForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("petName").value;
-  const type = document.getElementById("petType").value;
-  const birth = document.getElementById("birthDate").value;
-  const passing = document.getElementById("passingDate").value;
-  const message = document.getElementById("memorialMessage").value;
-
-  const tribute = `
-    <h2>🌈 Memorial for ${name}</h2>
-    <p><strong>Type:</strong> ${type}</p>
-    <p><strong>Born:</strong> ${birth}</p>
-    <p><strong>Passed:</strong> ${passing}</p>
-    <p><em>${message}</em></p>
-  `;
-
-  document.getElementById("memorialOutput").innerHTML = tribute;
-});
-</script>
+    <!-- This line goes at the BOTTOM of the file, right before </body> -->
+    <script src="assets/js/memorial-builder.js"></script>
+</body>
+</html>
