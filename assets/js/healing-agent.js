@@ -1,39 +1,157 @@
-// Enhanced healing agent chat widget with consent, history load, typing indicator, and delete transcript
+// // Enhanced healing agent chat widget - FIXED VERSION
 (function(){
   function createWidget(){
     const container = document.createElement('div');
     container.id = 'healing-agent-widget';
     container.innerHTML = `
       <style>
-        #healing-agent-widget { position: fixed; right: 20px; bottom: 20px; z-index: 10000; font-family: sans-serif }
-        #healing-agent-toggle { background:#6b4fcf;color:#fff;border:none;padding:12px;border-radius:999px;cursor:pointer }
-        #healing-agent-modal { display:none; width:360px; max-width:90vw; background:#fff;border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,.2); overflow:hidden }
-        #healing-agent-header { background:#6b4fcf;color:#fff;padding:10px;font-weight:600;display:flex;justify-content:space-between;align-items:center }
-        #healing-agent-messages { height:260px; overflow:auto;padding:12px; background: #fbf9ff }
-        .ha-msg { margin:6px 0;padding:10px;border-radius:10px;max-width:80%;line-height:1.3 }
-        .ha-user { background:#eef2ff; margin-left:auto; text-align:right }
-        .ha-agent { background:#f3f3f3 }
-        #healing-agent-input { display:flex;border-top:1px solid #eee }
-        #healing-agent-input input { flex:1;border:0;padding:12px;font-size:14px }
-        #healing-agent-input button { border:0;background:#6b4fcf;color:#fff;padding:12px }
-        #ha-consent { padding:10px; font-size:13px; background:#fff }
-        #ha-controls { display:flex; gap:8px }
-        #ha-delete { background:#fff;border:1px solid #e5d8ff;color:#7c3aed;padding:6px;border-radius:6px;cursor:pointer }
-        #ha-delete:hover { background:#f9f5ff }
-        .ha-typing { font-style:italic; color:#666 }
+        #healing-agent-widget { 
+          position: fixed; 
+          right: 20px; 
+          bottom: 20px; 
+          z-index: 10000; 
+          font-family: 'Cormorant Garamond', serif;
+        }
+        #healing-agent-toggle { 
+          background: #5D3FD3;
+          color: #fff;
+          border: none;
+          padding: 15px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 18px;
+          box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+          transition: all 0.3s ease;
+        }
+        #healing-agent-toggle:hover {
+          background: #7a5bff;
+          transform: scale(1.1);
+        }
+        #healing-agent-modal { 
+          display: none; 
+          width: 400px; 
+          max-width: 90vw; 
+          background: #fff;
+          border-radius: 12px; 
+          box-shadow: 0 8px 30px rgba(0,0,0,.3); 
+          overflow: hidden;
+          border: 1px solid rgba(93, 63, 211, 0.2);
+        }
+        #healing-agent-header { 
+          background: #5D3FD3;
+          color: #fff;
+          padding: 15px;
+          font-weight: 600;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        #healing-agent-messages { 
+          height: 300px; 
+          overflow-y: auto;
+          padding: 15px; 
+          background: #fbf9ff;
+        }
+        .ha-msg { 
+          margin: 10px 0;
+          padding: 12px;
+          border-radius: 12px;
+          max-width: 85%;
+          line-height: 1.4;
+          font-size: 14px;
+        }
+        .ha-user { 
+          background: #eef2ff; 
+          margin-left: auto; 
+          text-align: right;
+          border-bottom-right-radius: 4px;
+        }
+        .ha-agent { 
+          background: #f8f5ff;
+          border-bottom-left-radius: 4px;
+        }
+        #healing-agent-input { 
+          display: flex;
+          border-top: 1px solid #eee;
+          background: #fff;
+        }
+        #ha-input { 
+          flex: 1;
+          border: 0;
+          padding: 15px;
+          font-size: 14px;
+          font-family: inherit;
+        }
+        #ha-input:focus {
+          outline: none;
+        }
+        #ha-send { 
+          border: 0;
+          background: #5D3FD3;
+          color: #fff;
+          padding: 15px 20px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+        #ha-send:hover {
+          background: #7a5bff;
+        }
+        #ha-consent { 
+          padding: 12px; 
+          font-size: 13px; 
+          background: #f9f7ff;
+          border-bottom: 1px solid #eee;
+        }
+        #ha-controls { 
+          display: flex; 
+          gap: 8px;
+        }
+        #ha-delete { 
+          background: #fff;
+          border: 1px solid rgba(255,255,255,0.3);
+          color: #fff;
+          padding: 6px 12px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 12px;
+          transition: all 0.3s ease;
+        }
+        #ha-delete:hover { 
+          background: rgba(255,255,255,0.2);
+        }
+        .ha-typing { 
+          font-style: italic; 
+          color: #666;
+          background: #f8f5ff !important;
+        }
+        .ha-error {
+          color: #e74c3c;
+          background: #fdf2f2 !important;
+          text-align: center;
+          font-size: 12px;
+        }
       </style>
-      <button id="healing-agent-toggle" aria-label="Open support chat">💜</button>
+      <button id="healing-agent-toggle" aria-label="Open healing support chat">💜 Healing Support</button>
       <div id="healing-agent-modal" role="dialog" aria-hidden="true">
         <div id="healing-agent-header">
-          <div>Healing Support</div>
-          <div id="ha-controls"><button id="ha-delete">Delete Transcript</button></div>
+          <div>💜 Healing Support Agent</div>
+          <div id="ha-controls">
+            <button id="ha-delete">Clear Chat</button>
+          </div>
         </div>
         <div id="ha-consent">
-          <label><input id="ha-consent-checkbox" type="checkbox"> I consent to sending messages to the healing assistant (no personal data shared)</label>
+          <label>
+            <input id="ha-consent-checkbox" type="checkbox"> 
+            I consent to chat with the healing assistant
+          </label>
         </div>
-        <div id="healing-agent-messages"></div>
+        <div id="healing-agent-messages">
+          <div class="ha-msg ha-agent">
+            Hello, I'm here to provide comfort and support. Please share what's on your heart.
+          </div>
+        </div>
         <div id="healing-agent-input">
-          <input id="ha-input" placeholder="Write a thought or ask for support..." aria-label="message input" />
+          <input id="ha-input" placeholder="Share your thoughts or ask for support..." aria-label="message input" />
           <button id="ha-send">Send</button>
         </div>
       </div>
@@ -48,112 +166,134 @@
     const consent = document.getElementById('ha-consent-checkbox');
     const delBtn = document.getElementById('ha-delete');
 
-    let sessionId = localStorage.getItem('ha_session') || null;
-    let eventSource = null;
-    let esOpen = false;
-
-    function connectSSE(sid) {
-      if (!sid) return;
-      try {
-        if (eventSource) eventSource.close();
-        eventSource = new EventSource(`/api/agent/stream?sessionId=${encodeURIComponent(sid)}`);
-        eventSource.onopen = () => { esOpen = true; };
-        eventSource.onmessage = (e) => {
-          try {
-            const data = JSON.parse(e.data);
-            if (data && data.type === 'agent_reply') {
-              append('agent', data.reply || '');
-            }
-          } catch (err) { console.warn('SSE parse error', err); }
-        };
-        eventSource.onerror = () => { esOpen = false; };
-      } catch (err) { console.warn('Could not open SSE', err); }
-    }
+    let chatHistory = [];
 
     function setModal(open){
       modal.style.display = open ? 'block' : 'none';
       modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open) {
+        input.focus();
+      }
     }
 
-    toggle.addEventListener('click', ()=> setModal(modal.style.display !== 'block'));
+    toggle.addEventListener('click', () => {
+      const isOpen = modal.style.display === 'block';
+      setModal(!isOpen);
+    });
 
-    function append(role, text, opts){
+    function append(role, text, isError = false){
       const el = document.createElement('div');
-      el.className = 'ha-msg ' + (role === 'user' ? 'ha-user' : 'ha-agent');
-      if (opts && opts.html) el.innerHTML = text; else el.textContent = text;
+      el.className = `ha-msg ${role === 'user' ? 'ha-user' : 'ha-agent'} ${isError ? 'ha-error' : ''}`;
+      el.textContent = text;
       messages.appendChild(el);
       messages.scrollTop = messages.scrollHeight;
       return el;
     }
 
-    async function loadHistory(){
-      if (!sessionId) return;
-      try {
-        const resp = await fetch(`/api/agent/conversations/${sessionId}`);
-        if (!resp.ok) return;
-        const data = await resp.json();
-        (data.messages || []).forEach(m => append(m.role, m.text));
-        // open SSE after loading history
-        connectSSE(sessionId);
-      } catch (err) { console.warn('Could not load history', err); }
-    }
-
     async function sendMessage(){
-      if (!consent.checked) { alert('Please consent to send messages to the assistant.'); return; }
+      if (!consent.checked) { 
+        append('agent', 'Please check the consent box to chat.', true);
+        return; 
+      }
+      
       const text = input.value.trim();
       if (!text) return;
+      
       append('user', text);
       input.value = '';
+      input.disabled = true;
+      send.disabled = true;
 
-      // typing indicator
-      const typingEl = append('agent', 'The assistant is thinking...', { html: false });
+      // Add typing indicator
+      const typingEl = append('agent', 'The healing agent is thinking...');
       typingEl.classList.add('ha-typing');
 
       try {
-        const resp = await fetch('/api/agent/agentai', {
+        const response = await fetch('/api/healing-agent', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_input: text, sessionId })
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 
+            message: text 
+          })
         });
-        const data = await resp.json();
-        if (data.sessionId) {
-          sessionId = data.sessionId; localStorage.setItem('ha_session', sessionId);
-          // ensure SSE is connected for real-time replies
-          connectSSE(sessionId);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        const data = await response.json();
+        
+        // Remove typing indicator
         typingEl.remove();
-        // If SSE is active, the agent reply will arrive via SSE; otherwise fall back to response
-        if (!esOpen) append('agent', data.comfort || data.reply || 'Sorry, no response.');
-      } catch (err){
+        
+        if (data.reply) {
+          append('agent', data.reply);
+          // Save to local history
+          chatHistory.push({ role: 'user', text: text });
+          chatHistory.push({ role: 'agent', text: data.reply });
+          localStorage.setItem('ha_chat_history', JSON.stringify(chatHistory));
+        } else {
+          append('agent', 'No response received. Please try again.', true);
+        }
+        
+      } catch (err) {
+        console.error('Error:', err);
         typingEl.remove();
-        append('agent', 'Network error; please try again later.');
-        console.error(err);
+        append('agent', 'Sorry, there was an error connecting to the healing agent. Please try again.', true);
+      } finally {
+        input.disabled = false;
+        send.disabled = false;
+        input.focus();
       }
     }
 
-    delBtn.addEventListener('click', async ()=>{
-      if (!sessionId) { messages.innerHTML=''; return; }
-      if (!confirm('Delete your transcript from this site? This cannot be undone.')) return;
+    // Load chat history from localStorage
+    function loadHistory() {
       try {
-        const resp = await fetch(`/api/agent/conversations/${sessionId}`, { method: 'DELETE' });
-        if (resp.ok) {
-          localStorage.removeItem('ha_session');
-          sessionId = null;
+        const saved = localStorage.getItem('ha_chat_history');
+        if (saved) {
+          chatHistory = JSON.parse(saved);
+          // Clear existing messages except the welcome message
+          const welcomeMsg = messages.querySelector('.ha-msg');
           messages.innerHTML = '';
-          alert('Transcript deleted.');
-        } else {
-          alert('Could not delete transcript.');
+          if (welcomeMsg) messages.appendChild(welcomeMsg);
+          
+          // Add saved messages
+          chatHistory.forEach(msg => append(msg.role, msg.text));
         }
-      } catch (err) { console.error(err); alert('Network error.'); }
+      } catch (err) {
+        console.warn('Could not load chat history:', err);
+      }
+    }
+
+    delBtn.addEventListener('click', () => {
+      if (!confirm('Clear all chat history? This cannot be undone.')) return;
+      
+      messages.innerHTML = '<div class="ha-msg ha-agent">Hello, I\'m here to provide comfort and support. Please share what\'s on your heart.</div>';
+      chatHistory = [];
+      localStorage.removeItem('ha_chat_history');
     });
 
     send.addEventListener('click', sendMessage);
-    input.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') sendMessage(); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
 
-    // load history if session exists
-    if (sessionId) loadHistory();
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) setModal(false);
+    });
+
+    // Load history when widget is created
+    loadHistory();
   }
 
-  if (document.readyState === 'complete' || document.readyState === 'interactive') createWidget();
-  else document.addEventListener('DOMContentLoaded', createWidget);
+  // Initialize when page loads
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    createWidget();
+  } else {
+    document.addEventListener('DOMContentLoaded', createWidget);
+  }
 })();

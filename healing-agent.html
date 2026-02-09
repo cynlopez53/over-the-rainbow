@@ -3,158 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Over the Rainbow – Healing Agent</title>
-    <style>
-        /* 1. Page Background & Wallpaper */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('assets/images/rainbow-bridge.jpg') !important;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* 2. Navigation Styling */
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.2); 
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li { margin: 0 15px; }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #5D3FD3 !important; /* Dark Lavender */
-            font-weight: bold;
-        }
-
-        /* 3. Main Content (Centered & Transparent) */
-        main {
-            flex: 1;
-            max-width: 700px;
-            margin: 40px auto; 
-            padding: 30px;
-            text-align: center;
-            background: transparent !important;
-        }
-
-        h1, h2, p, label {
-            color: #5D3FD3 !important; /* Dark Lavender text */
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
-        }
-
-        h1 { font-size: 2.5em; }
-
-        /* 4. Form Styling for the screen */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            margin-top: 30px;
-        }
-
-        .form-group {
-            width: 100%;
-            text-align: left;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #5D3FD3;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            box-sizing: border-box;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9em;
-        }
-
-        button {
-            background-color: #5D3FD3;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #5D3FD3;
-        }
-    </style>
+    <title>Healing Agent - Over the Rainbow</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="assets/customize.html">Customize</a></li>
-            <li><a href="shop.html">Virtual Shop</a></li>
-            <li><a href="healing-agent.html">Healing Agent</a></li>
-            <li><a href="memorial-builder.html">Memorial Builder</a></li>
-            <li><a href="dedication.html">Dedication</a></li>
-            <li><a href="donate.html">Donate</a></li>
+            <!-- ... other nav items ... -->
         </ul>
     </nav>
-
+    
     <main>
-        <h1>Meet Your Healing Agent</h1>
-        <p>A compassionate guide to support you through pet loss and grief.</p>
-
-        <p><em>Healing Agent loads here...</em></p>
-
-        <hr style="border: 0; border-top: 1px solid #5D3FD3; margin: 40px 0;">
-
-        <h2>Sign Up for Full Access</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your email">
-            </div>
-
-            <div class="form-group">
-                <label for="message">Anything you'd like to share (optional)</label>
-                <textarea id="message" rows="3" placeholder="Write a message..."></textarea>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="consent" style="width: auto;">
-                <label for="consent">I consent to my information being stored.</label>
-            </div>
-
-            <button type="button">Create Account</button>
-        </form>
+        <h1>Healing Support</h1>
+        <p>Chat with our compassionate AI agent for comfort and support.</p>
+        <!-- The widget will automatically appear in bottom-right -->
     </main>
 
-    <footer>
-        &copy; 2026 Over the Rainbow.
-    </footer>
-
+    <!-- Add the JavaScript -->
+    <script src="assets/js/healing-agent.js"></script>
 </body>
 </html>
+
