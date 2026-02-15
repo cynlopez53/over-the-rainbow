@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tribute Wall - Over the Rainbow</title>
+
     <style>
-        /* 1. Global Setup with Wallpaper */
-        <body>
-
-  <nav>
-    <!-- your navigation links -->
-  </nav>
-
-  <!-- ⭐ ADD THIS HERO SECTION HERE ⭐ -->
-  <section class="hero-section">
-    <h1>Tribute Wall</h1>
-    <p>Honor and remember the beloved companions who have crossed the rainbow bridge.</p>
-    <a href="submit-tribute.html" class="btn">Submit a Tribute</a>
-  </section>
-
-  <!-- ⭐ Your existing Tribute Wall content goes BELOW this ⭐ -->
-  <main>
-    <!-- search bar, filters, tributes, cards, etc. -->
-  </main>
-
-</body>
- 
-       h1, p {
-            color: #5D3FD3 !important;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        /* HERO SECTION */
+        .hero-section {
+            width: 100%;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffb6d5, #c8a8ff);
+            color: white;
         }
 
-        /* 4. Tribute Card Styling */
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-section .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #ff6fa8;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-section .btn:hover {
+            background: #ff8fc0;
+        }
+
+        /* TRIBUTE WALL CONTENT */
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1, p {
+            color: #5D3FD3;
+        }
+
         .tribute-container {
             margin-top: 30px;
             display: flex;
@@ -51,6 +72,8 @@
 </head>
 
 <body>
+
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -62,34 +85,157 @@
         </ul>
     </nav>
 
-    <main>
-        <h1>Tribute Wall</h1>
-        <p>A place for love, memories, and shared stories.</p>
+    <!-- ⭐ HERO SECTION GOES HERE ⭐ -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Wall - Over the Rainbow</title>
 
-        <!-- This is where tributes will appear -->
+    <style>
+        /* HERO SECTION */
+        .hero-section {
+            width: 100%;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffb6d5, #c8a8ff);
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-section .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #ff6fa8;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-section .btn:hover {
+            background: #ff8fc0;
+        }
+
+        /* TRIBUTE WALL CONTENT */
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1, p {
+            color: #5D3FD3;
+        }
+
+        .tribute-container {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tribute-card {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #5D3FD3;
+            text-align: left;
+            color: #5D3FD3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="assets/customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
+
+    <!-- ⭐ HERO SECTION GOES HERE ⭐ -->
+    <section class="hero-section">
+        <h1>Tribute Wall</h1>
+        <p>Honor and remember the beloved companions who have crossed the rainbow bridge.</p>
+        <a href="submit-tribute.html" class="btn">Submit a Tribute</a>
+    </section>
+
+    <!-- ⭐ TRIBUTE CONTENT BELOW ⭐ -->
+    <main>
         <div id="tributeWall" class="tribute-container"></div>
     </main>
 
     <script>
-    function loadTributes() {
-        const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
-        const wall = document.getElementById("tributeWall");
+        function loadTributes() {
+            const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
+            const wall = document.getElementById("tributeWall");
 
-        wall.innerHTML = ""; // Clear placeholder examples
+            wall.innerHTML = "";
 
-        tributes.forEach(t => {
-            const entry = document.createElement("div");
-            entry.className = "tribute-card";
-            entry.innerHTML = `
-                <strong>${t.name} (${t.birth} – ${t.passing})</strong>
-                <p><strong>Type:</strong> ${t.type}</p>
-                <p>${t.message}</p>
-            `;
-            wall.appendChild(entry);
-        });
-    }
+            tributes.forEach(t => {
+                const entry = document.createElement("div");
+                entry.className = "tribute-card";
+                entry.innerHTML = `
+                    <strong>${t.name} (${t.birth} – ${t.passing})</strong>
+                    <p><strong>Type:</strong> ${t.type}</p>
+                    <p>${t.message}</p>
+                `;
+                wall.appendChild(entry);
+            });
+        }
 
-    loadTributes();
+        loadTributes();
     </script>
+
+</body>
+</html>
+
+    <!-- ⭐ TRIBUTE CONTENT BELOW ⭐ -->
+    <main>
+        <div id="tributeWall" class="tribute-container"></div>
+    </main>
+
+    <script>
+        function loadTributes() {
+            const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
+            const wall = document.getElementById("tributeWall");
+
+            wall.innerHTML = "";
+
+            tributes.forEach(t => {
+                const entry = document.createElement("div");
+                entry.className = "tribute-card";
+                entry.innerHTML = `
+                    <strong>${t.name} (${t.birth} – ${t.passing})</strong>
+                    <p><strong>Type:</strong> ${t.type}</p>
+                    <p>${t.message}</p>
+                `;
+                wall.appendChild(entry);
+            });
+        }
+
+        loadTributes();
+    </script>
+
 </body>
 </html>
