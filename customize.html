@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize – Over the Rainbow</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../tribute-wall.html">Tribute Wall</a></li>
+    <li><a href="customize.html" class="active">Customize</a></li>
+    <li><a href="../shop.html">Virtual Shop</a></li>
+    <li><a href="../healing-agent.html">Healing Agent</a></li>
+    <li><a href="../memorial-builder.html">Memorial Builder</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <h1>Customize Your Memorial</h1>
+  <p>Create a memorial space as unique as the bond you shared.</p>
+
+  <form id="customize-form" class="soft-form">
+    <div class="form-row">
+      <label for="backgroundColor">Background Color</label>
+      <input type="color" id="backgroundColor" value="#f0f0f0">
+    </div>
+    <div class="form-row">
+      <label for="textColor">Text Color</label>
+      <input type="color" id="textColor" value="#333">
+    </div>
+    <div class="form-row">
+      <label for="font">Font</label>
+      <select id="font">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+    </div>
+    <button type="button" id="apply-customization" class="btn">Apply Changes</button>
+  </form>
+
+  <div id="preview" style="border: 1px solid #ccc; padding: 20px; margin-top: 20px;">
+    <h2>Preview</h2>
+    <p>This is how your memorial will look.</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Over the Rainbow.
+</footer>
+
+<script>
+document.getElementById('apply-customization').addEventListener('click', function() {
+  const bgColor = document.getElementById('backgroundColor').value;
+  const textColor = document.getElementById('textColor').value;
+  const font = document.getElementById('font').value;
+
+  const preview = document.getElementById('preview');
+  preview.style.backgroundColor = bgColor;
+  preview.style.color = textColor;
+  preview.style.fontFamily = font;
+});
+</script>
+
+</body>
+</html>
