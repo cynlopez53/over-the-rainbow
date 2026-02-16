@@ -47,14 +47,16 @@ nav ul li a:hover {
 ========================= */
 .hero {
     height: 100vh;
-    background: url('../images/rainbow-bridge.jpg') center/cover no-repeat;
+    background: red;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 40px;
     text-align: center;
     color: white;
+    background-color: #fdfbff; /* fallback if image doesn't load */
 }
+
 
 
 /* Buttons */
