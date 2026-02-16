@@ -46,18 +46,20 @@ nav ul li a:hover {
    HERO SECTION
 ========================= */
 
-/* =========================
-   HERO SECTION (FIXED)
-========================= */
-
 .hero {
     position: relative;
     height: 100vh;
-    background: url('../images/hero.jpg') center center cover no-repeat;
+
+    /* ✅ FIXED BACKGROUND SYNTAX */
+    background-image: url('../images/hero.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
     display: flex;
     justify-content: center;
-    align-items: flex-start;      /* pushes content upward */
-    padding-top: 75px;           /* controls how high text sits */
+    align-items: flex-start;
+    padding-top: 60px; /* moved higher so pets aren't blocked */
     text-align: center;
     color: white;
 }
@@ -69,8 +71,8 @@ nav ul li a:hover {
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.2),
         rgba(0,0,0,0.05)
     );
     z-index: 1;
@@ -84,14 +86,14 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: 20px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero p {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
@@ -119,27 +121,6 @@ nav ul li a:hover {
 
 .btn.secondary:hover {
     background: #ff8fc0;
-}
-
-
-/* =========================
-   HEAVENLY RAINBOW BORDER
-========================= */
-
-.rainbow-border {
-    height: 6px;
-    width: 65%;
-    margin: 30px auto;
-    background: linear-gradient(
-        to right,
-        #ffb6d5,
-        #ffd700,
-        #98fb98,
-        #87cefa,
-        #c8a8ff
-    );
-    border-radius: 50px;
-    box-shadow: 0 0 18px rgba(255,255,255,0.6);
 }
 
 /* =========================
@@ -200,11 +181,15 @@ main {
 
 @media (max-width: 768px) {
 
-    .hero-section h1 {
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
         font-size: 2.2rem;
     }
 
-    .hero-section p {
+    .hero p {
         font-size: 1.1rem;
     }
 
@@ -212,9 +197,4 @@ main {
         display: block;
         margin: 12px 0;
     }
-
-    .rainbow-border {
-        width: 85%;
-    }
 }
-
