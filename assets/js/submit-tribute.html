@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Tribute - Over the Rainbow</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
+
+    <!-- SUBMIT TRIBUTE FORM -->
+    <main>
+        <h1>Submit a Tribute</h1>
+        <p>Share a memory about your beloved pet.</p>
+
+        <form id="tributeForm">
+            <label for="name">Pet's Name</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="type">Type of Pet</label><br>
+            <input type="text" id="type" name="type" required><br><br>
+
+            <label for="birth">Birth Date</label><br>
+            <input type="date" id="birth" name="birth"><br><br>
+
+            <label for="passing">Passing Date</label><br>
+            <input type="date" id="passing" name="passing"><br><br>
+
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit" class="btn">Save Tribute</button>
+        </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        &copy; 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
+
+    <script>
+        document.getElementById("tributeForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
+
+            const newTribute = {
+                name: document.getElementById("name").value,
+                type: document.getElementById("type").value,
+                birth: document.getElementById("birth").value,
+                passing: document.getElementById("passing").value,
+                message: document.getElementById("message").value
+            };
+
+            tributes.push(newTribute);
+            localStorage.setItem("tributes", JSON.stringify(tributes));
+
+            alert("Your tribute has been saved!");
+            window.location.href = "tribute-wall.html";
+        });
+    </script>
+
+</body>
+</html>
