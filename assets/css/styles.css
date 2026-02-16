@@ -46,40 +46,81 @@ nav ul li a:hover {
    HERO SECTION
 ========================= */
 
-.hero-section {
-    width: 100%;
-    padding: 90px 20px;
+/* =========================
+   HERO SECTION (FIXED)
+========================= */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../images/hero.jpg') center center cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;      /* pushes content upward */
+    padding-top: 90px;           /* controls how high text sits */
     text-align: center;
-    background: linear-gradient(135deg, #ffb6d5, #c8a8ff);
     color: white;
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+/* Soft readability overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.05)
+    );
+    z-index: 1;
 }
 
-.hero-section p {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
 }
 
-.hero-section .btn {
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* Buttons */
+.btn {
     display: inline-block;
     padding: 14px 32px;
-    background: #ff6fa8;
-    color: white;
+    margin: 0 10px;
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
+    background: #6a5acd;
+    color: white;
     transition: 0.3s ease;
 }
 
-.hero-section .btn:hover {
-    background: #ff8fc0;
-    transform: translateY(-2px);
+.btn:hover {
+    background: #836fff;
+    transform: translateY(-3px);
 }
+
+.btn.secondary {
+    background: #ff6fa8;
+}
+
+.btn.secondary:hover {
+    background: #ff8fc0;
+}
+
 
 /* =========================
    HEAVENLY RAINBOW BORDER
