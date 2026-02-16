@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -24,45 +26,24 @@
         </ul>
     </nav>
 
-    
-    <footer>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Over the Rainbow</h1>
+            <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
+
+            <div class="buttons">
+                <a href="tribute-wall.html" class="btn">Create a Tribute</a>
+                <a href="healing-agent.html" class="btn secondary">Find Comfort</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
         &copy; 2026 Over the Rainbow. A place of love and remembrance.
     </footer>
 
-    <script>
-        // Ensure footer stays at bottom
-        function adjustLayout() {
-            const bodyHeight = document.body.scrollHeight;
-            const windowHeight = window.innerHeight;
-            
-            if (bodyHeight < windowHeight) {
-                document.body.style.minHeight = '100vh';
-            }
-        }
-        
-        window.addEventListener('load', adjustLayout);
-        window.addEventListener('resize', adjustLayout);
-    </script>
-    <style>
-    /* Emergency background if CSS file doesn't load */
-    body {
-        background-image: url('assets/images/rainbow-bridge.jpg') !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-attachment: fixed !important;
-    }
-</style>
-<section class="hero">
-    <div class="hero-content">
-        <h1>Welcome to Over the Rainbow</h1>
-        <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
-
-        <div class="buttons">
-            <a href="tribute-wall.html" class="btn">Create a Tribute</a>
-            <a href="healing-agent.html" class="btn secondary">Find Comfort</a>
-        </div>
-    </div>
-</section>
-
 </body>
 </html>
+
