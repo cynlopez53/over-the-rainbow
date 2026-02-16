@@ -5,7 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tribute Wall - Over the Rainbow</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        body {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: #fdfbff;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #8a6df0;
+        }
+
         /* HERO SECTION */
         .hero-section {
             width: 100%;
@@ -23,7 +61,7 @@
         .hero-section p {
             font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
         }
 
         .hero-section .btn {
@@ -34,40 +72,89 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .hero-section .btn:hover {
             background: #ff8fc0;
         }
 
+        /* HEAVENLY RAINBOW BORDER */
+        .rainbow-border {
+            height: 6px;
+            width: 70%;
+            margin: 25px auto;
+            background: linear-gradient(
+                to right,
+                #ffb6d5,
+                #ffd700,
+                #98fb98,
+                #87cefa,
+                #c8a8ff
+            );
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
         /* TRIBUTE WALL CONTENT */
         main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
             text-align: center;
         }
 
-        h1, p {
-            color: #5D3FD3;
-        }
-
         .tribute-container {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .tribute-card {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #5D3FD3;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 6px solid #5D3FD3;
             text-align: left;
             color: #5D3FD3;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
+
+        .tribute-card strong {
+            font-size: 1.2rem;
+        }
+
+        .tribute-card p {
+            margin: 8px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            background: #ffffff;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
     </style>
 </head>
 
@@ -78,7 +165,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="assets/customize.html">Customize</a></li>
+            <li><a href="customize.html">Customize</a></li>
             <li><a href="shop.html">Virtual Shop</a></li>
             <li><a href="healing-agent.html">Healing Agent</a></li>
             <li><a href="memorial-builder.html">Memorial Builder</a></li>
@@ -87,15 +174,22 @@
 
     <!-- HERO SECTION -->
     <section class="hero-section">
-        <h1>Tribute Wall</h1>
+        <div class="rainbow-border"></div>
+        <h1>🌈 Heavenly Pets Tribute Wall 🌈</h1>
         <p>Honor and remember the beloved companions who have crossed the rainbow bridge.</p>
         <a href="submit-tribute.html" class="btn">Submit a Tribute</a>
+        <div class="rainbow-border"></div>
     </section>
 
     <!-- TRIBUTE CONTENT -->
     <main>
         <div id="tributeWall" class="tribute-container"></div>
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
 
     <script>
         function loadTributes() {
@@ -107,17 +201,20 @@
             tributes.forEach(t => {
                 const entry = document.createElement("div");
                 entry.className = "tribute-card";
+
                 entry.innerHTML = `
                     <strong>${t.name} (${t.birth} – ${t.passing})</strong>
                     <p><strong>Type:</strong> ${t.type}</p>
                     <p>${t.message}</p>
                 `;
+
                 wall.appendChild(entry);
             });
         }
 
-        loadTributes();
+        document.addEventListener("DOMContentLoaded", loadTributes);
     </script>
 
 </body>
 </html>
+
