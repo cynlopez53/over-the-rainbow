@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorial Builder - Over the Rainbow</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorial Builder - Over the Rainbow</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- html2canvas for download feature -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="customize.html">Customize</a></li>
-            <li><a href="shop.html">Virtual Shop</a></li>
-            <li><a href="healing-agent.html">Healing Agent</a></li>
-            <li><a href="memorial-builder.html">Memorial Builder</a></li>
-        </ul>
-    </nav>
 
-    <main>
-        <h1>Create a Memorial</h1>
-        <p>Build a beautiful tribute for your beloved pet</p>
-        
-        // Get the photo file
-const petPhotoFile = document.getElementById("petPhoto").files[0];
-let petPhotoHTML = "";
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tribute-wall.html">Tribute Wall</a></li>
+    <li><a href="customize.html">Customize</a></li>
+    <li><a href="shop.html">Virtual Shop</a></li>
+    <li><a href="healing-agent.html">Healing Agent</a></li>
+    <li><a href="memorial-builder.html">Memorial Builder</a></li>
+  </ul>
+</nav>
 
-if (petPhotoFile) {
-    const reader = new FileReader();
-    reader.onload = function (event) {
-        petPhotoHTML = `<img src="${event.target.result}" class="memorial-photo" alt="${name}">`;
-        buildOutput(); 
-    };
-    reader.readAsDataURL(petPhotoFile);
-} else {
-    buildOutput();
-}
+<main>
+  <h1>Create a Memorial</h1>
+  <p>Build a beautiful tribute for your beloved pet</p>
 
-function buildOutput() {
-    const tribute = `
-        <div class="memorial-card">
-            ${petPhotoHTML}
-            <h2>🌈 In Loving Memory of ${name}</h2>
-            <p><strong>Beloved ${type}</strong></p>
-            ${birth !== 'Not specified' ? `<p><strong>Born:</strong> ${formatDate(birth)}</p>` : ''}
-            ${passing !== 'Not specified' ? `<p><strong>Passed:</strong> ${formatDate(passing)}</p>` : ''}
-            <p><em>"${message}"</em></p>
-            <p class="memorial-date">Created on ${new Date().toLocaleDateString()}</p>
-        </div>
-    `;
+  <form id="memorialForm">
+    <div class="form-group">
+      <label for="petName">Pet's Name:</label>
+      <input type="text" id="petName" name="petName" required>
+    </div>
 
-    output.innerHTML = tribute;
-    output.classList.add("fade-in");
-    output.scrollIntoView({ behavior: "smooth" });
+    <div class="form-group">
+      <label for="petType">Type of Pet:</label>
+      <select id="petType" name="petType" required>
+        <option value="">Select...</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Bird">Bird</option>
+        <option value="Rabbit">Rabbit</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Fish">Fish</option>
+        <option value="Horse">Horse</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
 
-    saveTributeToStorage({ name, type, birth, passing, message, petPhoto: petPhotoHTML });
-}
+    <div class="form-group">
+      <label for="petPhoto">Pet Photo (optional):</label>
+      <input type="file" id="petPhoto" name="petPhoto" accept="image/*">
+    </div>
 
-    </main>
+    <div class="form-group">
+      <label for="birthDate">Birth Date (optional):</label>
+      <input type="date" id="birthDate" name="birthDate">
+    </div>
 
-    <footer>
-        &copy; 2026 Over the Rainbow
-    </footer>
+    <div class="form-group">
+      <label for="passingDate">Passing Date (optional):</label>
+      <input type="date" id="passingDate" name="passingDate">
+    </div>
 
-    <!-- This line goes at the BOTTOM of the file, right before </body> -->
-    <script src="assets/js/memorial-builder.js"></script>
+    <div class="form-group">
+      <label for="memorialMessage">Special Message:</label>
+      <textarea id="memorialMessage" name="memorialMessage" rows="4" placeholder="Share a special memory..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn">Create Memorial</button>
+  </form>
+
+  <div id="memorialOutput"></div>
+
+  <button id="downloadMemorial" class="btn">Download Memorial</button>
+</main>
+
+<footer>
+  &copy; 2026 Over the Rainbow
+</footer>
+
+<!-- This is correct: only this script tag goes here -->
+<script src="assets/js/memorial-builder.js"></script>
+
 </body>
 </html>

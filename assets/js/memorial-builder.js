@@ -1,80 +1,76 @@
-// memorial-builder.js - Complete functionality
+// memorial-builder.js
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('memorialForm');
     const output = document.getElementById('memorialOutput');
-    
+
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    }
+
+    function saveTributeToStorage(tribute) {
+        const saved = JSON.parse(localStorage.getItem('rainbowTributes')) || [];
+        saved.push({ ...tribute, createdAt: new Date().toISOString() });
+        localStorage.setItem('rainbowTributes', JSON.stringify(saved));
+    }
+
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form values
             const name = document.getElementById('petName').value;
             const type = document.getElementById('petType').value;
-            const birth = document.getElementById('birthDate')?.value || 'Not specified';
-            const passing = document.getElementById('passingDate')?.value || 'Not specified';
+            const birth = document.getElementById('birthDate').value;
+            const passing = document.getElementById('passingDate').value;
             const message = document.getElementById('memorialMessage').value;
+            const photoFile = document.getElementById('petPhoto').files[0];
 
-            // Create tribute HTML
-            const tribute = `
-                <div class="memorial-card">
-                    <h2>🌈 In Loving Memory of ${name}</h2>
-                    <p><strong>Beloved ${type}</strong></p>
-                    ${birth !== 'Not specified' ? `<p><strong>Born:</strong> ${formatDate(birth)}</p>` : ''}
-                    ${passing !== 'Not specified' ? `<p><strong>Passed:</strong> ${formatDate(passing)}</p>` : ''}
-                    <p><em>"${message}"</em></p>
-                    <p class="memorial-date">Created on ${new Date().toLocaleDateString()}</p>
-                </div>
-            `;
+            let photoHTML = '';
 
-            // Display the tribute
-            if (output) {
-                output.innerHTML = tribute;
+            function buildOutput() {
+                const tributeHTML = `
+                    <div class="memorial-card">
+                        ${photoHTML}
+                        <h2>🌈 In Loving Memory of ${name}</h2>
+                        <p><strong>Beloved ${type}</strong></p>
+                        ${birth ? `<p><strong>Born:</strong> ${formatDate(birth)}</p>` : ''}
+                        ${passing ? `<p><strong>Passed:</strong> ${formatDate(passing)}</p>` : ''}
+                        <p>"${message}"</p>
+                        <p class="memorial-date">Created on ${new Date().toLocaleDateString()}</p>
+                    </div>
+                `;
+                output.innerHTML = tributeHTML;
                 output.classList.add('fade-in');
-                
-                // Scroll to the result
                 output.scrollIntoView({ behavior: 'smooth' });
-                
-                // Save to localStorage (optional - for persistence)
                 saveTributeToStorage({ name, type, birth, passing, message });
+            }
+
+            if (photoFile) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    photoHTML = `<img src="${event.target.result}" class="memorial-photo">`;
+                    buildOutput();
+                };
+                reader.readAsDataURL(photoFile);
+            } else {
+                buildOutput();
             }
         });
     }
 
-    // Format date from YYYY-MM-DD to a nicer format
-    function formatDate(dateString) {
-        if (dateString === 'Not specified') return dateString;
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+    document.getElementById("downloadMemorial").addEventListener("click", () => {
+        html2canvas(output.firstElementChild).then(canvas => {
+            const link = document.createElement("a");
+            const petName = document.getElementById("petName").value || "memorial";
+            link.href = canvas.toDataURL("image/png");
+            link.download = `${petName}-memorial.png`;
+            link.click();
         });
-    }
-
-    // Save tribute to browser storage (optional)
-    function saveTributeToStorage(tribute) {
-        try {
-            const savedTributes = JSON.parse(localStorage.getItem('rainbowTributes')) || [];
-            savedTributes.push({
-                ...tribute,
-                createdAt: new Date().toISOString()
-            });
-            localStorage.setItem('rainbowTributes', JSON.stringify(savedTributes));
-        } catch (err) {
-            console.log('Could not save tribute to storage');
-        }
-    }
-
-    // Load saved tributes (optional - you could show on tribute-wall.html)
-    function loadSavedTributes() {
-        try {
-            const savedTributes = JSON.parse(localStorage.getItem('rainbowTributes')) || [];
-            console.log('Saved tributes:', savedTributes);
-        } catch (err) {
-            console.log('Could not load saved tributes');
-        }
-    }
-
-    // Load any saved data when page opens
-    loadSavedTributes();
+    });
 });
