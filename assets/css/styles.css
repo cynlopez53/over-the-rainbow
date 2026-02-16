@@ -57,7 +57,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: flex-start;      /* pushes content upward */
-    padding-top: 90px;           /* controls how high text sits */
+    padding-top: 75px;           /* controls how high text sits */
     text-align: center;
     color: white;
 }
