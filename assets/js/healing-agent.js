@@ -209,7 +209,8 @@
       typingEl.classList.add('ha-typing');
 
       try {
-        const response = await fetch('/api/healing-agent', {
+        const response = await fetch('https://polished-frost-d1d8.btcam2019.workers.dev', {
+
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
