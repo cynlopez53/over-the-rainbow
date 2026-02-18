@@ -4,68 +4,37 @@
   <meta charset="UTF-8">
   <title>Healing Agent - Over the Rainbow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Link to your existing CSS -->
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      background: #f5f2ff;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, #5D3FD3, #9b6bff);
+    /* =========================
+       HEALING AGENT BUTTON
+    ========================= */
+    #healing-agent-toggle {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 10000;
+      background: #5D3FD3;
       color: #fff;
-      padding: 20px;
-      text-align: center;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+      transition: all 0.3s ease;
     }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin: 8px 0 0;
-      font-size: 16px;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto 80px;
-      padding: 0 20px;
-    }
-    .intro-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-      border: 1px solid rgba(93, 63, 211, 0.15);
-    }
-    .intro-card h2 {
-      margin-top: 0;
-      font-size: 24px;
-      color: #5D3FD3;
-    }
-    .intro-card p {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    .legal-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: #555;
-      background: #f9f7ff;
-      border-left: 3px solid #5D3FD3;
-      padding: 10px 12px;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: #777;
-      padding: 20px;
+    #healing-agent-toggle:hover {
+      background: #836fff;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Healing Support Agent</h1>
     <p>A gentle space for comforting conversation and emotional support.</p>
@@ -90,29 +59,37 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     &copy; <span id="year"></span> Over the Rainbow. All rights reserved.
   </footer>
+
+  <!-- Healing Agent Button -->
+  <button id="healing-agent-toggle" aria-label="Open healing support chat">💜</button>
 
   <!-- Agent.ai embed script -->
   <script src="https://agent.ai/embed.js"></script>
   <script>
     // Initialize the healing agent
     AgentAI.init({
-      agent: 'modularhealingagent',  // your agent ID
-      container: 'body',             // embeds at the bottom of the page
+      agent: 'modularhealingagent',  // your Agent.ai agent ID
+      container: 'body',
       theme: 'purple',
       position: 'bottom-right',
       label: '💜 Healing Support'
     });
 
-    // Footer year
+    // Open agent when button is clicked
+    const toggle = document.getElementById('healing-agent-toggle');
+    toggle.addEventListener('click', () => {
+      AgentAI.open();
+    });
+
+    // Set footer year
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year');
       if(y) y.textContent = new Date().getFullYear();
     });
   </script>
-  <button id="healing-agent-toggle" aria-label="Open healing support chat">💜 Healing Support</button>
 
 </body>
 </html>
