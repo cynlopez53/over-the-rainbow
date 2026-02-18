@@ -403,5 +403,36 @@
     if (y) y.textContent = new Date().getFullYear();
   });
   </script>
+  <h2>Create a Memorial Letter</h2>
+
+<form id="memorialForm">
+  <input type="text" id="recipient_name" placeholder="Recipient Name" required />
+  <button type="submit">Generate Letter</button>
+</form>
+
+<pre id="output"></pre>
+<script>
+document.getElementById("memorialForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const recipientName = document.getElementById("recipient_name").value;
+
+  const letter = `
+Dear ${recipientName},
+
+We are holding space for your tribute:
+
+"I’m holding gentle space with you as you remember three beautiful souls..."
+
+May this message bring comfort and remembrance.
+
+With care,
+FUR-EVER BRIDGE
+`;
+
+  document.getElementById("output").textContent = letter;
+});
+</script>
+
 </body>
 </html>
