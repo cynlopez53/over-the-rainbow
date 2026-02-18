@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Healing Agent - Over the Rainbow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    /* =========================
-       HEALING AGENT BUTTON
-    ========================= */
-    #healing-agent-toggle {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 10000;
-      background: #5D3FD3;
-      color: #fff;
-      border: none;
-      padding: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
-      transition: all 0.3s ease;
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fdfbff;
+      color: #5D3FD3;
+      margin: 0;
+      text-align: center;
     }
-    #healing-agent-toggle:hover {
-      background: #836fff;
-      transform: scale(1.1);
+
+    header {
+      padding: 40px 20px 20px 20px;
+    }
+
+    .agent-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      padding: 25px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      color: #777;
     }
   </style>
 </head>
@@ -37,62 +50,19 @@
     <p>A gentle space for comforting conversation and emotional support.</p>
   </header>
 
-  <main>
-    <section class="intro-card">
-      <h2>Welcome</h2>
-      <p>
-        This Healing Agent is here to offer kind, supportive conversation as you move through grief, memories,
-        and tender moments. You can share what’s on your heart, ask for comforting words, or simply talk about
-        your pet and the love you still feel.
-      </p>
-      <div class="legal-note">
-        This Healing Agent provides emotional support for entertainment purposes only and is not a substitute
-        for professional medical, therapeutic, or mental health advice. If you are in distress or need medical
-        or mental health support, please contact a qualified professional or trusted person in your life.
-      </div>
-      <p style="margin-top:16px;">
-        When you’re ready, click the 💜 Healing Support button in the corner to begin chatting.
-      </p>
-    </section>
-  </main>
+  <div class="agent-container">
+    <iframe 
+      src="https://agent.ai/agent/x9818qg581ivqrmi"
+      allow="microphone"
+    ></iframe>
+  </div>
 
-  <footer class="site-footer">
+  <footer>
     &copy; <span id="year"></span> Over the Rainbow. All rights reserved.
   </footer>
 
-  <!-- Healing Agent Button -->
-  <button id="healing-agent-toggle" aria-label="Open healing support chat">💜</button>
-
-  <!-- Agent.ai embed script - only once! -->
-  <script src="https://agent.ai/embed.js"></script>
   <script>
-    // Wait until AgentAI is loaded, then initialize
-    function initHealingAgent() {
-      if (!window.AgentAI) {
-        setTimeout(initHealingAgent, 100);
-        return;
-      }
-
-      AgentAI.init({
-        agent: 'modularhealingagent',  // your Agent.ai agent ID
-        container: 'body',
-        theme: 'purple',
-        position: 'bottom-right',
-        label: '💜 Healing Support'
-      });
-
-      // Open agent when button is clicked
-      document.getElementById('healing-agent-toggle').addEventListener('click', () => {
-        AgentAI.open();
-      });
-    }
-    initHealingAgent();
-
-    // Set footer year
-    document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
