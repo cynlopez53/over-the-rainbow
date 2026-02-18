@@ -83,6 +83,29 @@ nav ul li a:hover {
 
 .btn.secondary:hover {
     background: #ff8fc0;
+    /* =========================
+   HEALING AGENT BUTTON
+========================= */
+#healing-agent-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10000;
+    background: #5D3FD3;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
+    transition: all 0.3s ease;
+}
+#healing-agent-toggle:hover {
+    background: #836fff;
+    transform: scale(1.1);
+}
+
 }
 
 /* =========================
