@@ -90,6 +90,39 @@
       if(y) y.textContent = new Date().getFullYear();
     });
   </script>
+<script src="https://agent.ai/embed.js"></script>
+<script>
+  // Wait for AgentAI to initialize
+  function initHealingAgent() {
+    if (!window.AgentAI) {
+      setTimeout(initHealingAgent, 100); // check again in 100ms
+      return;
+    }
+
+    // Initialize the healing agent
+    AgentAI.init({
+      agent: 'modularhealingagent',  // your Agent.ai agent ID
+      container: 'body',
+      theme: 'purple',
+      position: 'bottom-right',
+      label: '💜 Healing Support'
+    });
+
+    // Open agent when button is clicked
+    const toggle = document.getElementById('healing-agent-toggle');
+    toggle.addEventListener('click', () => {
+      AgentAI.open();
+    });
+  }
+
+  initHealingAgent();
+
+  // Set footer year
+  document.addEventListener('DOMContentLoaded', () => {
+    const y = document.getElementById('year');
+    if(y) y.textContent = new Date().getFullYear();
+  });
+</script>
 
 </body>
 </html>
