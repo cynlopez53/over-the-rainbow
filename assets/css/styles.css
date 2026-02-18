@@ -57,8 +57,6 @@ nav ul li a:hover {
     background-color: #fdfbff; /* fallback if image doesn't load */
 }
 
-
-
 /* Buttons */
 .btn {
     display: inline-block;
@@ -83,7 +81,9 @@ nav ul li a:hover {
 
 .btn.secondary:hover {
     background: #ff8fc0;
-    /* =========================
+}
+
+/* =========================
    HEALING AGENT BUTTON
 ========================= */
 #healing-agent-toggle {
@@ -101,11 +101,10 @@ nav ul li a:hover {
     box-shadow: 0 4px 12px rgba(93, 63, 211, 0.3);
     transition: all 0.3s ease;
 }
+
 #healing-agent-toggle:hover {
     background: #836fff;
     transform: scale(1.1);
-}
-
 }
 
 /* =========================
@@ -182,37 +181,38 @@ main {
         display: block;
         margin: 12px 0;
     }
+
     /* MEMORIAL BUILDER OUTPUT */
-.memorial-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 25px;
-    border-left: 6px solid #836fff;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-    margin-top: 30px;
-    color: #5D3FD3;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
+    .memorial-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 25px;
+        border-left: 6px solid #836fff;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        margin-top: 30px;
+        color: #5D3FD3;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
 
-.memorial-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
+    .memorial-card h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
 
-.memorial-card p {
-    margin: 8px 0;
-}
+    .memorial-card p {
+        margin: 8px 0;
+    }
 
-.fade-in {
-    animation: fadeIn 0.8s ease-in-out;
-}
+    .fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-}  
+}
