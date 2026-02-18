@@ -3,95 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tribute Wall - Over the Rainbow</title>
+    <title>Virtual Shop - Over the Rainbow</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* 1. Global Setup with Wallpaper */
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('assets/images/rainbow-bridge.jpg') !important;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
+            font-family: 'Cormorant Garamond', serif;
+            background: #fdfbff;
         }
 
-        /* 2. Navigation Styling */
+        /* NAVIGATION */
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
         nav ul {
-            list-style-type: none;
+            list-style: none;
+            padding: 0;
             margin: 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.2); 
-            display: flex;
-            justify-content: center;
         }
 
-        nav ul li { margin: 0 15px; }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
 
         nav ul li a {
             text-decoration: none;
-            color: #5D3FD3 !important;
-            font-weight: bold;
-        }
-
-        /* 3. Main Content (Centered & Transparent) */
-        main {
-            max-width: 800px;
-            margin: 40px auto; 
-            padding: 30px;
-            text-align: center;
-            background: transparent !important;
-        }
-
-        h1, p {
-            color: #5D3FD3 !important;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
-        }
-
-        /* 4. Tribute Card Styling */
-        .tribute-container {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .tribute-card {
-            background: rgba(255, 255, 255, 0.5); /* Very see-through */
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #5D3FD3;
-            text-align: left;
             color: #5D3FD3;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #8a6df0;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            width: 100%;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #c8a8ff, #ffb6d5);
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        /* RAINBOW DIVIDER */
+        .rainbow-border {
+            height: 6px;
+            width: 70%;
+            margin: 25px auto;
+            background: linear-gradient(
+                to right,
+                #ffb6d5,
+                #ffd700,
+                #98fb98,
+                #87cefa,
+                #c8a8ff
+            );
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
+        /* SHOP GRID */
+        .shop-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .item-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            color: #5D3FD3;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .item-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .item-card h3 {
+            margin: 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .item-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .item-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #5D3FD3;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .item-card .btn:hover {
+            background: #8a6df0;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            background: #ffffff;
+            color: #777;
+            font-size: 0.9rem;
         }
     </style>
 </head>
+
 <body>
+
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="assets/customize.html">Customize</a></li>
-            <li><a href="virtual-shop.html">Virtual Shop</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
             <li><a href="healing-agent.html">Healing Agent</a></li>
             <li><a href="memorial-builder.html">Memorial Builder</a></li>
         </ul>
     </nav>
-    <main>
-        <h1>Tribute Wall</h1>
-        <p>A place for love, memories, and shared stories.</p>
-        <div class="tribute-container">
-            <div class="tribute-card">
-                <strong>Max (2010-2024)</strong>
-                <p>"The best companion anyone could ask for. We miss your wagging tail every day."</p>
-            </div>
-            <div class="tribute-card">
-                <strong>Bella</strong>
-                <p>"You brought so much sunshine into our lives. Rest easy, sweet girl."</p>
-            </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="rainbow-border"></div>
+        <h1>🌈 Over the Rainbow Virtual Shop 🌈</h1>
+        <p>Gentle keepsakes and comforting digital items to honor your beloved companion.</p>
+        <div class="rainbow-border"></div>
+    </section>
+
+    <!-- SHOP GRID -->
+    <main class="shop-container">
+
+        <!-- ITEM 1 -->
+        <div class="item-card">
+            <img src="assets/images/placeholder1.jpg" alt="Pet Memorial Template">
+            <h3>Pet Memorial Template</h3>
+            <p>A soft, customizable memorial page to honor your pet.</p>
+            <a href="#" class="btn">View Item</a>
         </div>
+
+        <!-- ITEM 2 -->
+        <div class="item-card">
+            <img src="assets/images/placeholder2.jpg" alt="Rainbow Bridge Poem">
+            <h3>Rainbow Bridge Poem</h3>
+            <p>A printable version of the classic poem with pastel artwork.</p>
+            <a href="#" class="btn">View Item</a>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="item-card">
+            <img src="assets/images/placeholder3.jpg" alt="Digital Pet Portrait">
+            <h3>Digital Pet Portrait</h3>
+            <p>A gentle, hand‑drawn style portrait of your beloved companion.</p>
+            <a href="#" class="btn">View Item</a>
+        </div>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
+
 </body>
 </html>
