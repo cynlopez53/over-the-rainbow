@@ -1,86 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memorial Builder - Over the Rainbow</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorial Builder - Over the Rainbow</title>
 
-  <!-- html2canvas for download feature -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: #fdfbff;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #8a6df0;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            width: 100%;
+            padding: 70px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #c8a8ff, #ffb6d5);
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        /* RAINBOW DIVIDER */
+        .rainbow-border {
+            height: 6px;
+            width: 70%;
+            margin: 25px auto;
+            background: linear-gradient(
+                to right,
+                #ffb6d5,
+                #ffd700,
+                #98fb98,
+                #87cefa,
+                #c8a8ff
+            );
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
+        /* BUILDER LAYOUT */
+        .builder-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* HEART TOMBSTONE */
+        .tombstone-preview {
+            width: 300px;
+            height: 260px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .heart {
+            width: 300px;
+            height: 260px;
+            background: #e6e6e6;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 150px 150px 0 0;
+            transform: rotate(-45deg);
+            top: 40px;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 150px;
+            height: 150px;
+            background: #e6e6e6;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -75px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: -75px;
+            right: 0;
+        }
+
+        /* TEXT OVERLAY */
+        .overlay-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: #5D3FD3;
+            pointer-events: none;
+        }
+
+        .name-text {
+            top: 40px;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .dates-text {
+            top: 90px;
+            font-size: 1.1rem;
+        }
+
+        .message-text {
+            top: 140px;
+            font-size: 1rem;
+            padding: 0 20px;
+        }
+
+        /* FORM */
+        .form-section {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: 600;
+            color: #5D3FD3;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #5D3FD3;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #8a6df0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            background: #ffffff;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
+
 <body>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tribute-wall.html">Tribute Wall</a></li>
-    <li><a href="customize.html">Customize</a></li>
-    <li><a href="shop.html">Virtual Shop</a></li>
-    <li><a href="healing-agent.html">Healing Agent</a></li>
-    <li><a href="memorial-builder.html">Memorial Builder</a></li>
-  </ul>
-</nav>
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
 
-<main>
-  <h1>Create a Memorial</h1>
-  <p>Build a beautiful tribute for your beloved pet</p>
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="rainbow-border"></div>
+        <h1>Create a Memorial</h1>
+        <p>Build a beautiful tribute for your beloved pet.</p>
+        <div class="rainbow-border"></div>
+    </section>
 
-  <form id="memorialForm">
-    <div class="form-group">
-      <label for="petName">Pet's Name:</label>
-      <input type="text" id="petName" name="petName" required>
+    <!-- BUILDER -->
+    <div class="builder-container">
+
+        <!-- PREVIEW -->
+        <div class="tombstone-preview">
+            <div class="heart"></div>
+            <div class="overlay-text name-text" id="previewName">Pet Name</div>
+            <div class="overlay-text dates-text" id="previewDates">0000 – 0000</div>
+            <div class="overlay-text message-text" id="previewMessage">Your message here</div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-section">
+
+            <label>Pet's Name:</label>
+            <input type="text" id="petName" placeholder="Chino">
+
+            <label>Birth Date:</label>
+            <input type="text" id="birthDate" placeholder="mm/dd/yyyy">
+
+            <label>Passing Date:</label>
+            <input type="text" id="passingDate" placeholder="mm/dd/yyyy">
+
+            <label>Special Message:</label>
+            <textarea id="specialMessage" placeholder="Share a special memory..."></textarea>
+
+            <label>Text Color:</label>
+            <input type="color" id="textColor" value="#5D3FD3">
+
+            <button class="btn" onclick="updatePreview()">Create Memorial</button>
+            <button class="btn" onclick="downloadMemorial()">Download Memorial</button>
+        </div>
     </div>
 
-    <div class="form-group">
-      <label for="petType">Type of Pet:</label>
-      <select id="petType" name="petType" required>
-        <option value="">Select...</option>
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Bird">Bird</option>
-        <option value="Rabbit">Rabbit</option>
-        <option value="Hamster">Hamster</option>
-        <option value="Fish">Fish</option>
-        <option value="Horse">Horse</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
+    <footer>
+        © 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
 
-    <div class="form-group">
-      <label for="petPhoto">Pet Photo (optional):</label>
-      <input type="file" id="petPhoto" name="petPhoto" accept="image/*">
-    </div>
+    <script>
+        function updatePreview() {
+            const name = document.getElementById("petName").value;
+            const birth = document.getElementById("birthDate").value;
+            const passing = document.getElementById("passingDate").value;
+            const message = document.getElementById("specialMessage").value;
+            const color = document.getElementById("textColor").value;
 
-    <div class="form-group">
-      <label for="birthDate">Birth Date (optional):</label>
-      <input type="date" id="birthDate" name="birthDate">
-    </div>
+            document.getElementById("previewName").textContent = name || "Pet Name";
+            document.getElementById("previewDates").textContent = birth && passing ? `${birth} – ${passing}` : "0000 – 0000";
+            document.getElementById("previewMessage").textContent = message || "Your message here";
 
-    <div class="form-group">
-      <label for="passingDate">Passing Date (optional):</label>
-      <input type="date" id="passingDate" name="passingDate">
-    </div>
+            document.querySelectorAll(".overlay-text").forEach(el => {
+                el.style.color = color;
+            });
+        }
 
-    <div class="form-group">
-      <label for="memorialMessage">Special Message:</label>
-      <textarea id="memorialMessage" name="memorialMessage" rows="4" placeholder="Share a special memory..." required></textarea>
-    </div>
+        function downloadMemorial() {
+            html2canvas(document.querySelector(".tombstone-preview")).then(canvas => {
+                const link = document.createElement("a");
+                link.download = "memorial.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
 
-    <button type="submit" class="btn">Create Memorial</button>
-  </form>
-
-  <div id="memorialOutput"></div>
-
-  <button id="downloadMemorial" class="btn">Download Memorial</button>
-</main>
-
-<footer>
-  &copy; 2026 Over the Rainbow
-</footer>
-
-<!-- This is correct: only this script tag goes here -->
-<script src="assets/js/memorial-builder.js"></script>
+    <!-- HTML2CANVAS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 </body>
 </html>
