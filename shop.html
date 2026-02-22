@@ -8,17 +8,18 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CLEAN, FIXED CSS -->
     <style>
-        <head>
-  <style>
-    .shop-item img {
-      width: 250px;
-      height: auto;
-      object-fit: contain;
-    }
-  </style>
-</head>
+        /* IMAGE SIZING FOR SHOP ITEMS */
+        .shop-item img {
+            width: 250px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
 
+        /* GLOBAL */
         body {
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
@@ -101,7 +102,8 @@
             gap: 30px;
         }
 
-        .item-card {
+        /* SHOP ITEM CARD */
+        .shop-item {
             background: white;
             padding: 20px;
             border-radius: 20px;
@@ -110,23 +112,22 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
-        .item-card img {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 15px;
-        }
-
-        .item-card h3 {
+        .shop-item h3 {
             margin: 10px 0;
             font-size: 1.4rem;
         }
 
-        .item-card p {
+        .shop-item p {
             font-size: 1rem;
             margin-bottom: 15px;
         }
 
-        .item-card .btn {
+        .shop-item .price {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .shop-item .btn {
             display: inline-block;
             padding: 10px 20px;
             background: #5D3FD3;
@@ -137,7 +138,7 @@
             transition: 0.3s ease;
         }
 
-        .item-card .btn:hover {
+        .shop-item .btn:hover {
             background: #8a6df0;
         }
 
@@ -179,55 +180,40 @@
     <main class="shop-container">
 
         <!-- DIGITAL PET PORTRAIT – ANGEL STYLE -->
-<div class="shop-item">
-    <img src="images/pet-portrait-sample.jpg" alt="Digital Pet Portrait" class="shop-image">
+        <div class="shop-item">
+            <img src="images/pet-portrait-sample.jpg" alt="Digital Pet Portrait">
+            <h3>Digital Pet Portrait – Angel Style</h3>
+            <p>A soft, comforting digital portrait created from your pet’s photo. Includes angel wings and a gentle halo for a heavenly memorial look.</p>
+            <p class="price">$15.00</p>
+            <a href="https://www.paypal.com" class="btn">Buy Now</a>
+        </div>
 
-    <h3>Digital Pet Portrait – Angel Style</h3>
-    <p>A soft, comforting digital portrait created from your pet’s photo. Includes angel wings and a gentle halo for a heavenly memorial look.</p>
+        <!-- DIGITAL HEADSTONE – LIGHT STONE -->
+        <div class="shop-item">
+            <img src="assets/images/blank.png" alt="Light Stone Headstone">
+            <h3>Digital Headstone Template – Light Stone</h3>
+            <p>A customizable digital headstone design with a soft, traditional stone look. Add your pet’s name, dates, and a special message.</p>
+            <p class="price">$10.00</p>
+            <a href="https://www.paypal.com" class="btn">Buy Now</a>
+        </div>
 
-    <p class="price">$15.00</p>
+        <!-- DIGITAL HEADSTONE – BROWN MARBLE -->
+        <div class="shop-item">
+            <img src="assets/images/brown.png" alt="Brown Marble Headstone">
+            <h3>Digital Headstone Template – Brown Marble</h3>
+            <p>A rich brown marble headstone design with elegant veining. Personalized with your pet’s details and delivered as a printable digital file.</p>
+            <p class="price">$12.00</p>
+            <a href="https://www.paypal.com" class="btn">Buy Now</a>
+        </div>
 
-    <a href="https://www.paypal.com" class="btn">Buy Now</a>
-</div>
-
-
-<!-- DIGITAL HEADSTONE – LIGHT STONE -->
-<div class="shop-item">
-    <img src="assets/images/blank.png" alt="Light Stone Headstone" class="shop-image">
-
-    <h3>Digital Headstone Template – Light Stone</h3>
-    <p>A customizable digital headstone design with a soft, traditional stone look. Add your pet’s name, dates, and a special message.</p>
-
-    <p class="price">$10.00</p>
-
-    <a href="https://www.paypal.com" class="btn">Buy Now</a>
-</div>
-
-
-<!-- DIGITAL HEADSTONE – BROWN MARBLE -->
-<div class="shop-item">
-    <img src="assets/images/brown.png" alt="Brown Marble Headstone" class="shop-image">
-
-    <h3>Digital Headstone Template – Brown Marble</h3>
-    <p>A rich brown marble headstone design with elegant veining. Personalized with your pet’s details and delivered as a printable digital file.</p>
-
-    <p class="price">$12.00</p>
-
-    <a href="https://www.paypal.com" class="btn">Buy Now</a>
-</div>
-
-
-<!-- DIGITAL HEADSTONE – BLACK MARBLE -->
-<div class="shop-item">
-    <img src="assets/images/black.png" alt="Black Marble Headstone" class="shop-image">
-
-    <h3>Digital Headstone Template – Black Marble</h3>
-    <p>A sleek black marble headstone design with soft white veining. Customized with your pet’s name, dates, and message.</p>
-
-    <p class="price">$12.00</p>
-
-    <a href="https://www.paypal.com" class="btn">Buy Now</a>
-</div>
+        <!-- DIGITAL HEADSTONE – BLACK MARBLE -->
+        <div class="shop-item">
+            <img src="assets/images/black.png" alt="Black Marble Headstone">
+            <h3>Digital Headstone Template – Black Marble</h3>
+            <p>A sleek black marble headstone design with soft white veining. Customized with your pet’s name, dates, and message.</p>
+            <p class="price">$12.00</p>
+            <a href="https://www.paypal.com" class="btn">Buy Now</a>
+        </div>
 
     </main>
 
