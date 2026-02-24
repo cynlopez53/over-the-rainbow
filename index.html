@@ -1,88 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pet Tribute Page</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f7f4f1;
-        text-align: center;
-        padding: 40px;
-        color: #444;
-    }
-
-    .memorial-container {
-        background: white;
-        max-width: 600px;
-        margin: auto;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-        color: #7a5c61;
-    }
-
-    .tribute-text {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 20px;
-    }
-
-    .pet-form {
-        margin-top: 30px;
-        text-align: left;
-    }
-
-    .pet-form input,
-    .pet-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-    }
-
-    .pet-form button {
-        background-color: #7a5c61;
-        color: white;
-        border: none;
-        padding: 12px;
-        border-radius: 6px;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-    }
-
-    .pet-form button:hover {
-        background-color: #5f4448;
-    }
-</style>
+  <meta charset="UTF-8">
+  <title>Over the Rainbow</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-<div class="memorial-container">
-    <h1>Honoring Your Beloved Companion</h1>
+<body class="otr-body">
 
-    <p class="tribute-text">
-        Our pets are more than animals — they are family. They bring us comfort, laughter, 
-        unconditional love, and unforgettable memories. This space is dedicated to honoring 
-        the life, loyalty, and love your companion shared with you. Though they may no longer 
-        walk beside us, their paw prints remain forever in our hearts.
-    </p>
+  <!-- HEADER -->
+  <header class="otr-header">
+    <h1>Over the Rainbow</h1>
+    <p class="otr-subtitle">A gentle place to remember, honor, and heal.</p>
+  </header>
 
-    <div class="pet-form">
-        <h3>Create a Tribute</h3>
-        <input type="text" placeholder="Pet's Name">
-        <input type="date">
-        <textarea rows="4" placeholder="Write a few loving words about your pet..."></textarea>
-        <button>Share Tribute</button>
+  <!-- NAVIGATION -->
+  <nav class="otr-nav">
+    <a href="tribute-wall.html" class="otr-nav-btn">Tribute Wall</a>
+    <a href="virtual-shop.html" class="otr-nav-btn">Virtual Shop</a>
+    <a href="healing-agent.html" class="otr-nav-btn">Find Comfort</a>
+  </nav>
+
+  <!-- MAIN HERO SECTION -->
+  <main class="otr-hero">
+    <div class="otr-hero-text">
+      <h2>Where love lives on</h2>
+      <p>
+        Over the Rainbow is a peaceful sanctuary created to honor the pets who
+        touched our hearts. Here, you can build a tribute, light a candle,
+        place a flower, or simply sit with your memories.
+      </p>
+
+      <div class="otr-hero-buttons">
+        <a href="tribute-wall.html" class="otr-btn-primary">Visit the Tribute Wall</a>
+        <a href="virtual-shop.html" class="otr-btn-secondary">Create a Tribute</a>
+      </div>
     </div>
-</div>
+  </main>
+
+  <!-- HEALING AGENT BUBBLE -->
+  <div class="healing-agent-bubble">
+    <a href="healing-agent.html">
+      <img src="assets/images/healing-agent-icon.png" alt="Healing Agent">
+    </a>
+  </div>
 
 </body>
 </html>
-
