@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Over the Rainbow</title>
-    
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Tribute Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f4f1;
+        text-align: center;
+        padding: 40px;
+        color: #444;
+    }
 
+    .memorial-container {
+        background: white;
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #7a5c61;
+    }
+
+    .tribute-text {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+
+    .pet-form {
+        margin-top: 30px;
+        text-align: left;
+    }
+
+    .pet-form input,
+    .pet-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .pet-form button {
+        background-color: #7a5c61;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .pet-form button:hover {
+        background-color: #5f4448;
+    }
+</style>
+</head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tribute-wall.html">Tribute Wall</a></li>
-            <li><a href="customize.html">Customize</a></li>
-            <li><a href="shop.html">Virtual Shop</a></li>
-            <li><a href="healing-agent.html">Healing Agent</a></li>
-            <li><a href="memorial-builder.html">Memorial Builder</a></li>
-        </ul>
-    </nav>
+<div class="memorial-container">
+    <h1>Honoring Your Beloved Companion</h1>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Over the Rainbow</h1>
-            <p>A gentle digital sanctuary for honoring the pets who shaped our hearts.</p>
+    <p class="tribute-text">
+        Our pets are more than animals — they are family. They bring us comfort, laughter, 
+        unconditional love, and unforgettable memories. This space is dedicated to honoring 
+        the life, loyalty, and love your companion shared with you. Though they may no longer 
+        walk beside us, their paw prints remain forever in our hearts.
+    </p>
 
-            <div class="buttons">
-                <a href="tribute-wall.html" class="btn">Create a Tribute</a>
-                <a href="healing-agent.html" class="btn secondary">Find Comfort</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        &copy; 2026 Over the Rainbow. A place of love and remembrance.
-    </footer>
+    <div class="pet-form">
+        <h3>Create a Tribute</h3>
+        <input type="text" placeholder="Pet's Name">
+        <input type="date">
+        <textarea rows="4" placeholder="Write a few loving words about your pet..."></textarea>
+        <button>Share Tribute</button>
+    </div>
+</div>
 
 </body>
 </html>
-
 
