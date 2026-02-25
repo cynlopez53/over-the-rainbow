@@ -157,6 +157,40 @@
 
     </style>
 </head>
+<div class="tribute-board">
+  <h2>Pet Name</h2>
+  <p>Your message here...</p>
+
+  <div class="canvas" id="canvas"></div>
+
+  <div class="toolbox">
+    <img src="assets/headstone.png" draggable="true" ondragstart="drag(event)">
+    <img src="assets/rose.png" draggable="true" ondragstart="drag(event)">
+    <img src="assets/candle.png" draggable="true" ondragstart="drag(event)">
+    <img src="assets/toy.png" draggable="true" ondragstart="drag(event)">
+  </div>
+</div>
+
+<script>
+function drag(ev) {
+  ev.dataTransfer.setData("src", ev.target.src)
+}
+
+document.getElementById("canvas").ondrop = function(ev) {
+  ev.preventDefault()
+  const src = ev.dataTransfer.getData("src")
+  const img = document.createElement("img")
+  img.src = src
+  img.className = "placed-item"
+  img.style.left = ev.offsetX + "px"
+  img.style.top = ev.offsetY + "px"
+  this.appendChild(img)
+}
+
+document.getElementById("canvas").ondragover = function(ev) {
+  ev.preventDefault()
+}
+</script>
 
 <body>
 
