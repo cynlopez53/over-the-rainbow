@@ -13,6 +13,7 @@
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
             background: #fdfbff;
+            color: #5D3FD3;
         }
 
         /* NAVIGATION */
@@ -22,27 +23,14 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav ul li { display: inline; margin: 0 15px; }
         nav ul li a {
             text-decoration: none;
             color: #5D3FD3;
             font-weight: 600;
         }
-
-        nav ul li a:hover {
-            color: #8a6df0;
-        }
+        nav ul li a:hover { color: #8a6df0; }
 
         /* HERO SECTION */
         .hero-section {
@@ -52,31 +40,18 @@
             background: linear-gradient(135deg, #c8a8ff, #ffb6d5);
             color: white;
         }
-
-        .hero-section h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
+        .hero-section h1 { font-size: 3rem; margin-bottom: 10px; }
         .hero-section p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 25px;
         }
 
-        /* RAINBOW DIVIDER */
         .rainbow-border {
             height: 6px;
             width: 70%;
             margin: 25px auto;
-            background: linear-gradient(
-                to right,
-                #ffb6d5,
-                #ffd700,
-                #98fb98,
-                #87cefa,
-                #c8a8ff
-            );
+            background: linear-gradient(to right, #ffb6d5, #ffd700, #98fb98, #87cefa, #c8a8ff);
             border-radius: 50px;
             box-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
@@ -89,43 +64,18 @@
             text-align: center;
         }
 
-        /* HEART TOMBSTONE */
+        /* TOMBSTONE PREVIEW */
         .tombstone-preview {
-            width: 300px;
-            height: 260px;
+            width: 350px;
             margin: 0 auto 30px;
             position: relative;
         }
 
-        .heart {
-            width: 300px;
-            height: 260px;
-            background: #e6e6e6;
-            position: relative;
-            margin: 0 auto;
-            border-radius: 150px 150px 0 0;
-            transform: rotate(-45deg);
-            top: 40px;
-        }
-
-        .heart:before,
-        .heart:after {
-            content: "";
-            width: 150px;
-            height: 150px;
-            background: #e6e6e6;
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .heart:before {
-            top: -75px;
-            left: 0;
-        }
-
-        .heart:after {
-            top: -75px;
-            right: 0;
+        .stone-base {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
         }
 
         /* TEXT OVERLAY */
@@ -137,33 +87,13 @@
             pointer-events: none;
         }
 
-        .name-text {
-            top: 40px;
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
-
-        .dates-text {
-            top: 90px;
-            font-size: 1.1rem;
-        }
-
-        .message-text {
-            top: 140px;
-            font-size: 1rem;
-            padding: 0 20px;
-        }
+        .name-text { top: 40px; font-size: 1.8rem; font-weight: bold; }
+        .dates-text { top: 95px; font-size: 1.2rem; }
+        .message-text { top: 150px; font-size: 1rem; padding: 0 20px; }
 
         /* FORM */
-        .form-section {
-            margin-top: 40px;
-            text-align: left;
-        }
-
-        label {
-            font-weight: 600;
-            color: #5D3FD3;
-        }
+        .form-section { margin-top: 40px; text-align: left; }
+        label { font-weight: 600; color: #5D3FD3; }
 
         input, textarea, select {
             width: 100%;
@@ -185,11 +115,9 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s ease;
+            margin-right: 10px;
         }
-
-        .btn:hover {
-            background: #8a6df0;
-        }
+        .btn:hover { background: #8a6df0; }
 
         footer {
             text-align: center;
@@ -228,12 +156,12 @@
     <div class="builder-container">
 
         <!-- PREVIEW -->
-       <div class="tombstone-preview">
-    <img src="assets/images/blank.png" class="stone-base" id="stoneBase">
-    <div class="overlay-text name-text" id="previewName">Pet Name</div>
-    <div class="overlay-text dates-text" id="previewDates">0000 – 0000</div>
-    <div class="overlay-text message-text" id="previewMessage">Your message here</div>
-</div>
+        <div class="tombstone-preview">
+            <img src="assets/images/blank.png" class="stone-base" id="stoneBase">
+            <div class="overlay-text name-text" id="previewName">Pet Name</div>
+            <div class="overlay-text dates-text" id="previewDates">0000 – 0000</div>
+            <div class="overlay-text message-text" id="previewMessage">Your message here</div>
+        </div>
 
         <!-- FORM -->
         <div class="form-section">
@@ -253,7 +181,7 @@
             <label>Text Color:</label>
             <input type="color" id="textColor" value="#5D3FD3">
 
-            <button class="btn" onclick="updatePreview()">Create Memorial</button>
+            <button class="btn" onclick="updatePreview()">Update Preview</button>
             <button class="btn" onclick="downloadMemorial()">Download Memorial</button>
         </div>
     </div>
@@ -262,6 +190,7 @@
         © 2026 Over the Rainbow. A place of love and remembrance.
     </footer>
 
+    <!-- SCRIPT -->
     <script>
         function updatePreview() {
             const name = document.getElementById("petName").value;
