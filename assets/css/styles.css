@@ -228,9 +228,54 @@ form textarea {
 
 /* HOMEPAGE BACKGROUND */
 .otr-body {
+    /* cover scales the image to fill the viewport, which will crop
+       different parts of the picture depending on the window size.  we're
+       focusing on the top so the animals on the bridge stay visible. */
     background-image: url("../images/rainbow-bridge.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+/* make header/nav bar semi‑opaque so the image doesn't show through too much */
+.otr-header,
+.otr-nav {
+    background: rgba(255,255,255,0.85);
+    padding: 10px 0;
+}
+
+/* primary navigation buttons */
+.otr-nav-btn {
+    display: inline-block;
+    margin: 0 12px;
+    padding: 8px 14px;
+    color: #5D3FD3;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.otr-nav-btn:hover {
+    background: rgba(93,63,211,0.1);
+}
+
+/* space the hero buttons a bit more clearly */
+.otr-hero-buttons a + a {
+    margin-left: 15px;
+}
+
+/* floating healing agent icon */
+.healing-agent-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+.healing-agent-bubble img {
+    width: 100%;
+    height: auto;
+}
+
