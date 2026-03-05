@@ -228,7 +228,7 @@ form textarea {
 
 /* HOMEPAGE BACKGROUND */
 .otr-body {
-    background-image: url("assets/images/rainbow-bridge.jpg");
+    background-image: url("../images/rainbow-bridge.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
