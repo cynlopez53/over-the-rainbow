@@ -97,36 +97,6 @@
             margin: 8px 0;
         }
 
-        /* DRAG & DROP MEMORIAL BOARD */
-        .tribute-board {
-            width: 400px;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(255,255,255,0.6);
-            border-radius: 20px;
-            backdrop-filter: blur(8px);
-            text-align: center;
-        }
-
-        .canvas {
-            width: 100%;
-            height: 250px;
-            border: 2px dashed #ccc;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .toolbox img {
-            width: 45px;
-            margin: 5px;
-            cursor: grab;
-        }
-
-        .placed-item {
-            width: 45px;
-            position: absolute;
-        }
-
         /* FOOTER */
         footer {
             text-align: center;
@@ -159,21 +129,6 @@
         <p>Honor and remember the beloved companions who have crossed the rainbow bridge.</p>
     </section>
 
-    <!-- DRAG & DROP MEMORIAL BOARD -->
-    <div class="tribute-board">
-        <h2>Pet Name</h2>
-        <p>Your message here...</p>
-
-        <div class="canvas" id="canvas"></div>
-
-        <div class="toolbox">
-            <img src="assets/images/headstone.png" draggable="true" ondragstart="drag(event)">
-            <img src="assets/images/rose.png" draggable="true" ondragstart="drag(event)">
-            <img src="assets/images/candle.png" draggable="true" ondragstart="drag(event)">
-            <img src="assets/images/toy.png" draggable="true" ondragstart="drag(event)">
-        </div>
-    </div>
-
     <!-- TRIBUTE CONTENT -->
     <main>
         <div id="tributeWall" class="tribute-container"></div>
@@ -186,28 +141,6 @@
 
     <!-- SCRIPTS -->
     <script>
-        /* DRAG & DROP */
-        function drag(ev) {
-            ev.dataTransfer.setData("src", ev.target.src);
-        }
-
-        const canvas = document.getElementById("canvas");
-
-        canvas.ondrop = function(ev) {
-            ev.preventDefault();
-            const src = ev.dataTransfer.getData("src");
-            const img = document.createElement("img");
-            img.src = src;
-            img.className = "placed-item";
-            img.style.left = ev.offsetX + "px";
-            img.style.top = ev.offsetY + "px";
-            canvas.appendChild(img);
-        };
-
-        canvas.ondragover = function(ev) {
-            ev.preventDefault();
-        };
-
         /* LOAD TRIBUTES */
         function loadTributes() {
             const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
@@ -233,5 +166,4 @@
     </script>
 
 </body>
-</html> 
-@mention
+</html>
