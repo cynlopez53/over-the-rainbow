@@ -140,8 +140,11 @@ footer {
     background: #ffffff;
     color: #777;
     font-size: 0.9rem;
-    /* Center Main Content */
+}
+
+/* Center Main Content */
 main {
+
     max-width: 700px;
     margin: 60px auto;
     padding: 30px;
