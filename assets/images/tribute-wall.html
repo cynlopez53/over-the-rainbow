@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Wall - Over the Rainbow</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: #fdfbff;
+            color: #5D3FD3;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a {
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: 600;
+        }
+        nav ul li a:hover { color: #8a6df0; }
+
+        /* HERO */
+        .hero-section {
+            width: 100%;
+            padding: 70px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #c8a8ff, #ffb6d5);
+            color: white;
+        }
+        .hero-section h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .rainbow-border {
+            height: 6px;
+            width: 70%;
+            margin: 25px auto;
+            background: linear-gradient(to right, #ffb6d5, #ffd700, #98fb98, #87cefa, #c8a8ff);
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
+        /* TRIBUTE WALL */
+        .wall-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .tribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .tribute-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .tribute-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tribute-card h3 {
+            margin: 10px 0 5px;
+            font-size: 1.6rem;
+            color: #5D3FD3;
+        }
+
+        .tribute-card p {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            background: #ffffff;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Healing Agent</a></li>
+            <li><a href="memorial-builder.html">Memorial Builder</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="rainbow-border"></div>
+        <h1>Tribute Wall</h1>
+        <p>A loving space to honor and remember our cherished companions.</p>
+        <div class="rainbow-border"></div>
+    </section>
+
+    <!-- TRIBUTE WALL -->
+    <div class="wall-container">
+        <div id="tributeWall" class="tribute-grid">
+            <!-- Saved tributes will appear here -->
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Over the Rainbow. A place of love and remembrance.
+    </footer>
+
+    <script>
+        // Load tributes from localStorage
+        const tributeWall = document.getElementById("tributeWall");
+        const tributes = JSON.parse(localStorage.getItem("tributes")) || [];
+
+        function renderTributes() {
+            tributeWall.innerHTML = "";
+
+            tributes.forEach(t => {
+                const card = document.createElement("div");
+                card.className = "tribute-card";
+
+                card.innerHTML = `
+                    <img src="${t.image}" alt="Pet Memorial">
+                    <h3>${t.name}</h3>
+                    <p>${t.dates}</p>
+                    <p>${t.message}</p>
+                `;
+
+                tributeWall.appendChild(card);
+            });
+        }
+
+        renderTributes();
+    </script>
+
+</body>
+</html>
