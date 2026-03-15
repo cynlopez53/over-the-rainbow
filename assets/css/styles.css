@@ -72,66 +72,6 @@ nav ul li a:hover {
     box-shadow: 0 0 15px rgba(255,255,255,0.6);
 }
 
-/* SHOP GRID */
-.shop-container {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-}
-
-/* SHOP ITEM CARD */
-.shop-item {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    color: #5D3FD3;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-/* FIXED IMAGE SIZE FOR HEADSTONES + PORTRAITS */
-.shop-item img {
-    width: 250px;
-    height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 15px;
-}
-
-.shop-item h3 {
-    margin: 10px 0;
-    font-size: 1.4rem;
-}
-
-.shop-item p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.shop-item .price {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* BUTTONS */
-.shop-item .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #5D3FD3;
-    color: white;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.shop-item .btn:hover {
-    background: #8a6df0;
-}
-
 /* FOOTER */
 footer {
     text-align: center;

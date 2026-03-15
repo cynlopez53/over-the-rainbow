@@ -2,8 +2,8 @@
 
 ## What's Here
 
-- **Web Pages**: HTML files for index, donations, shop, tributes, etc.
-- **Frontend Logic**: JavaScript in `assets/js/` handles modals, shop, tributes
+- **Web Pages**: HTML files for index, donations, tributes, etc.
+- **Frontend Logic**: JavaScript in `assets/js/` handles modals, tributes
 - **Secure Backend**: Node.js + Express server with webhook verification for Stripe/PayPal
 - **Data**: JSON files store memorials, tributes, and payment records
 
@@ -56,7 +56,6 @@ The site will be available at `http://localhost:3000`
 OvertheRainbow/
 ├── index.html                    # Home page
 ├── donate.html                   # Donation page
-├── shop.html                     # Shop/memorials
 ├── tribute-wall.html             # View tributes
 ├── customize-headstone.html      # Design headstone
 ├── signup.html                   # User signup
@@ -71,7 +70,6 @@ OvertheRainbow/
 │   ├── images/                   # Images
 │   └── js/
 │       ├── main.js               # Main site logic
-│       ├── shop.js               # Shop/checkout
 │       ├── tribute.js            # Tribute wall
 │       ├── customize-headstone.js
 │       └── builder.js            # Headstone builder
