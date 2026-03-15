@@ -27,12 +27,46 @@
       padding: 0 20px;
     }
 
-    iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .example {
+      max-width: 840px;
+      margin: 0 auto 40px auto;
+      padding: 20px 20px 30px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .example h2 {
+      margin-top: 0;
+      color: #6a4ca3;
+    }
+
+    .example-card {
+      border: 1px solid rgba(93,63,211,0.2);
+      border-radius: 14px;
+      padding: 18px;
+      background: rgba(255,255,255,0.95);
+    }
+
+    .example-prompt {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .example-response p {
+      margin: 0 0 12px;
+      line-height: 1.5;
+    }
+
+    .example-response ul {
+      padding-left: 18px;
+      margin: 0;
+      color: #555;
+    }
+
+    .example-response li {
+      margin-bottom: 8px;
     }
 
     footer {
@@ -49,6 +83,23 @@
     <h1>Healing Support Agent</h1>
     <p>A gentle space for comforting conversation and emotional support.</p>
   </header>
+
+  <section class="example">
+    <h2>What the Healing Agent Looks Like</h2>
+    <div class="example-card">
+      <div class="example-prompt">
+        <strong>Prompt:</strong> "What's on your mind today?"
+      </div>
+      <div class="example-response">
+        <p><strong>Healing Agent:</strong> In the gentle light of memory, Chino comes alive, a spirited little Chihuahua with a bark that dared even the clouds to listen...<br><em>(continuing as a comforting, empathetic response)</em></p>
+        <ul>
+          <li><strong>For Chino (April 4, 2021):</strong> On a breezy day, let the wind carry your thoughts to him. Perhaps enjoy a spoonful of peanut butter, feeling his playful spirit close by.</li>
+          <li><strong>For Bella (June 12, 2023):</strong> Spend a moment in the garden, watching butterflies dance. Let their gentle flight remind you of her joyful chase.</li>
+          <li><strong>For Milo (March 8, 2022):</strong> Wrap yourself in a soft blanket, feeling its warmth as if he were curled up with you, purring softly in the quiet.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <div style="text-align:center; margin:60px 0;">
   <a 
