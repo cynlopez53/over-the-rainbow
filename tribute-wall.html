@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Wall - Over the Rainbow</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute-wall.html">Tribute Wall</a></li>
+            <li><a href="shop.html">Virtual Shop</a></li>
+            <li><a href="healing-agent.html">Find Comfort</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <h1>🌈 Tribute Wall</h1>
+        <p>A gentle place to honor the life, love, and memory of your beloved companions.</p>
+
+        <!-- TRIBUTES CONTAINER -->
+        <div id="tributes-container" class="tributes-grid">
+            <!-- Tributes will be loaded here -->
+        </div>
+
+        <!-- SUBMIT TRIBUTE FORM -->
+        <div class="submit-tribute-section">
+            <h2>Share a Tribute</h2>
+            <form id="tribute-form">
+                <label for="pet-name">Pet's Name *</label>
+                <input type="text" id="pet-name" name="petName" required>
+
+                <label for="message">Your Tribute Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <label for="photo">Photo (optional)</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="candle" name="candle">
+                    <label for="candle">🕯 Light a Candle</label>
+                </div>
+
+                <button type="submit" class="btn">Submit Tribute</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="year"></span> Over the Rainbow. A place of peace and remembrance.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/tribute-wall-vanilla.js"></script>
+
+</body>
+</html>

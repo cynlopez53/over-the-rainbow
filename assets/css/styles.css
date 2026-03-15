@@ -274,8 +274,91 @@ form textarea {
     height: 60px;
     z-index: 100;
 }
-.healing-agent-bubble img {
-    width: 100%;
-    height: auto;
+/* TRIBUTE WALL */
+.tributes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tribute-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.tribute-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tribute-card h3 {
+    color: #6a4ca3;
+    margin-bottom: 10px;
+}
+
+.tribute-message {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.candle {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.tribute-actions {
+    margin-top: 15px;
+}
+
+.love-btn {
+    background: #ffb6d5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.love-btn:hover {
+    background: #ff9bb8;
+}
+
+.submit-tribute-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 40px;
+}
+
+.submit-tribute-section h2 {
+    text-align: center;
+    color: #6a4ca3;
+    margin-bottom: 20px;
+}
+
+.checkbox-group {
+    margin: 15px 0;
+}
+
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+.no-tributes {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 40px;
 }
 
