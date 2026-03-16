@@ -57,7 +57,7 @@ nav ul li a:hover {
 
 /* RAINBOW DIVIDER */
 .rainbow-border {
-    height: 6px;
+    height: 3px;
     width: 70%;
     margin: 25px auto;
     background: linear-gradient(
