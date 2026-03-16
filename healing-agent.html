@@ -75,6 +75,23 @@
       border-top: 1px solid #eee;
       color: #777;
     }
+
+    .disclaimer {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      padding: 15px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 8px;
+      border-left: 4px solid #6a4ca3;
+      text-align: left;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .disclaimer p {
+      margin: 0;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -121,7 +138,10 @@
 </div>
 
   <footer>
-    &copy; <span id="year"></span> Over the Rainbow. All rights reserved.
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> The Healing Agent provides AI-generated comfort and suggestions based on common grief experiences. It is not a substitute for professional therapy, counseling, or medical advice. If you're experiencing intense grief or mental health concerns, please seek support from qualified professionals such as therapists, counselors, or pet loss support groups.</p>
+    </div>
+    <p>&copy; <span id="year"></span> Over the Rainbow. All rights reserved.</p>
   </footer>
 
   <script>
