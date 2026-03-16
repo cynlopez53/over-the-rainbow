@@ -1,6 +1,7 @@
 /* GLOBAL */
 body {
     margin: 0;
+    padding-bottom: 160px; /* keep space for fixed footer */
     font-family: 'Cormorant Garamond', serif;
     background: #fdfbff;
     color: #5D3FD3;
@@ -74,12 +75,17 @@ nav ul li a:hover {
 
 /* FOOTER */
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-    background: #ffffff;
-    color: #777;
-    font-size: 0.9rem;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.9);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    color: #555;
+    font-size: 0.85rem;
+    z-index: 20;
 }
 
 .disclaimer {
@@ -184,22 +190,42 @@ form textarea {
 }
 
 /* HOMEPAGE BACKGROUND */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 .otr-body {
-    /* cover scales the image to fill the viewport, which will crop
-       different parts of the picture depending on the window size.  we're
-       focusing on the top so the animals on the bridge stay visible. */
     background-image: url("../images/rainbow-bridge.jpg");
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 /* make header/nav bar semi‑opaque so the image doesn't show through too much */
 .otr-header,
 .otr-nav {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.55);
     padding: 10px 0;
+    backdrop-filter: blur(10px);
+}
+
+/* HOMEPAGE HERO CARD */
+.otr-hero {
+    max-width: 980px;
+    margin: 40px auto 0;
+    padding: 60px 20px 100px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(12px);
+}
+
+.otr-hero h2,
+.otr-hero p {
+    color: #1a1a1a;
 }
 
 /* primary navigation buttons */
