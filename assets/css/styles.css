@@ -214,18 +214,28 @@ html, body {
 
 /* HOMEPAGE HERO CARD */
 .otr-hero {
-    max-width: 980px;
-    margin: 40px auto 0;
-    padding: 60px 20px 100px;
-    background: rgba(255,255,255,0.22);
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    backdrop-filter: blur(12px);
+    max-width: 500px;
+    margin: 80px auto 0;
+    padding: 0 20px;
+    text-align: center;
 }
 
-.otr-hero h2,
+.otr-hero h2 {
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+}
+
 .otr-hero p {
     color: #1a1a1a;
+    font-size: 1.1rem;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 25px rgba(255,255,255,0.6);
+    line-height: 1.6;
+}
+
+.otr-hero-text {
+    margin-bottom: 30px;
 }
 
 /* primary navigation buttons */
