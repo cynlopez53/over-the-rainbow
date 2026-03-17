@@ -1,7 +1,7 @@
 /* GLOBAL */
 body {
     margin: 0;
-    padding-bottom: 160px; /* keep space for fixed footer */
+    padding-bottom: 80px; /* keep space for fixed footer */
     font-family: 'Cormorant Garamond', serif;
     background: #fdfbff;
     color: #5D3FD3;
@@ -80,11 +80,11 @@ footer {
     left: 0;
     width: 100%;
     text-align: center;
-    padding: 18px 20px;
-    background: rgba(255,255,255,0.9);
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.95);
     border-top: 1px solid rgba(0,0,0,0.08);
     color: #555;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     z-index: 20;
 }
 
