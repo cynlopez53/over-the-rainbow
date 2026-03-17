@@ -115,6 +115,17 @@ main {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Override for homepage hero */
+main.otr-hero {
+    max-width: 500px !important;
+    margin: 80px auto 0 !important;
+    padding: 0 20px !important;
+    text-align: center;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
 /* Headings */
 main h1 {
     text-align: center;
