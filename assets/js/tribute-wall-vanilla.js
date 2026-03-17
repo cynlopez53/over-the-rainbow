@@ -21,9 +21,9 @@ function loadTributes() {
 
     container.innerHTML = tributes.map((tribute, index) => `
         <div class="tribute-card">
-            ${tribute.photo ? `<img src="${tribute.photo}" alt="${tribute.petName}" class="tribute-photo">` : ''}
-            <h3>${tribute.petName}</h3>
-            <p class="tribute-message">${tribute.message}</p>
+            ${tribute.photo ? `<img src="${escapeHtml(tribute.photo)}" alt="${escapeHtml(tribute.petName)}" class="tribute-photo">` : ''}
+            <h3>${escapeHtml(tribute.petName)}</h3>
+            <p class="tribute-message">${escapeHtml(tribute.message)}</p>
             ${tribute.candle ? '<div class="candle">🕯</div>' : ''}
             <div class="tribute-actions">
                 <button class="love-btn" onclick="sendLove(${index})">
@@ -32,6 +32,13 @@ function loadTributes() {
             </div>
         </div>
     `).join('');
+}
+
+// Sanitize HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
 function setupForm() {
@@ -43,15 +50,31 @@ function setupForm() {
 
         const formData = new FormData(form);
         const tribute = {
-            petName: formData.get('petName'),
-            message: formData.get('message'),
+            petName: escapeHtml(String(formData.get('petName') || '').trim()),
+            message: escapeHtml(String(formData.get('message') || '').trim()),
             candle: formData.get('candle') === 'on',
             loveCount: 0
         };
 
+        // Validate required fields
+        if (!tribute.petName || !tribute.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
         // Handle photo
         const photoFile = photoInput.files[0];
         if (photoFile) {
+            // Validate file type and size
+            if (!photoFile.type.startsWith('image/')) {
+                alert('Please select a valid image file.');
+                return;
+            }
+            if (photoFile.size > 5 * 1024 * 1024) { // 5MB limit
+                alert('Image file is too large. Please choose a smaller image.');
+                return;
+            }
+
             const reader = new FileReader();
             reader.onload = (e) => {
                 tribute.photo = e.target.result;
@@ -69,8 +92,27 @@ function setupForm() {
 }
 
 function getStoredTributes() {
-    const stored = localStorage.getItem('tributes');
-    return stored ? JSON.parse(stored) : [];
+    try {
+        const stored = localStorage.getItem('tributes');
+        if (!stored) return [];
+
+        const parsed = JSON.parse(stored);
+        // Validate that it's an array
+        if (!Array.isArray(parsed)) return [];
+
+        // Sanitize each tribute
+        return parsed.map(tribute => ({
+            petName: escapeHtml(String(tribute.petName || '')),
+            message: escapeHtml(String(tribute.message || '')),
+            photo: tribute.photo ? escapeHtml(String(tribute.photo)) : null,
+            candle: Boolean(tribute.candle),
+            loveCount: Math.max(0, parseInt(tribute.loveCount) || 0)
+        }));
+    } catch (e) {
+        console.warn('Invalid tribute data in localStorage, clearing...');
+        localStorage.removeItem('tributes');
+        return [];
+    }
 }
 
 function saveTribute(tribute) {
